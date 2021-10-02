@@ -16,7 +16,7 @@ namespace QLDSV
         public static void BindingDataToComBo(ComboBox combo, Object data)
         {
             combo.DataSource = data;
-            combo.DisplayMember = "TENCN";
+            combo.DisplayMember = "TENKHOA";
             combo.ValueMember = "TENSERVER";
 
             // lệnh này quan trọng... phải bỏ vào. ==> để cho combo box chạy đúng.

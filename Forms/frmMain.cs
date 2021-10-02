@@ -30,7 +30,6 @@ namespace QLDSV
                 this.barButtonItem_MonHoc.Enabled = false;
                 this.barButtonItem_SinhVien.Enabled = false;
                 this.barButtonItem_Diem.Enabled = false;
-                this.barButtonItem_ChuyenLop.Enabled = false;
                 this.barBtnHocPhi.Enabled = true;
                 this.barBtnDangKyLop.Enabled = false;
                 this.barBtnMoLop.Enabled = false;
@@ -48,7 +47,6 @@ namespace QLDSV
                 this.barButtonItem_MonHoc.Enabled = false;
                 this.barButtonItem_SinhVien.Enabled = false;
                 this.barButtonItem_Diem.Enabled = false;
-                this.barButtonItem_ChuyenLop.Enabled = false;
                 this.barBtnHocPhi.Enabled = false;
                 this.barBtnDangKyLop.Enabled = true;
                 this.barBtnMoLop.Enabled = false;

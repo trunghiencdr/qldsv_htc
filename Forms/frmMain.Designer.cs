@@ -49,8 +49,10 @@
             this.barButtonItem_MonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_SinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem_Diem = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem_ChuyenLop = new DevExpress.XtraBars.BarButtonItem();
             this.barBtnHocPhi = new DevExpress.XtraBars.BarButtonItem();
+            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.barBtnMoLop = new DevExpress.XtraBars.BarButtonItem();
+            this.barBtnDangKyLop = new DevExpress.XtraBars.BarButtonItem();
             this.barButton_MonHoc = new DevExpress.XtraBars.BarButtonItem();
             this.barButton_SinhVien = new DevExpress.XtraBars.BarButtonItem();
             this.barButton_Diem = new DevExpress.XtraBars.BarButtonItem();
@@ -66,9 +68,6 @@
             this.ribbonPage4 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup_CauHinh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TableManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.barBtnMoLop = new DevExpress.XtraBars.BarButtonItem();
-            this.barBtnDangKyLop = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
@@ -236,7 +235,6 @@
             this.ribbonPageGroup_QuanTri.ItemLinks.Add(this.barButtonItem_MonHoc);
             this.ribbonPageGroup_QuanTri.ItemLinks.Add(this.barButtonItem_SinhVien);
             this.ribbonPageGroup_QuanTri.ItemLinks.Add(this.barButtonItem_Diem);
-            this.ribbonPageGroup_QuanTri.ItemLinks.Add(this.barButtonItem_ChuyenLop);
             this.ribbonPageGroup_QuanTri.ItemLinks.Add(this.barBtnHocPhi);
             this.ribbonPageGroup_QuanTri.Name = "ribbonPageGroup_QuanTri";
             this.ribbonPageGroup_QuanTri.Text = "QUẢN LÝ DỮ LIỆU";
@@ -292,20 +290,6 @@
             this.barButtonItem_Diem.Name = "barButtonItem_Diem";
             this.barButtonItem_Diem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_Diem_ItemClick);
             // 
-            // barButtonItem_ChuyenLop
-            // 
-            this.barButtonItem_ChuyenLop.Caption = "CHUYỂN LỚP";
-            this.barButtonItem_ChuyenLop.Id = 24;
-            this.barButtonItem_ChuyenLop.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem_ChuyenLop.ImageOptions.Image")));
-            this.barButtonItem_ChuyenLop.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem_ChuyenLop.ImageOptions.LargeImage")));
-            this.barButtonItem_ChuyenLop.ItemAppearance.Disabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.barButtonItem_ChuyenLop.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barButtonItem_ChuyenLop.ItemAppearance.Normal.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.barButtonItem_ChuyenLop.ItemAppearance.Normal.Options.UseFont = true;
-            this.barButtonItem_ChuyenLop.LargeWidth = 75;
-            this.barButtonItem_ChuyenLop.Name = "barButtonItem_ChuyenLop";
-            this.barButtonItem_ChuyenLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem_ChuyenLop_ItemClick);
-            // 
             // barBtnHocPhi
             // 
             this.barBtnHocPhi.Caption = "HỌC PHÍ";
@@ -319,6 +303,39 @@
             this.barBtnHocPhi.LargeWidth = 75;
             this.barBtnHocPhi.Name = "barBtnHocPhi";
             this.barBtnHocPhi.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnHocPhi_ItemClick);
+            // 
+            // ribbonPageGroup1
+            // 
+            this.ribbonPageGroup1.ItemLinks.Add(this.barBtnMoLop);
+            this.ribbonPageGroup1.ItemLinks.Add(this.barBtnDangKyLop);
+            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
+            this.ribbonPageGroup1.Text = "LỚP TÍN CHỈ";
+            // 
+            // barBtnMoLop
+            // 
+            this.barBtnMoLop.Caption = "MỞ LỚP";
+            this.barBtnMoLop.Id = 26;
+            this.barBtnMoLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnMoLop.ImageOptions.SvgImage")));
+            this.barBtnMoLop.ItemAppearance.Disabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.barBtnMoLop.ItemAppearance.Disabled.Options.UseFont = true;
+            this.barBtnMoLop.ItemAppearance.Normal.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold);
+            this.barBtnMoLop.ItemAppearance.Normal.Options.UseFont = true;
+            this.barBtnMoLop.LargeWidth = 75;
+            this.barBtnMoLop.Name = "barBtnMoLop";
+            this.barBtnMoLop.SmallWithoutTextWidth = 100;
+            this.barBtnMoLop.SmallWithTextWidth = 100;
+            // 
+            // barBtnDangKyLop
+            // 
+            this.barBtnDangKyLop.Caption = "ĐĂNG KÝ LỚP";
+            this.barBtnDangKyLop.Id = 27;
+            this.barBtnDangKyLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnDangKyLop.ImageOptions.SvgImage")));
+            this.barBtnDangKyLop.ItemAppearance.Disabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
+            this.barBtnDangKyLop.ItemAppearance.Disabled.Options.UseFont = true;
+            this.barBtnDangKyLop.ItemAppearance.Normal.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold);
+            this.barBtnDangKyLop.ItemAppearance.Normal.Options.UseFont = true;
+            this.barBtnDangKyLop.LargeWidth = 75;
+            this.barBtnDangKyLop.Name = "barBtnDangKyLop";
             // 
             // barButton_MonHoc
             // 
@@ -402,7 +419,6 @@
             this.barButtonItem_MonHoc,
             this.barButtonItem_SinhVien,
             this.barButtonItem_Diem,
-            this.barButtonItem_ChuyenLop,
             this.barBtnHocPhi,
             this.barBtnMoLop,
             this.barBtnDangKyLop});
@@ -474,39 +490,6 @@
             // TableManager
             // 
             this.TableManager.MdiParent = this;
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.ItemLinks.Add(this.barBtnMoLop);
-            this.ribbonPageGroup1.ItemLinks.Add(this.barBtnDangKyLop);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.Text = "LỚP TÍN CHỈ";
-            // 
-            // barBtnMoLop
-            // 
-            this.barBtnMoLop.Caption = "MỞ LỚP";
-            this.barBtnMoLop.Id = 26;
-            this.barBtnMoLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem5.ImageOptions.SvgImage")));
-            this.barBtnMoLop.ItemAppearance.Disabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.barBtnMoLop.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barBtnMoLop.ItemAppearance.Normal.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold);
-            this.barBtnMoLop.ItemAppearance.Normal.Options.UseFont = true;
-            this.barBtnMoLop.LargeWidth = 75;
-            this.barBtnMoLop.Name = "barBtnMoLop";
-            this.barBtnMoLop.SmallWithoutTextWidth = 100;
-            this.barBtnMoLop.SmallWithTextWidth = 100;
-            // 
-            // barBtnDangKyLop
-            // 
-            this.barBtnDangKyLop.Caption = "ĐĂNG KÝ LỚP";
-            this.barBtnDangKyLop.Id = 27;
-            this.barBtnDangKyLop.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barButtonItem6.ImageOptions.SvgImage")));
-            this.barBtnDangKyLop.ItemAppearance.Disabled.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
-            this.barBtnDangKyLop.ItemAppearance.Disabled.Options.UseFont = true;
-            this.barBtnDangKyLop.ItemAppearance.Normal.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Bold);
-            this.barBtnDangKyLop.ItemAppearance.Normal.Options.UseFont = true;
-            this.barBtnDangKyLop.LargeWidth = 75;
-            this.barBtnDangKyLop.Name = "barBtnDangKyLop";
             // 
             // barButtonItem7
             // 
@@ -586,7 +569,6 @@
         private DevExpress.XtraBars.BarButtonItem barButtonItem_MonHoc;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_SinhVien;
         private DevExpress.XtraBars.BarButtonItem barButtonItem_Diem;
-        private DevExpress.XtraBars.BarButtonItem barButtonItem_ChuyenLop;
         private DevExpress.XtraBars.BarButtonItem barBtnHocPhi;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem barBtnMoLop;
