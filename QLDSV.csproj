@@ -81,11 +81,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DS.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmDangKyLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDangKyLTC.Designer.cs">
+      <DependentUpon>frmDangKyLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\frmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\frmDangNhap.Designer.cs">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmDiem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmDiem.Designer.cs">
+      <DependentUpon>frmDiem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLop1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLop1.designer.cs">
+      <DependentUpon>frmLop1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frmLopTinChi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmLopTinChi.designer.cs">
+      <DependentUpon>frmLopTinChi.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\frmMain.cs">
       <SubType>Form</SubType>
@@ -99,11 +123,89 @@
     <Compile Include="Forms\frmLop.Designer.cs">
       <DependentUpon>frmLop.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\frmMonHoc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frmMonHoc.designer.cs">
+      <DependentUpon>frmMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rptBDMH.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\rptBDMH.designer.cs">
+      <DependentUpon>rptBDMH.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\rptDSLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\rptDSLTC.designer.cs">
+      <DependentUpon>rptDSLTC.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\fmpt_BC_DKLTC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\fmpt_BC_DKLTC.Designer.cs">
+      <DependentUpon>fmpt_BC_DKLTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\fmpt_DIEMTONGKET.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\fmpt_DIEMTONGKET.Designer.cs">
+      <DependentUpon>fmpt_DIEMTONGKET.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\xrp_DIEMTONGKET.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\xrp_DIEMTONGKET.Designer.cs">
+      <DependentUpon>xrp_DIEMTONGKET.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\xrp_DKLTC.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\xrp_DKLTC.Designer.cs">
+      <DependentUpon>xrp_DKLTC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\xrp_SVDKLTC2.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\xrp_SVDKLTC2.Designer.cs">
+      <DependentUpon>xrp_SVDKLTC2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\XtraReport_BangDiemMonHoc1.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\XtraReport_BangDiemMonHoc1.Designer.cs">
+      <DependentUpon>XtraReport_BangDiemMonHoc1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils.cs" />
+    <Compile Include="Report\XtraReport_BangDiemMonHoc.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\XtraReport_BangDiemMonHoc.designer.cs">
+      <DependentUpon>XtraReport_BangDiemMonHoc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\XtraReport_DanhSachLopTinChi.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Report\XtraReport_DanhSachLopTinChi.designer.cs">
+      <DependentUpon>XtraReport_DanhSachLopTinChi.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\frmDangKyLTC.resx">
+      <DependentUpon>frmDangKyLTC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmDangNhap.resx">
       <DependentUpon>frmDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmDiem.resx">
+      <DependentUpon>frmDiem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLop1.resx">
+      <DependentUpon>frmLop1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmLopTinChi.resx">
+      <DependentUpon>frmLopTinChi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -111,6 +213,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\frmLop.resx">
       <DependentUpon>frmLop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frmMonHoc.resx">
+      <DependentUpon>frmMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptBDMH.resx">
+      <DependentUpon>rptBDMH.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\rptDSLTC.resx">
+      <DependentUpon>rptDSLTC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -123,6 +234,30 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Report\fmpt_BC_DKLTC.resx">
+      <DependentUpon>fmpt_BC_DKLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\fmpt_DIEMTONGKET.resx">
+      <DependentUpon>fmpt_DIEMTONGKET.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\xrp_DIEMTONGKET.resx">
+      <DependentUpon>xrp_DIEMTONGKET.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\xrp_DKLTC.resx">
+      <DependentUpon>xrp_DKLTC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\xrp_SVDKLTC2.resx">
+      <DependentUpon>xrp_SVDKLTC2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\XtraReport_BangDiemMonHoc.resx">
+      <DependentUpon>XtraReport_BangDiemMonHoc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\XtraReport_BangDiemMonHoc1.resx">
+      <DependentUpon>XtraReport_BangDiemMonHoc1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report\XtraReport_DanhSachLopTinChi.resx">
+      <DependentUpon>XtraReport_DanhSachLopTinChi.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config">
       <SubType>Designer</SubType>
     </None>
@@ -195,9 +330,7 @@
   <ItemGroup>
     <None Include="Resources\power-button.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Report\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

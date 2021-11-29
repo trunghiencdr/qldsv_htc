@@ -69,6 +69,7 @@
             this.ribbonPageGroup_CauHinh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TableManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TableManager)).BeginInit();
@@ -136,6 +137,7 @@
             this.ribbonPageGroup2.ItemLinks.Add(this.barButton_PD);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButton_DSDHP);
             this.ribbonPageGroup2.ItemLinks.Add(this.barButton_BDTK);
+            this.ribbonPageGroup2.ItemLinks.Add(this.barButtonItem5);
             this.ribbonPageGroup2.Name = "ribbonPageGroup2";
             this.ribbonPageGroup2.Text = "DANH MỤC BÁO CÁO";
             // 
@@ -324,6 +326,7 @@
             this.barBtnMoLop.Name = "barBtnMoLop";
             this.barBtnMoLop.SmallWithoutTextWidth = 100;
             this.barBtnMoLop.SmallWithTextWidth = 100;
+            this.barBtnMoLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnMoLop_ItemClick);
             // 
             // barBtnDangKyLop
             // 
@@ -336,6 +339,7 @@
             this.barBtnDangKyLop.ItemAppearance.Normal.Options.UseFont = true;
             this.barBtnDangKyLop.LargeWidth = 75;
             this.barBtnDangKyLop.Name = "barBtnDangKyLop";
+            this.barBtnDangKyLop.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnDangKyLop_ItemClick);
             // 
             // barButton_MonHoc
             // 
@@ -421,10 +425,11 @@
             this.barButtonItem_Diem,
             this.barBtnHocPhi,
             this.barBtnMoLop,
-            this.barBtnDangKyLop});
+            this.barBtnDangKyLop,
+            this.barButtonItem5});
             this.ribbonControl1.Location = new System.Drawing.Point(0, 0);
             this.ribbonControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.ribbonControl1.MaxItemId = 28;
+            this.ribbonControl1.MaxItemId = 29;
             this.ribbonControl1.Name = "ribbonControl1";
             this.ribbonControl1.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
             this.ribbonPage1,
@@ -504,6 +509,15 @@
             this.barButtonItem7.LargeWidth = 75;
             this.barButtonItem7.Name = "barButtonItem7";
             // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "DANH SÁCH LỚP TÍN CHỈ";
+            this.barButtonItem5.Id = 28;
+            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
+            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
+            // 
             // frmMain
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -574,6 +588,7 @@
         private DevExpress.XtraBars.BarButtonItem barBtnMoLop;
         private DevExpress.XtraBars.BarButtonItem barBtnDangKyLop;
         private DevExpress.XtraBars.BarButtonItem barButtonItem7;
+        private DevExpress.XtraBars.BarButtonItem barButtonItem5;
     }
 }
 

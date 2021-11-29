@@ -79,7 +79,7 @@ namespace QLDSV
                 Program.Conn.Close();
             try
             {
-                Program.URL_Connect = "Data Source=" + Program.ServerName + ";Initial Catalog=" +
+                Program.URL_Connect = "Data Source=" + Program.ServerName + ";MultipleActiveResultSets=true;Initial Catalog=" +
                       Program.Database + ";User ID=" +
                       Program.MLogin + ";Password=" + Program.MPassword;
                 Program.Conn.ConnectionString = Program.URL_Connect;
@@ -110,6 +110,7 @@ namespace QLDSV
             //xác định kiểu lệnh cho sqlcmd là kiểu text.
             sqlcmd.CommandType = CommandType.Text;
             sqlcmd.CommandTimeout = 600;
+          //  Program.Conn.Close();
             if (Program.Conn.State == ConnectionState.Closed) Program.Conn.Open();
             try
             {
@@ -118,7 +119,7 @@ namespace QLDSV
             }
             catch (SqlException ex)
             {
-                Program.Conn.Close();
+                Conn.Close();
                 XtraMessageBox.Show(ex.Message);
                 return null;
             }

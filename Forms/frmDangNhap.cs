@@ -23,10 +23,10 @@ namespace QLDSV
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             
-            string chuoiketnoi = "Data Source=DESKTOP-EA82EVS;Initial Catalog=" + Program.Database + ";Integrated Security=True";
+            string chuoiketnoi = "Data Source=NHAN;Initial Catalog=" + Program.Database + ";Integrated Security=True";
             cbGiangVien.Checked = true;
             Program.Conn.ConnectionString = chuoiketnoi;
-
+            txtLogin.Text = "ptl";
             DataTable dt = new DataTable();
             //gọi 1 view và trả về dưới dạng datatable
             dt = Program.ExecSqlDataTable("SELECT * FROM GET_SUBSCRIBES");
@@ -36,7 +36,7 @@ namespace QLDSV
             Program.Bds_Dspm.DataSource = dt;
 
             // fix lỗi nho nhỏ :v
-            Program.Bds_Dspm.Sort = "TENCN ASC";
+            Program.Bds_Dspm.Sort = "TENKHOA ASC";
             // đoạn code liên kết giữa bds với combobox
             Utils.BindingDataToComBo(cmbKhoa, dt);
         }
@@ -44,8 +44,6 @@ namespace QLDSV
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-          
-
             try
             {
                 // gán server đã chọn vào biến toàn cục.

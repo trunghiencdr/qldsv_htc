@@ -4,6 +4,14 @@
 
     partial class DS
     {
+        partial class cmbLOPDataTable
+        {
+        }
+
+        partial class CMBNIENKHOADataTable
+        {
+        }
+
         partial class GETDSGVDataTable
         {
         }
@@ -14,9 +22,12 @@
     }
 }
 
-namespace QLDSV.DSTableAdapters {
-    
-    
+namespace QLDSV.DSTableAdapters
+{
+    partial class CMBNIENKHOATableAdapter
+    {
+    }
+
     public partial class THONGTINHOCPHICUASINHVIENTableAdapter {
     }
 }

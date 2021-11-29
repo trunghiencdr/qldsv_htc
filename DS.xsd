@@ -602,6 +602,64 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cmbMonHocTableAdapter" GeneratorDataComponentClassName="cmbMonHocTableAdapter" Name="cmbMonHoc" UserDataComponentName="cmbMonHocTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLDSVConnectionString (Settings)" DbObjectName="QLDSV.dbo.MONHOC" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MAMH, TENMH
+FROM MONHOC
+ORDER BY TENMH</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAMH" DataSetColumn="MAMH" />
+              <Mapping SourceColumn="TENMH" DataSetColumn="TENMH" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cmbGiangVienTableAdapter" GeneratorDataComponentClassName="cmbGiangVienTableAdapter" Name="cmbGiangVien" UserDataComponentName="cmbGiangVienTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLDSVConnectionString (Settings)" DbObjectName="QLDSV.dbo.GIANGVIEN" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MAGV, HO + ' ' + TEN AS TENGV
+FROM GIANGVIEN
+ORDER BY TENGV</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MAGV" DataSetColumn="MAGV" />
+              <Mapping SourceColumn="TENGV" DataSetColumn="TENGV" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="cmbLOPTableAdapter" GeneratorDataComponentClassName="cmbLOPTableAdapter" Name="cmbLOP" UserDataComponentName="cmbLOPTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="QLDSVConnectionString (Settings)" DbObjectName="QLDSV.dbo.LOP" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT MALOP, TENLOP, KHOAHOC
+FROM LOP
+ORDER BY TENLOP</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="MALOP" DataSetColumn="MALOP" />
+              <Mapping SourceColumn="TENLOP" DataSetColumn="TENLOP" />
+              <Mapping SourceColumn="KHOAHOC" DataSetColumn="KHOAHOC" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -610,7 +668,7 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
   <xs:element name="DS" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="DS" msprop:Generator_UserDSName="DS">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="SINHVIEN" msprop:Generator_TableClassName="SINHVIENDataTable" msprop:Generator_TableVarName="tableSINHVIEN" msprop:Generator_TablePropName="SINHVIEN" msprop:Generator_RowDeletingName="SINHVIENRowDeleting" msprop:Generator_RowChangingName="SINHVIENRowChanging" msprop:Generator_RowEvHandlerName="SINHVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="SINHVIENRowDeleted" msprop:Generator_UserTableName="SINHVIEN" msprop:Generator_RowChangedName="SINHVIENRowChanged" msprop:Generator_RowEvArgName="SINHVIENRowChangeEvent" msprop:Generator_RowClassName="SINHVIENRow">
+        <xs:element name="SINHVIEN" msprop:Generator_TableClassName="SINHVIENDataTable" msprop:Generator_TableVarName="tableSINHVIEN" msprop:Generator_RowChangedName="SINHVIENRowChanged" msprop:Generator_TablePropName="SINHVIEN" msprop:Generator_RowDeletingName="SINHVIENRowDeleting" msprop:Generator_RowChangingName="SINHVIENRowChanging" msprop:Generator_RowEvHandlerName="SINHVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="SINHVIENRowDeleted" msprop:Generator_RowClassName="SINHVIENRow" msprop:Generator_UserTableName="SINHVIEN" msprop:Generator_RowEvArgName="SINHVIENRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MASV" msprop:Generator_ColumnVarNameInTable="columnMASV" msprop:Generator_ColumnPropNameInRow="MASV" msprop:Generator_ColumnPropNameInTable="MASVColumn" msprop:Generator_UserColumnName="MASV">
@@ -662,7 +720,7 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="GIANGVIEN" msprop:Generator_TableClassName="GIANGVIENDataTable" msprop:Generator_TableVarName="tableGIANGVIEN" msprop:Generator_TablePropName="GIANGVIEN" msprop:Generator_RowDeletingName="GIANGVIENRowDeleting" msprop:Generator_RowChangingName="GIANGVIENRowChanging" msprop:Generator_RowEvHandlerName="GIANGVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="GIANGVIENRowDeleted" msprop:Generator_UserTableName="GIANGVIEN" msprop:Generator_RowChangedName="GIANGVIENRowChanged" msprop:Generator_RowEvArgName="GIANGVIENRowChangeEvent" msprop:Generator_RowClassName="GIANGVIENRow">
+        <xs:element name="GIANGVIEN" msprop:Generator_TableClassName="GIANGVIENDataTable" msprop:Generator_TableVarName="tableGIANGVIEN" msprop:Generator_RowChangedName="GIANGVIENRowChanged" msprop:Generator_TablePropName="GIANGVIEN" msprop:Generator_RowDeletingName="GIANGVIENRowDeleting" msprop:Generator_RowChangingName="GIANGVIENRowChanging" msprop:Generator_RowEvHandlerName="GIANGVIENRowChangeEventHandler" msprop:Generator_RowDeletedName="GIANGVIENRowDeleted" msprop:Generator_RowClassName="GIANGVIENRow" msprop:Generator_UserTableName="GIANGVIEN" msprop:Generator_RowEvArgName="GIANGVIENRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
@@ -718,7 +776,7 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LOP" msprop:Generator_TableClassName="LOPDataTable" msprop:Generator_TableVarName="tableLOP" msprop:Generator_TablePropName="LOP" msprop:Generator_RowDeletingName="LOPRowDeleting" msprop:Generator_RowChangingName="LOPRowChanging" msprop:Generator_RowEvHandlerName="LOPRowChangeEventHandler" msprop:Generator_RowDeletedName="LOPRowDeleted" msprop:Generator_UserTableName="LOP" msprop:Generator_RowChangedName="LOPRowChanged" msprop:Generator_RowEvArgName="LOPRowChangeEvent" msprop:Generator_RowClassName="LOPRow">
+        <xs:element name="LOP" msprop:Generator_TableClassName="LOPDataTable" msprop:Generator_TableVarName="tableLOP" msprop:Generator_RowChangedName="LOPRowChanged" msprop:Generator_TablePropName="LOP" msprop:Generator_RowDeletingName="LOPRowDeleting" msprop:Generator_RowChangingName="LOPRowChanging" msprop:Generator_RowEvHandlerName="LOPRowChangeEventHandler" msprop:Generator_RowDeletedName="LOPRowDeleted" msprop:Generator_RowClassName="LOPRow" msprop:Generator_UserTableName="LOP" msprop:Generator_RowEvArgName="LOPRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MALOP" msprop:Generator_ColumnVarNameInTable="columnMALOP" msprop:Generator_ColumnPropNameInRow="MALOP" msprop:Generator_ColumnPropNameInTable="MALOPColumn" msprop:Generator_UserColumnName="MALOP">
@@ -753,7 +811,7 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HOCPHI" msprop:Generator_TableClassName="HOCPHIDataTable" msprop:Generator_TableVarName="tableHOCPHI" msprop:Generator_TablePropName="HOCPHI" msprop:Generator_RowDeletingName="HOCPHIRowDeleting" msprop:Generator_RowChangingName="HOCPHIRowChanging" msprop:Generator_RowEvHandlerName="HOCPHIRowChangeEventHandler" msprop:Generator_RowDeletedName="HOCPHIRowDeleted" msprop:Generator_UserTableName="HOCPHI" msprop:Generator_RowChangedName="HOCPHIRowChanged" msprop:Generator_RowEvArgName="HOCPHIRowChangeEvent" msprop:Generator_RowClassName="HOCPHIRow">
+        <xs:element name="HOCPHI" msprop:Generator_TableClassName="HOCPHIDataTable" msprop:Generator_TableVarName="tableHOCPHI" msprop:Generator_RowChangedName="HOCPHIRowChanged" msprop:Generator_TablePropName="HOCPHI" msprop:Generator_RowDeletingName="HOCPHIRowDeleting" msprop:Generator_RowChangingName="HOCPHIRowChanging" msprop:Generator_RowEvHandlerName="HOCPHIRowChangeEventHandler" msprop:Generator_RowDeletedName="HOCPHIRowDeleted" msprop:Generator_RowClassName="HOCPHIRow" msprop:Generator_UserTableName="HOCPHI" msprop:Generator_RowEvArgName="HOCPHIRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MASV" msprop:Generator_ColumnVarNameInTable="columnMASV" msprop:Generator_ColumnPropNameInRow="MASV" msprop:Generator_ColumnPropNameInTable="MASVColumn" msprop:Generator_UserColumnName="MASV">
@@ -776,7 +834,7 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DANGKY" msprop:Generator_TableClassName="DANGKYDataTable" msprop:Generator_TableVarName="tableDANGKY" msprop:Generator_TablePropName="DANGKY" msprop:Generator_RowDeletingName="DANGKYRowDeleting" msprop:Generator_RowChangingName="DANGKYRowChanging" msprop:Generator_RowEvHandlerName="DANGKYRowChangeEventHandler" msprop:Generator_RowDeletedName="DANGKYRowDeleted" msprop:Generator_UserTableName="DANGKY" msprop:Generator_RowChangedName="DANGKYRowChanged" msprop:Generator_RowEvArgName="DANGKYRowChangeEvent" msprop:Generator_RowClassName="DANGKYRow">
+        <xs:element name="DANGKY" msprop:Generator_TableClassName="DANGKYDataTable" msprop:Generator_TableVarName="tableDANGKY" msprop:Generator_RowChangedName="DANGKYRowChanged" msprop:Generator_TablePropName="DANGKY" msprop:Generator_RowDeletingName="DANGKYRowDeleting" msprop:Generator_RowChangingName="DANGKYRowChanging" msprop:Generator_RowEvHandlerName="DANGKYRowChangeEventHandler" msprop:Generator_RowDeletedName="DANGKYRowDeleted" msprop:Generator_RowClassName="DANGKYRow" msprop:Generator_UserTableName="DANGKY" msprop:Generator_RowEvArgName="DANGKYRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MALTC" msprop:Generator_ColumnVarNameInTable="columnMALTC" msprop:Generator_ColumnPropNameInRow="MALTC" msprop:Generator_ColumnPropNameInTable="MALTCColumn" msprop:Generator_UserColumnName="MALTC" type="xs:int" />
@@ -795,7 +853,7 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="LOPTINCHI" msprop:Generator_TableClassName="LOPTINCHIDataTable" msprop:Generator_TableVarName="tableLOPTINCHI" msprop:Generator_TablePropName="LOPTINCHI" msprop:Generator_RowDeletingName="LOPTINCHIRowDeleting" msprop:Generator_RowChangingName="LOPTINCHIRowChanging" msprop:Generator_RowEvHandlerName="LOPTINCHIRowChangeEventHandler" msprop:Generator_RowDeletedName="LOPTINCHIRowDeleted" msprop:Generator_UserTableName="LOPTINCHI" msprop:Generator_RowChangedName="LOPTINCHIRowChanged" msprop:Generator_RowEvArgName="LOPTINCHIRowChangeEvent" msprop:Generator_RowClassName="LOPTINCHIRow">
+        <xs:element name="LOPTINCHI" msprop:Generator_TableClassName="LOPTINCHIDataTable" msprop:Generator_TableVarName="tableLOPTINCHI" msprop:Generator_RowChangedName="LOPTINCHIRowChanged" msprop:Generator_TablePropName="LOPTINCHI" msprop:Generator_RowDeletingName="LOPTINCHIRowDeleting" msprop:Generator_RowChangingName="LOPTINCHIRowChanging" msprop:Generator_RowEvHandlerName="LOPTINCHIRowChangeEventHandler" msprop:Generator_RowDeletedName="LOPTINCHIRowDeleted" msprop:Generator_RowClassName="LOPTINCHIRow" msprop:Generator_UserTableName="LOPTINCHI" msprop:Generator_RowEvArgName="LOPTINCHIRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MALTC" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnMALTC" msprop:Generator_ColumnPropNameInRow="MALTC" msprop:Generator_ColumnPropNameInTable="MALTCColumn" msprop:Generator_UserColumnName="MALTC" type="xs:int" />
@@ -835,7 +893,95 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="MONHOC" msprop:Generator_TableClassName="MONHOCDataTable" msprop:Generator_TableVarName="tableMONHOC" msprop:Generator_TablePropName="MONHOC" msprop:Generator_RowDeletingName="MONHOCRowDeleting" msprop:Generator_RowChangingName="MONHOCRowChanging" msprop:Generator_RowEvHandlerName="MONHOCRowChangeEventHandler" msprop:Generator_RowDeletedName="MONHOCRowDeleted" msprop:Generator_UserTableName="MONHOC" msprop:Generator_RowChangedName="MONHOCRowChanged" msprop:Generator_RowEvArgName="MONHOCRowChangeEvent" msprop:Generator_RowClassName="MONHOCRow">
+        <xs:element name="KHOA" msprop:Generator_TableClassName="KHOADataTable" msprop:Generator_TableVarName="tableKHOA" msprop:Generator_RowChangedName="KHOARowChanged" msprop:Generator_TablePropName="KHOA" msprop:Generator_RowDeletingName="KHOARowDeleting" msprop:Generator_RowChangingName="KHOARowChanging" msprop:Generator_RowEvHandlerName="KHOARowChangeEventHandler" msprop:Generator_RowDeletedName="KHOARowDeleted" msprop:Generator_RowClassName="KHOARow" msprop:Generator_UserTableName="KHOA" msprop:Generator_RowEvArgName="KHOARowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAKHOA" msprop:Generator_ColumnVarNameInTable="columnMAKHOA" msprop:Generator_ColumnPropNameInRow="MAKHOA" msprop:Generator_ColumnPropNameInTable="MAKHOAColumn" msprop:Generator_UserColumnName="MAKHOA">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENKHOA" msprop:Generator_ColumnVarNameInTable="columnTENKHOA" msprop:Generator_ColumnPropNameInRow="TENKHOA" msprop:Generator_ColumnPropNameInTable="TENKHOAColumn" msprop:Generator_UserColumnName="TENKHOA">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="rowguid" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnrowguid" msprop:Generator_ColumnPropNameInRow="rowguid" msprop:Generator_ColumnPropNameInTable="rowguidColumn" msprop:Generator_UserColumnName="rowguid" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cmbMonHoc" msprop:Generator_TableClassName="cmbMonHocDataTable" msprop:Generator_TableVarName="tablecmbMonHoc" msprop:Generator_TablePropName="cmbMonHoc" msprop:Generator_RowDeletingName="cmbMonHocRowDeleting" msprop:Generator_RowChangingName="cmbMonHocRowChanging" msprop:Generator_RowEvHandlerName="cmbMonHocRowChangeEventHandler" msprop:Generator_RowDeletedName="cmbMonHocRowDeleted" msprop:Generator_UserTableName="cmbMonHoc" msprop:Generator_RowChangedName="cmbMonHocRowChanged" msprop:Generator_RowEvArgName="cmbMonHocRowChangeEvent" msprop:Generator_RowClassName="cmbMonHocRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAMH" msprop:Generator_ColumnVarNameInTable="columnMAMH" msprop:Generator_ColumnPropNameInRow="MAMH" msprop:Generator_ColumnPropNameInTable="MAMHColumn" msprop:Generator_UserColumnName="MAMH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENMH" msprop:Generator_ColumnVarNameInTable="columnTENMH" msprop:Generator_ColumnPropNameInRow="TENMH" msprop:Generator_ColumnPropNameInTable="TENMHColumn" msprop:Generator_UserColumnName="TENMH">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cmbGiangVien" msprop:Generator_TableClassName="cmbGiangVienDataTable" msprop:Generator_TableVarName="tablecmbGiangVien" msprop:Generator_TablePropName="cmbGiangVien" msprop:Generator_RowDeletingName="cmbGiangVienRowDeleting" msprop:Generator_RowChangingName="cmbGiangVienRowChanging" msprop:Generator_RowEvHandlerName="cmbGiangVienRowChangeEventHandler" msprop:Generator_RowDeletedName="cmbGiangVienRowDeleted" msprop:Generator_UserTableName="cmbGiangVien" msprop:Generator_RowChangedName="cmbGiangVienRowChanged" msprop:Generator_RowEvArgName="cmbGiangVienRowChangeEvent" msprop:Generator_RowClassName="cmbGiangVienRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MAGV" msprop:Generator_ColumnVarNameInTable="columnMAGV" msprop:Generator_ColumnPropNameInRow="MAGV" msprop:Generator_ColumnPropNameInTable="MAGVColumn" msprop:Generator_UserColumnName="MAGV">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENGV" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTENGV" msprop:Generator_ColumnPropNameInRow="TENGV" msprop:Generator_ColumnPropNameInTable="TENGVColumn" msprop:Generator_UserColumnName="TENGV" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="61" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="cmbLOP" msprop:Generator_TableClassName="cmbLOPDataTable" msprop:Generator_TableVarName="tablecmbLOP" msprop:Generator_TablePropName="cmbLOP" msprop:Generator_RowDeletingName="cmbLOPRowDeleting" msprop:Generator_RowChangingName="cmbLOPRowChanging" msprop:Generator_RowEvHandlerName="cmbLOPRowChangeEventHandler" msprop:Generator_RowDeletedName="cmbLOPRowDeleted" msprop:Generator_UserTableName="cmbLOP" msprop:Generator_RowChangedName="cmbLOPRowChanged" msprop:Generator_RowEvArgName="cmbLOPRowChangeEvent" msprop:Generator_RowClassName="cmbLOPRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MALOP" msprop:Generator_ColumnVarNameInTable="columnMALOP" msprop:Generator_ColumnPropNameInRow="MALOP" msprop:Generator_ColumnPropNameInTable="MALOPColumn" msprop:Generator_UserColumnName="MALOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TENLOP" msprop:Generator_ColumnVarNameInTable="columnTENLOP" msprop:Generator_ColumnPropNameInRow="TENLOP" msprop:Generator_ColumnPropNameInTable="TENLOPColumn" msprop:Generator_UserColumnName="TENLOP">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="KHOAHOC" msprop:Generator_ColumnVarNameInTable="columnKHOAHOC" msprop:Generator_ColumnPropNameInRow="KHOAHOC" msprop:Generator_ColumnPropNameInTable="KHOAHOCColumn" msprop:Generator_UserColumnName="KHOAHOC">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="MONHOC" msprop:Generator_TableClassName="MONHOCDataTable" msprop:Generator_TableVarName="tableMONHOC" msprop:Generator_RowChangedName="MONHOCRowChanged" msprop:Generator_TablePropName="MONHOC" msprop:Generator_RowDeletingName="MONHOCRowDeleting" msprop:Generator_RowChangingName="MONHOCRowChanging" msprop:Generator_RowEvHandlerName="MONHOCRowChangeEventHandler" msprop:Generator_RowDeletedName="MONHOCRowDeleted" msprop:Generator_RowClassName="MONHOCRow" msprop:Generator_UserTableName="MONHOC" msprop:Generator_RowEvArgName="MONHOCRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="MAMH" msprop:Generator_ColumnVarNameInTable="columnMAMH" msprop:Generator_ColumnPropNameInRow="MAMH" msprop:Generator_ColumnPropNameInTable="MAMHColumn" msprop:Generator_UserColumnName="MAMH">
@@ -854,27 +1000,6 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
               </xs:element>
               <xs:element name="SOTIET_LT" msprop:Generator_ColumnVarNameInTable="columnSOTIET_LT" msprop:Generator_ColumnPropNameInRow="SOTIET_LT" msprop:Generator_ColumnPropNameInTable="SOTIET_LTColumn" msprop:Generator_UserColumnName="SOTIET_LT" type="xs:int" />
               <xs:element name="SOTIET_TH" msprop:Generator_ColumnVarNameInTable="columnSOTIET_TH" msprop:Generator_ColumnPropNameInRow="SOTIET_TH" msprop:Generator_ColumnPropNameInTable="SOTIET_THColumn" msprop:Generator_UserColumnName="SOTIET_TH" type="xs:int" />
-              <xs:element name="rowguid" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnrowguid" msprop:Generator_ColumnPropNameInRow="rowguid" msprop:Generator_ColumnPropNameInTable="rowguidColumn" msprop:Generator_UserColumnName="rowguid" type="xs:string" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="KHOA" msprop:Generator_TableClassName="KHOADataTable" msprop:Generator_TableVarName="tableKHOA" msprop:Generator_TablePropName="KHOA" msprop:Generator_RowDeletingName="KHOARowDeleting" msprop:Generator_RowChangingName="KHOARowChanging" msprop:Generator_RowEvHandlerName="KHOARowChangeEventHandler" msprop:Generator_RowDeletedName="KHOARowDeleted" msprop:Generator_UserTableName="KHOA" msprop:Generator_RowChangedName="KHOARowChanged" msprop:Generator_RowEvArgName="KHOARowChangeEvent" msprop:Generator_RowClassName="KHOARow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="MAKHOA" msprop:Generator_ColumnVarNameInTable="columnMAKHOA" msprop:Generator_ColumnPropNameInRow="MAKHOA" msprop:Generator_ColumnPropNameInTable="MAKHOAColumn" msprop:Generator_UserColumnName="MAKHOA">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="10" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="TENKHOA" msprop:Generator_ColumnVarNameInTable="columnTENKHOA" msprop:Generator_ColumnPropNameInRow="TENKHOA" msprop:Generator_ColumnPropNameInTable="TENKHOAColumn" msprop:Generator_UserColumnName="TENKHOA">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
               <xs:element name="rowguid" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnrowguid" msprop:Generator_ColumnPropNameInRow="rowguid" msprop:Generator_ColumnPropNameInTable="rowguidColumn" msprop:Generator_UserColumnName="rowguid" type="xs:string" />
             </xs:sequence>
           </xs:complexType>
@@ -908,26 +1033,38 @@ SELECT MAKHOA, TENKHOA, rowguid FROM KHOA WHERE (MAKHOA = @MAKHOA)</CommandText>
       <xs:selector xpath=".//mstns:LOPTINCHI" />
       <xs:field xpath="mstns:MALTC" />
     </xs:unique>
-    <xs:unique name="MONHOC_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:MONHOC" />
-      <xs:field xpath="mstns:MAMH" />
-    </xs:unique>
     <xs:unique name="KHOA_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:KHOA" />
       <xs:field xpath="mstns:MAKHOA" />
     </xs:unique>
+    <xs:unique name="cmbMonHoc_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:cmbMonHoc" />
+      <xs:field xpath="mstns:MAMH" />
+    </xs:unique>
+    <xs:unique name="cmbGiangVien_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:cmbGiangVien" />
+      <xs:field xpath="mstns:MAGV" />
+    </xs:unique>
+    <xs:unique name="cmbLOP_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:cmbLOP" />
+      <xs:field xpath="mstns:MALOP" />
+    </xs:unique>
+    <xs:unique name="MONHOC_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:MONHOC" />
+      <xs:field xpath="mstns:MAMH" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_SINHVIEN_LOP" msdata:parent="LOP" msdata:child="SINHVIEN" msdata:parentkey="MALOP" msdata:childkey="MALOP" msprop:Generator_UserChildTable="SINHVIEN" msprop:Generator_ChildPropName="GetSINHVIENRows" msprop:Generator_UserRelationName="FK_SINHVIEN_LOP" msprop:Generator_RelationVarName="relationFK_SINHVIEN_LOP" msprop:Generator_UserParentTable="LOP" msprop:Generator_ParentPropName="LOPRow" />
-      <msdata:Relationship name="FK_HOCPHI_SINHVIEN" msdata:parent="SINHVIEN" msdata:child="HOCPHI" msdata:parentkey="MASV" msdata:childkey="MASV" msprop:Generator_UserChildTable="HOCPHI" msprop:Generator_ChildPropName="GetHOCPHIRows" msprop:Generator_UserRelationName="FK_HOCPHI_SINHVIEN" msprop:Generator_ParentPropName="SINHVIENRow" msprop:Generator_RelationVarName="relationFK_HOCPHI_SINHVIEN" msprop:Generator_UserParentTable="SINHVIEN" />
-      <msdata:Relationship name="FK_CTLTC_SINHVIEN" msdata:parent="SINHVIEN" msdata:child="DANGKY" msdata:parentkey="MASV" msdata:childkey="MASV" msprop:Generator_UserChildTable="DANGKY" msprop:Generator_ChildPropName="GetDANGKYRows" msprop:Generator_UserRelationName="FK_CTLTC_SINHVIEN" msprop:Generator_ParentPropName="SINHVIENRow" msprop:Generator_RelationVarName="relationFK_CTLTC_SINHVIEN" msprop:Generator_UserParentTable="SINHVIEN" />
-      <msdata:Relationship name="FK_DANGKY_LOPTINCHI" msdata:parent="LOPTINCHI" msdata:child="DANGKY" msdata:parentkey="MALTC" msdata:childkey="MALTC" msprop:Generator_UserChildTable="DANGKY" msprop:Generator_ChildPropName="GetDANGKYRows" msprop:Generator_UserRelationName="FK_DANGKY_LOPTINCHI" msprop:Generator_RelationVarName="relationFK_DANGKY_LOPTINCHI" msprop:Generator_UserParentTable="LOPTINCHI" msprop:Generator_ParentPropName="LOPTINCHIRow" />
-      <msdata:Relationship name="FK_LOPTINCHI_GIANGVIEN" msdata:parent="GIANGVIEN" msdata:child="LOPTINCHI" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="LOPTINCHI" msprop:Generator_ChildPropName="GetLOPTINCHIRows" msprop:Generator_UserRelationName="FK_LOPTINCHI_GIANGVIEN" msprop:Generator_ParentPropName="GIANGVIENRow" msprop:Generator_RelationVarName="relationFK_LOPTINCHI_GIANGVIEN" msprop:Generator_UserParentTable="GIANGVIEN" />
-      <msdata:Relationship name="FK_LOPTINCHI_MONHOC" msdata:parent="MONHOC" msdata:child="LOPTINCHI" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="LOPTINCHI" msprop:Generator_ChildPropName="GetLOPTINCHIRows" msprop:Generator_UserRelationName="FK_LOPTINCHI_MONHOC" msprop:Generator_RelationVarName="relationFK_LOPTINCHI_MONHOC" msprop:Generator_UserParentTable="MONHOC" msprop:Generator_ParentPropName="MONHOCRow" />
-      <msdata:Relationship name="FK_GIANGVIEN_KHOA" msdata:parent="KHOA" msdata:child="GIANGVIEN" msdata:parentkey="MAKHOA" msdata:childkey="MAKHOA" msprop:Generator_UserChildTable="GIANGVIEN" msprop:Generator_ChildPropName="GetGIANGVIENRows" msprop:Generator_UserRelationName="FK_GIANGVIEN_KHOA" msprop:Generator_RelationVarName="relationFK_GIANGVIEN_KHOA" msprop:Generator_UserParentTable="KHOA" msprop:Generator_ParentPropName="KHOARow" />
-      <msdata:Relationship name="FK_LOP_KHOA" msdata:parent="KHOA" msdata:child="LOP" msdata:parentkey="MAKHOA" msdata:childkey="MAKHOA" msprop:Generator_UserChildTable="LOP" msprop:Generator_ChildPropName="GetLOPRows" msprop:Generator_UserRelationName="FK_LOP_KHOA" msprop:Generator_RelationVarName="relationFK_LOP_KHOA" msprop:Generator_UserParentTable="KHOA" msprop:Generator_ParentPropName="KHOARow" />
-      <msdata:Relationship name="FK_LOPTINCHI_KHOA" msdata:parent="KHOA" msdata:child="LOPTINCHI" msdata:parentkey="MAKHOA" msdata:childkey="MAKHOA" msprop:Generator_UserChildTable="LOPTINCHI" msprop:Generator_ChildPropName="GetLOPTINCHIRows" msprop:Generator_UserRelationName="FK_LOPTINCHI_KHOA" msprop:Generator_RelationVarName="relationFK_LOPTINCHI_KHOA" msprop:Generator_UserParentTable="KHOA" msprop:Generator_ParentPropName="KHOARow" />
+      <msdata:Relationship name="FK_SINHVIEN_LOP" msdata:parent="LOP" msdata:child="SINHVIEN" msdata:parentkey="MALOP" msdata:childkey="MALOP" msprop:Generator_UserChildTable="SINHVIEN" msprop:Generator_ChildPropName="GetSINHVIENRows" msprop:Generator_UserRelationName="FK_SINHVIEN_LOP" msprop:Generator_ParentPropName="LOPRow" msprop:Generator_RelationVarName="relationFK_SINHVIEN_LOP" msprop:Generator_UserParentTable="LOP" />
+      <msdata:Relationship name="FK_HOCPHI_SINHVIEN" msdata:parent="SINHVIEN" msdata:child="HOCPHI" msdata:parentkey="MASV" msdata:childkey="MASV" msprop:Generator_UserChildTable="HOCPHI" msprop:Generator_ChildPropName="GetHOCPHIRows" msprop:Generator_UserRelationName="FK_HOCPHI_SINHVIEN" msprop:Generator_RelationVarName="relationFK_HOCPHI_SINHVIEN" msprop:Generator_UserParentTable="SINHVIEN" msprop:Generator_ParentPropName="SINHVIENRow" />
+      <msdata:Relationship name="FK_CTLTC_SINHVIEN" msdata:parent="SINHVIEN" msdata:child="DANGKY" msdata:parentkey="MASV" msdata:childkey="MASV" msprop:Generator_UserChildTable="DANGKY" msprop:Generator_ChildPropName="GetDANGKYRows" msprop:Generator_UserRelationName="FK_CTLTC_SINHVIEN" msprop:Generator_RelationVarName="relationFK_CTLTC_SINHVIEN" msprop:Generator_UserParentTable="SINHVIEN" msprop:Generator_ParentPropName="SINHVIENRow" />
+      <msdata:Relationship name="FK_DANGKY_LOPTINCHI" msdata:parent="LOPTINCHI" msdata:child="DANGKY" msdata:parentkey="MALTC" msdata:childkey="MALTC" msprop:Generator_UserChildTable="DANGKY" msprop:Generator_ChildPropName="GetDANGKYRows" msprop:Generator_UserRelationName="FK_DANGKY_LOPTINCHI" msprop:Generator_ParentPropName="LOPTINCHIRow" msprop:Generator_RelationVarName="relationFK_DANGKY_LOPTINCHI" msprop:Generator_UserParentTable="LOPTINCHI" />
+      <msdata:Relationship name="FK_LOPTINCHI_GIANGVIEN" msdata:parent="GIANGVIEN" msdata:child="LOPTINCHI" msdata:parentkey="MAGV" msdata:childkey="MAGV" msprop:Generator_UserChildTable="LOPTINCHI" msprop:Generator_ChildPropName="GetLOPTINCHIRows" msprop:Generator_UserRelationName="FK_LOPTINCHI_GIANGVIEN" msprop:Generator_RelationVarName="relationFK_LOPTINCHI_GIANGVIEN" msprop:Generator_UserParentTable="GIANGVIEN" msprop:Generator_ParentPropName="GIANGVIENRow" />
+      <msdata:Relationship name="FK_GIANGVIEN_KHOA" msdata:parent="KHOA" msdata:child="GIANGVIEN" msdata:parentkey="MAKHOA" msdata:childkey="MAKHOA" msprop:Generator_UserChildTable="GIANGVIEN" msprop:Generator_ChildPropName="GetGIANGVIENRows" msprop:Generator_UserRelationName="FK_GIANGVIEN_KHOA" msprop:Generator_ParentPropName="KHOARow" msprop:Generator_RelationVarName="relationFK_GIANGVIEN_KHOA" msprop:Generator_UserParentTable="KHOA" />
+      <msdata:Relationship name="FK_LOP_KHOA" msdata:parent="KHOA" msdata:child="LOP" msdata:parentkey="MAKHOA" msdata:childkey="MAKHOA" msprop:Generator_UserChildTable="LOP" msprop:Generator_ChildPropName="GetLOPRows" msprop:Generator_UserRelationName="FK_LOP_KHOA" msprop:Generator_ParentPropName="KHOARow" msprop:Generator_RelationVarName="relationFK_LOP_KHOA" msprop:Generator_UserParentTable="KHOA" />
+      <msdata:Relationship name="FK_LOPTINCHI_KHOA" msdata:parent="KHOA" msdata:child="LOPTINCHI" msdata:parentkey="MAKHOA" msdata:childkey="MAKHOA" msprop:Generator_UserChildTable="LOPTINCHI" msprop:Generator_ChildPropName="GetLOPTINCHIRows" msprop:Generator_UserRelationName="FK_LOPTINCHI_KHOA" msprop:Generator_ParentPropName="KHOARow" msprop:Generator_RelationVarName="relationFK_LOPTINCHI_KHOA" msprop:Generator_UserParentTable="KHOA" />
+      <msdata:Relationship name="FK_LOPTINCHI_MONHOC" msdata:parent="MONHOC" msdata:child="LOPTINCHI" msdata:parentkey="MAMH" msdata:childkey="MAMH" msprop:Generator_UserChildTable="LOPTINCHI" msprop:Generator_ChildPropName="GetLOPTINCHIRows" msprop:Generator_UserRelationName="FK_LOPTINCHI_MONHOC" msprop:Generator_ParentPropName="MONHOCRow" msprop:Generator_RelationVarName="relationFK_LOPTINCHI_MONHOC" msprop:Generator_UserParentTable="MONHOC" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

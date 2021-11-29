@@ -89,17 +89,17 @@ namespace QLDSV
         // ============================ BUTTON EVENT ============================ //
         private void barButtonItem_Lop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!(Program.MGroup == Program.NhomQuyen[2]))
+            if ((Program.MGroup == Program.NhomQuyen[0]) || (Program.MGroup == Program.NhomQuyen[1]))
             {
-                ShowMdiChildren(typeof(frmLop));
+                ShowMdiChildren(typeof(frmLop1));
             }
         }
         private void barButtonItem_MonHoc_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!(Program.MGroup == Program.NhomQuyen[2]))
-            {
-                //ShowMdiChildren(typeof(frmMonHoc));
-            }
+            
+                ShowMdiChildren(typeof(frmMonHoc));
+            Console.WriteLine("Vao mon hoc");
+            
         }
         private void barButtonItem_SinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -159,17 +159,17 @@ namespace QLDSV
         // ==================== REPORT ZONE ==================== //
         private void barButton_DSSV_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //ShowMdiChildren(typeof(Report.DSSV));
+            
         }
 
         private void barButton_DSTHM_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //ShowMdiChildren(typeof(Report.DSTHM));
+            ShowMdiChildren(typeof(Report.fmpt_BC_DKLTC));
         }
 
         private void barButton_BDMH_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //ShowMdiChildren(typeof(Report.BDMH));
+            ShowMdiChildren(typeof(Report.rptBDMH));
         }
 
         private void barButton_PD_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -184,7 +184,7 @@ namespace QLDSV
 
         private void barButton_BDTK_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            //ShowMdiChildren(typeof(Report.BDTK));
+            ShowMdiChildren(typeof(Report.fmpt_DIEMTONGKET));
         }
 
         private void barButton_SinhVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -200,9 +200,9 @@ namespace QLDSV
         private void barButtonItem_Diem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
-            if (!(Program.MGroup == Program.NhomQuyen[2]))
+            if (Program.MGroup == Program.NhomQuyen[1] || Program.MGroup == Program.NhomQuyen[0])
             {
-                //ShowMdiChildren(typeof(frmDiem));
+                ShowMdiChildren(typeof(frmDiem));
             }
         }
 
@@ -212,6 +212,26 @@ namespace QLDSV
             {
                 //ShowMdiChildren(typeof(frmHocPhi));
             }
+        }
+
+        private void barBtnDangKyLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if ((Program.MGroup == Program.NhomQuyen[2])) // sinh vien
+            {
+                ShowMdiChildren(typeof(frmDangKyLTC));
+            }
+        }
+
+        private void barBtnMoLop_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+                ShowMdiChildren(typeof(frmLopTinChi));
+            
+        }
+
+        private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            ShowMdiChildren(typeof(Report.rptDSLTC));
         }
     }
 }

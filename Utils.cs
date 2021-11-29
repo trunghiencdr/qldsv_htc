@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -20,23 +21,49 @@ namespace QLDSV
             combo.ValueMember = "TENSERVER";
 
             // lệnh này quan trọng... phải bỏ vào. ==> để cho combo box chạy đúng.
-            combo.SelectedIndex = 1;
+            combo.SelectedIndex = 0;
 
             // nếu login vào là khoa cntt, thì combox sẽ hiện khoa cntt
             // nếu login vào là khoa vt, thì combox sẽ hiện khoa vt
             combo.SelectedIndex = Program.MKhoa;
         }
 
+        public static void BindingDataToComboBox(ComboBox combo, Object data, String displayMember, String valueMember)
+        {
+            if (data == null) return;
+            
+            combo.DisplayMember = displayMember;
+            combo.ValueMember = valueMember;
+            combo.DataSource = data;
 
+            // lệnh này quan trọng... phải bỏ vào. ==> để cho combo box chạy đúng.
+            combo.SelectedIndex = 0;
+        }
+
+        public static void BindingSqlToComboBox(ComboBox combo, String sql, String displayMember, String valueMember)
+        {
+            DataTable dt = new DataTable();
+            SqlDataReader reader = Program.ExecSqlDataReader(sql);
+            if (!reader.HasRows)
+            {
+                MessageBox.Show("doc reader khong thanh cong");
+                reader.Close();
+                return;
+            }
+            dt.Load(reader);
+            BindingDataToComboBox(combo, dt, displayMember, valueMember);
+            reader.Close();
+
+        }
         public static string GetMaKhoa()
         {
             DataTable dt = new DataTable();
             BindingSource bds = new BindingSource();
 
-            dt = Program.ExecSqlDataTable("SELECT MAKH FROM KHOA");
+            dt = Program.ExecSqlDataTable("SELECT MAKHOA FROM KHOA");
             bds.DataSource = dt;
             
-            return ((DataRowView)bds[0])["MAKH"].ToString();
+            return ((DataRowView)bds[0])["MAKHOA"].ToString();
         }
 
         // hỗ trợ trong combobox chọn chi nhánh
