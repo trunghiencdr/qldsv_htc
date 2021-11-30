@@ -15,7 +15,6 @@ namespace QLDSV.Forms
     {
         private int _position = 0;
         private string flagOption; // true = add ; false = update ; default of boolean = false
-        private string oldMaMonHoc = "";
         private string oldTenMonHoc = "";
         public frmMonHoc()
         {
@@ -186,26 +185,6 @@ namespace QLDSV.Forms
 
             if (flagOption == "UPDATE")
             {
-                if (!this.txtMaMonHoc.Text.Trim().ToString().Equals(oldMaMonHoc))// Nếu mã môn học thay đổi so với ban đầu
-                {
-                    //TODO: Check mã môn học có tồn tại chưa
-                    string query1 = "DECLARE  @return_value int \n"
-                                + "EXEC @return_value = SP_CHECKID \n"
-                                + "@Code = N'" + txtMaMonHoc.Text + "',@Type = N'MAMONHOC' \n"
-                                + "SELECT 'Return Value' = @return_value";
-
-                    int resultMa = Utils.CheckDataHelper(query1);
-                    if (resultMa == -1)
-                    {
-                        XtraMessageBox.Show("Lỗi kết nối với database. Mời bạn xem lại", "", MessageBoxButtons.OK);
-                        this.Close();
-                    }
-                    if (resultMa == 1)
-                    {
-                        this.errorProvider.SetError(txtMaMonHoc, "Mã môn học đã tồn tại!");
-                        return false;
-                    }
-                }
                 if (!this.txtTenMonHoc.Text.Trim().ToString().Equals(oldTenMonHoc))// Nếu tên môn học thay đổi so với ban đầu
                 {
                     // TODO : Check tên môn học có tồn tại chưa
@@ -285,7 +264,6 @@ namespace QLDSV.Forms
         private void barBtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             flagOption = "UPDATE";//  Update action
-            oldMaMonHoc = this.txtMaMonHoc.Text.Trim().ToString();
             oldTenMonHoc = this.txtTenMonHoc.Text.Trim().ToString();
             txtMaMonHoc.Enabled = false;
 

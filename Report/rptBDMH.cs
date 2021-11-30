@@ -14,7 +14,7 @@ namespace QLDSV.Report
 {
     public partial class rptBDMH : Form
     {
-        String nienkhoa, hocki,mamh,nhom,magv;
+        String nienkhoa, hocki,mamh,nhom;
 
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -38,8 +38,7 @@ namespace QLDSV.Report
             hocki = spinEditHocKy.Text;
             mamh = cmbMH.SelectedValue.ToString();
             nhom = spinEditNhom.Text;
-            magv = cmbGV.SelectedValue.ToString();
-            XtraReport_BangDiemMonHoc1 rpt = new XtraReport_BangDiemMonHoc1( nienkhoa, hocki,mamh,nhom,magv);
+            XtraReport_BangDiemMonHoc rpt = new XtraReport_BangDiemMonHoc( nienkhoa, hocki,mamh,nhom);
             rpt.xrLabelKhoa.Text = cmbKhoa.Text;
             rpt.xrLabelNienkhoa.Text = txtNienkhoa.Text;
             rpt.xrLabelHocki.Text = spinEditHocKy.Text;

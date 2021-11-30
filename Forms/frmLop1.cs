@@ -15,7 +15,6 @@ namespace QLDSV.Forms
     {
         private int _positionLop = 0;
         private string _flagOptionLop;
-        private string _oldMaLop = "";
         private string _oldTenLop = "";
         public frmLop1()
         {
@@ -133,7 +132,6 @@ namespace QLDSV.Forms
         private void barBtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _flagOptionLop = "UPDATE";//  Update action
-            _oldMaLop = this.txtMaLop.Text.Trim().ToString();
             _oldTenLop = this.txtTenLop.Text.Trim().ToString();
             txtMaLop.Enabled = false;
             txtMaKhoa.Enabled = false;
@@ -273,31 +271,6 @@ namespace QLDSV.Forms
 
             if (_flagOptionLop == "UPDATE")
             {
-                if (!this.txtMaLop.Text.Trim().ToString().Equals(_oldMaLop))// Nếu mã lớp thay đổi so với ban đầu
-                {
-                    //TODO: Check mã lớp có tồn tại chưa
-                    string query1 = "DECLARE  @return_value int \n"
-                                + "EXEC  @return_value = SP_CHECKID \n"
-                                + "@Code = N'" + txtMaLop.Text + "',@Type = N'MALOP' \n"
-                                + "SELECT  'Return Value' = @return_value ";
-
-                    int resultMa = Utils.CheckDataHelper(query1);
-                    if (resultMa == -1)
-                    {
-                        XtraMessageBox.Show("Lỗi kết nối với database. Mời ban xem lại !", "", MessageBoxButtons.OK);
-                        this.Close();
-                    }
-                    if (resultMa == 1)
-                    {
-                        this.errorProvider.SetError(txtMaLop, "Mã lớp đã tồn tại ở Khoa hiên tại !");
-                        return false;
-                    }
-                    if (resultMa == 2)
-                    {
-                        this.errorProvider.SetError(txtMaLop, "Mã lớp đã tồn tại ở Khoa khác !");
-                        return false;
-                    }
-                }
                 if (!this.txtTenLop.Text.Trim().ToString().Equals(_oldTenLop))
                 {
                     // TODO : Check tên lớp có tồn tại chưa
@@ -439,6 +412,11 @@ namespace QLDSV.Forms
         }
 
         private void barBtnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }

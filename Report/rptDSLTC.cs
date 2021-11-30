@@ -14,7 +14,7 @@ namespace QLDSV.Report
 {
     public partial class rptDSLTC : Form
     {
-        String makhoa, nienkhoa, hocki;
+        String  nienkhoa, hocki;
         public rptDSLTC()
         {
             InitializeComponent();
@@ -22,18 +22,10 @@ namespace QLDSV.Report
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (cmbKhoa.SelectedIndex==0)
-            {
-                makhoa = "CNTT";
-            }
-            else
-            {
-                makhoa = "VT";
-            }
             nienkhoa = txtNienKhoa.Text;
             hocki = spinEditHocky.Text;
 
-            XtraReport_DanhSachLopTinChi rpt = new XtraReport_DanhSachLopTinChi(nienkhoa, hocki, makhoa);
+            XtraReport_DanhSachLopTinChi rpt = new XtraReport_DanhSachLopTinChi(nienkhoa, hocki);
             rpt.xrLabelKhoa.Text = cmbKhoa.Text;
             rpt.xrLabelNienkhoa.Text = txtNienKhoa.Text;
             rpt.xrLabelHocky.Text = spinEditHocky.Text;
@@ -44,19 +36,7 @@ namespace QLDSV.Report
 
         private void cmbKhoa_Click(object sender, EventArgs e)
         {
-            /*// TODO : Chuyển Bộ Phận
-            Utils.ComboboxHelper(this.cmbKhoa);
 
-            // kết nối database với dữ liệu ở đoạn code trên và fill dữ liệu, nếu như có lỗi thì
-            // thoát.
-            if (Program.KetNoi() == 0)
-            {
-                XtraMessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
-            }
-            else
-            {
-
-            }*/
         }
 
         private void rptDSLTC_Load(object sender, EventArgs e)

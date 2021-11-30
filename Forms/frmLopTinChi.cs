@@ -23,17 +23,15 @@ namespace QLDSV.Forms
         private void loadInitializeData()
         {
             dS.EnforceConstraints = false;
-            // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
-            this.mONHOCTableAdapter.Connection.ConnectionString = Program.URL_Connect;
-            this.mONHOCTableAdapter.Fill(this.dS.MONHOC);
+            // kết nối trước rồi mới fill.
+            this.LOPTINCHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
+            this.LOPTINCHITableAdapter.Fill(this.dS.LOPTINCHI);
             // TODO: This line of code loads data into the 'dS.GIANGVIEN' table. You can move, or remove it, as needed.
             this.gIANGVIENTableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.gIANGVIENTableAdapter.Fill(this.dS.GIANGVIEN);
-            // kết nối trước rồi mới fill.
-            this.LOPTINCHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
-            //this.DANGKYTableAdapter.Fill(this.dS.DANGKY);
-            this.LOPTINCHITableAdapter.Fill(this.dS.LOPTINCHI);
-
+            // TODO: This line of code loads data into the 'dS.MONHOC' table. You can move, or remove it, as needed.
+            this.mONHOCTableAdapter.Connection.ConnectionString = Program.URL_Connect;
+            this.mONHOCTableAdapter.Fill(this.dS.MONHOC);
         }
         private void lOPTINCHIBindingNavigatorSaveItem_Click(object sender, EventArgs e)
         {
@@ -94,7 +92,7 @@ namespace QLDSV.Forms
 
         private void cmbKhoa_Click(object sender, EventArgs e)
         {
-            // TODO : Chuyển Bộ Phận
+            /*// TODO : Chuyển Bộ Phận
             Utils.ComboboxHelper(this.cmbKhoa);
             // kết nối database với dữ liệu ở đoạn code trên và fill dữ liệu, nếu như có lỗi thì
             // thoát.
@@ -106,7 +104,7 @@ namespace QLDSV.Forms
             {
                 loadInitializeData();
                 this.txtMaKhoa.EditValue = Utils.GetMaKhoa();
-            }
+            }*/
         }
 
         private void barBtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -178,24 +176,47 @@ namespace QLDSV.Forms
             {
                 LOPTINCHIBindingSource.Position = _positionLopTC;
             }
+            barBtnHuy.Enabled = barBtnGhi.Enabled = false;
 
         }
         // ====================== SUPPORT VALIDATION ====================== //
         private bool ValidateInfoLOPTINCHI()
         {
-            errorProvider.Clear();
-            /*if (txtTenLop.Text.Trim().Equals(""))
+                errorProvider.Clear();
+            if (txtNIENKHOA.Text.Trim().Equals(""))
             {
-                this.errorProvider.SetError(txtTenLop, "Tên lớp không được để trống !");
+                this.errorProvider.SetError(txtNIENKHOA, "Niên khóa không được để trống !");
                 return false;
-            }*/
-
-            if (_flagOptionLopTC == "ADD")
+            }
+            if (txtHOCKI.Text.Trim().Equals(""))
             {
-                //TODO: Check mã lớp có tồn tại chưa
-                string query1 = "DECLARE  @return_value int \n"
-                            + "EXEC  @return_value = SP_CHECKID \n"
-                            + "@Code = N'" + txtMaLTC.Text + "',@Type = N'MALTC' \n"
+                this.errorProvider.SetError(txtHOCKI, "Học kì không được để trống !");
+                return false;
+            }
+            if (txtNHOM.Text.Trim().Equals(""))
+            {
+                this.errorProvider.SetError(txtNHOM, "Nhóm không được để trống !");
+                return false;
+            }
+            if (txtSOSV.Text.Trim().Equals(""))
+            {
+                this.errorProvider.SetError(txtSOSV, "Số sinh viên không được để trống !");
+                return false;
+            }
+            if (cmbMAMH.SelectedValue.ToString().Trim().Equals(""))
+            {
+                this.errorProvider.SetError(cmbMAMH, "Mã môn học không được để trống !");
+                return false;
+            }
+            if (cmbMAGV.SelectedValue.ToString().Trim().Equals(""))
+            {
+                this.errorProvider.SetError(cmbMAGV, "Mã giảng viên không được để trống !");
+                return false;
+            }
+            //TODO: Check mã lớp có tồn tại chưa
+            string query1 = "DECLARE  @return_value int \n"
+                            + "EXEC  @return_value = SP_CHECKLOPTINCHI \n"
+                            + "@NienKhoa = N'" + txtNIENKHOA.Text + "',@HocKy = N'" + txtHOCKI.Text + "',@MaMH = N'" + cmbMAMH.SelectedValue + "',@Nhom = N'" + txtNHOM.Text + "' \n"
                             + "SELECT  'Return Value' = @return_value ";
 
                 int resultMa = Utils.CheckDataHelper(query1);
@@ -206,90 +227,15 @@ namespace QLDSV.Forms
                 }
                 if (resultMa == 1)
                 {
-                    this.errorProvider.SetError(txtMaLTC, "Mã lớp tín chỉ đã tồn tại ở Khoa hiên tại !");
+                    this.errorProvider.SetError(txtMaLTC, "Lớp tín chỉ đã tồn tại ở Khoa hiên tại (Niên khóa, Học kì, Mã môn học, Nhóm trùng) !");
                     return false;
                 }
                 if (resultMa == 2)
                 {
-                    this.errorProvider.SetError(txtMaLTC, "Mã lớp tín chỉ đã tồn tại ở Khoa khác !");
+                    this.errorProvider.SetError(txtMaLTC, "Lớp tín chỉ đã tồn tại ở Khoa khác (Niên khóa, Học kì, Mã môn học, Nhóm trùng)!");
                     return false;
                 }
 
-                // TODO : Check tên lớp có tồn tại chưa
-                /*string query2 = "DECLARE @return_value int \n"
-                               + "EXEC @return_value = SP_CHECKNAME \n"
-                               + "@Name = N'" + txtTenLop.Text + "', @Type = N'TENLOP' \n"
-                               + "SELECT 'Return Value' = @return_value ";
-                int resultTen = Utils.CheckDataHelper(query2);
-                if (resultTen == -1)
-                {
-                    XtraMessageBox.Show("Lỗi kết nối với Database. Mời bạn xem lại !", "", MessageBoxButtons.OK);
-                    this.Close();
-                }
-                if (resultTen == 1)
-                {
-                    this.errorProvider.SetError(txtTenLop, "Tên lớp đã có rồi !");
-                    return false;
-                }
-                if (resultTen == 2)
-                {
-                    this.errorProvider.SetError(txtTenLop, "Tên lớp đã tồn tại ở Khoa khác !");
-                    return false;
-                }*/
-            }
-
-            if (_flagOptionLopTC == "UPDATE")
-            {
-                if (!this.txtMaLTC.Text.Trim().ToString().Equals(_oldMaLopTC))// Nếu mã lớp thay đổi so với ban đầu
-                {
-                    //TODO: Check mã lớp có tồn tại chưa
-                    string query1 = "DECLARE  @return_value int \n"
-                                + "EXEC  @return_value = SP_CHECKID \n"
-                                + "@Code = N'" + txtMaLTC.Text + "',@Type = N'MALOP' \n"
-                                + "SELECT  'Return Value' = @return_value ";
-
-                    int resultMa = Utils.CheckDataHelper(query1);
-                    if (resultMa == -1)
-                    {
-                        XtraMessageBox.Show("Lỗi kết nối với database. Mời ban xem lại !", "", MessageBoxButtons.OK);
-                        this.Close();
-                    }
-                    if (resultMa == 1)
-                    {
-                        this.errorProvider.SetError(txtMaLTC, "Mã lớp tín chỉ đã tồn tại ở Khoa hiên tại !");
-                        return false;
-                    }
-                    if (resultMa == 2)
-                    {
-                        this.errorProvider.SetError(txtMaLTC, "Mã lớp tín chỉ đã tồn tại ở Khoa khác !");
-                        return false;
-                    }
-                }
-                /*if (!this.txtTenLop.Text.Trim().ToString().Equals(_oldTenLop))
-                {
-                    // TODO : Check tên lớp có tồn tại chưa
-                    string query2 = "DECLARE @return_value int \n"
-                                   + "EXEC @return_value = SP_CHECKNAME \n"
-                                   + "@Name = N'" + txtTenLop.Text + "', @Type = N'TENLOP' \n"
-                                   + "SELECT 'Return Value' = @return_value ";
-                    int resultTen = Utils.CheckDataHelper(query2);
-                    if (resultTen == -1)
-                    {
-                        XtraMessageBox.Show("Lỗi kết nối với Database. Mời bạn xem lại !", "", MessageBoxButtons.OK);
-                        this.Close();
-                    }
-                    if (resultTen == 1)
-                    {
-                        this.errorProvider.SetError(txtTenLop, "Tên lớp đã có rồi !");
-                        return false;
-                    }
-                    if (resultTen == 2)
-                    {
-                        this.errorProvider.SetError(txtTenLop, "Tên lớp đã tồn tại ở Khoa khác !");
-                        return false;
-                    }
-                }*/
-            }
 
             return true;
 

@@ -77,14 +77,14 @@ namespace QLDSV.Forms
             this.grbLTC = new System.Windows.Forms.GroupBox();
             this.txtMaKhoa = new DevExpress.XtraEditors.TextEdit();
             this.hUYLOPCheckEdit = new DevExpress.XtraEditors.CheckEdit();
-            this.sOSVTOITHIEUSpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.mAGVComboBox = new System.Windows.Forms.ComboBox();
+            this.txtSOSV = new DevExpress.XtraEditors.SpinEdit();
+            this.cmbMAGV = new System.Windows.Forms.ComboBox();
             this.gIANGVIENBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.nHOMSpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.mAMHComboBox = new System.Windows.Forms.ComboBox();
+            this.txtNHOM = new DevExpress.XtraEditors.SpinEdit();
+            this.cmbMAMH = new System.Windows.Forms.ComboBox();
             this.mONHOCBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hOCKYSpinEdit = new DevExpress.XtraEditors.SpinEdit();
-            this.nIENKHOATextEdit = new DevExpress.XtraEditors.TextEdit();
+            this.txtHOCKI = new DevExpress.XtraEditors.SpinEdit();
+            this.txtNIENKHOA = new DevExpress.XtraEditors.TextEdit();
             this.txtMaLTC = new DevExpress.XtraEditors.SpinEdit();
             this.errorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.gIANGVIENTableAdapter = new QLDSV.DSTableAdapters.GIANGVIENTableAdapter();
@@ -118,12 +118,12 @@ namespace QLDSV.Forms
             this.grbLTC.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hUYLOPCheckEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sOSVTOITHIEUSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSOSV.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIANGVIENBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHOMSpinEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNHOM.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOCKYSpinEdit.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nIENKHOATextEdit.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHOCKI.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNIENKHOA.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLTC.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIANGVIENGridControl)).BeginInit();
@@ -534,17 +534,17 @@ namespace QLDSV.Forms
             this.grbLTC.Controls.Add(hUYLOPLabel);
             this.grbLTC.Controls.Add(this.hUYLOPCheckEdit);
             this.grbLTC.Controls.Add(sOSVTOITHIEULabel);
-            this.grbLTC.Controls.Add(this.sOSVTOITHIEUSpinEdit);
+            this.grbLTC.Controls.Add(this.txtSOSV);
             this.grbLTC.Controls.Add(mAGVLabel);
-            this.grbLTC.Controls.Add(this.mAGVComboBox);
+            this.grbLTC.Controls.Add(this.cmbMAGV);
             this.grbLTC.Controls.Add(nHOMLabel);
-            this.grbLTC.Controls.Add(this.nHOMSpinEdit);
+            this.grbLTC.Controls.Add(this.txtNHOM);
             this.grbLTC.Controls.Add(mAMHLabel);
-            this.grbLTC.Controls.Add(this.mAMHComboBox);
+            this.grbLTC.Controls.Add(this.cmbMAMH);
             this.grbLTC.Controls.Add(hOCKYLabel);
-            this.grbLTC.Controls.Add(this.hOCKYSpinEdit);
+            this.grbLTC.Controls.Add(this.txtHOCKI);
             this.grbLTC.Controls.Add(nIENKHOALabel);
-            this.grbLTC.Controls.Add(this.nIENKHOATextEdit);
+            this.grbLTC.Controls.Add(this.txtNIENKHOA);
             this.grbLTC.Controls.Add(mALTCLabel);
             this.grbLTC.Controls.Add(this.txtMaLTC);
             this.grbLTC.Location = new System.Drawing.Point(0, 273);
@@ -557,6 +557,7 @@ namespace QLDSV.Forms
             // txtMaKhoa
             // 
             this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "MAKHOA", true));
+            this.txtMaKhoa.Enabled = false;
             this.txtMaKhoa.Location = new System.Drawing.Point(410, 94);
             this.txtMaKhoa.MenuManager = this.barManagerSinhVien;
             this.txtMaKhoa.Name = "txtMaKhoa";
@@ -566,6 +567,7 @@ namespace QLDSV.Forms
             // hUYLOPCheckEdit
             // 
             this.hUYLOPCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "HUYLOP", true));
+            this.hUYLOPCheckEdit.EditValue = true;
             this.hUYLOPCheckEdit.Location = new System.Drawing.Point(410, 165);
             this.hUYLOPCheckEdit.MenuManager = this.barManagerSinhVien;
             this.hUYLOPCheckEdit.Name = "hUYLOPCheckEdit";
@@ -573,96 +575,96 @@ namespace QLDSV.Forms
             this.hUYLOPCheckEdit.Size = new System.Drawing.Size(94, 24);
             this.hUYLOPCheckEdit.TabIndex = 17;
             // 
-            // sOSVTOITHIEUSpinEdit
+            // txtSOSV
             // 
-            this.sOSVTOITHIEUSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "SOSVTOITHIEU", true));
-            this.sOSVTOITHIEUSpinEdit.EditValue = new decimal(new int[] {
+            this.txtSOSV.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "SOSVTOITHIEU", true));
+            this.txtSOSV.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.sOSVTOITHIEUSpinEdit.Location = new System.Drawing.Point(410, 122);
-            this.sOSVTOITHIEUSpinEdit.MenuManager = this.barManagerSinhVien;
-            this.sOSVTOITHIEUSpinEdit.Name = "sOSVTOITHIEUSpinEdit";
-            this.sOSVTOITHIEUSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtSOSV.Location = new System.Drawing.Point(410, 122);
+            this.txtSOSV.MenuManager = this.barManagerSinhVien;
+            this.txtSOSV.Name = "txtSOSV";
+            this.txtSOSV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.sOSVTOITHIEUSpinEdit.Size = new System.Drawing.Size(125, 24);
-            this.sOSVTOITHIEUSpinEdit.TabIndex = 15;
+            this.txtSOSV.Size = new System.Drawing.Size(125, 24);
+            this.txtSOSV.TabIndex = 15;
             // 
-            // mAGVComboBox
+            // cmbMAGV
             // 
-            this.mAGVComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LOPTINCHIBindingSource, "MAGV", true));
-            this.mAGVComboBox.DataSource = this.gIANGVIENBindingSource;
-            this.mAGVComboBox.DisplayMember = "MAGV";
-            this.mAGVComboBox.FormattingEnabled = true;
-            this.mAGVComboBox.Location = new System.Drawing.Point(410, 64);
-            this.mAGVComboBox.Name = "mAGVComboBox";
-            this.mAGVComboBox.Size = new System.Drawing.Size(125, 24);
-            this.mAGVComboBox.TabIndex = 13;
-            this.mAGVComboBox.ValueMember = "MAGV";
+            this.cmbMAGV.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LOPTINCHIBindingSource, "MAGV", true));
+            this.cmbMAGV.DataSource = this.gIANGVIENBindingSource;
+            this.cmbMAGV.DisplayMember = "MAGV";
+            this.cmbMAGV.FormattingEnabled = true;
+            this.cmbMAGV.Location = new System.Drawing.Point(410, 64);
+            this.cmbMAGV.Name = "cmbMAGV";
+            this.cmbMAGV.Size = new System.Drawing.Size(125, 24);
+            this.cmbMAGV.TabIndex = 13;
+            this.cmbMAGV.ValueMember = "MAGV";
             // 
             // gIANGVIENBindingSource
             // 
             this.gIANGVIENBindingSource.DataMember = "GIANGVIEN";
             this.gIANGVIENBindingSource.DataSource = this.dS;
             // 
-            // nHOMSpinEdit
+            // txtNHOM
             // 
-            this.nHOMSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "NHOM", true));
-            this.nHOMSpinEdit.EditValue = new decimal(new int[] {
+            this.txtNHOM.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "NHOM", true));
+            this.txtNHOM.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.nHOMSpinEdit.Location = new System.Drawing.Point(410, 34);
-            this.nHOMSpinEdit.MenuManager = this.barManagerSinhVien;
-            this.nHOMSpinEdit.Name = "nHOMSpinEdit";
-            this.nHOMSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtNHOM.Location = new System.Drawing.Point(410, 34);
+            this.txtNHOM.MenuManager = this.barManagerSinhVien;
+            this.txtNHOM.Name = "txtNHOM";
+            this.txtNHOM.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.nHOMSpinEdit.Size = new System.Drawing.Size(125, 24);
-            this.nHOMSpinEdit.TabIndex = 11;
+            this.txtNHOM.Size = new System.Drawing.Size(125, 24);
+            this.txtNHOM.TabIndex = 11;
             // 
-            // mAMHComboBox
+            // cmbMAMH
             // 
-            this.mAMHComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LOPTINCHIBindingSource, "MAMH", true));
-            this.mAMHComboBox.DataSource = this.mONHOCBindingSource;
-            this.mAMHComboBox.DisplayMember = "MAMH";
-            this.mAMHComboBox.FormattingEnabled = true;
-            this.mAMHComboBox.Location = new System.Drawing.Point(93, 125);
-            this.mAMHComboBox.Name = "mAMHComboBox";
-            this.mAMHComboBox.Size = new System.Drawing.Size(125, 24);
-            this.mAMHComboBox.TabIndex = 9;
-            this.mAMHComboBox.ValueMember = "MAMH";
+            this.cmbMAMH.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LOPTINCHIBindingSource, "MAMH", true));
+            this.cmbMAMH.DataSource = this.mONHOCBindingSource;
+            this.cmbMAMH.DisplayMember = "MAMH";
+            this.cmbMAMH.FormattingEnabled = true;
+            this.cmbMAMH.Location = new System.Drawing.Point(93, 125);
+            this.cmbMAMH.Name = "cmbMAMH";
+            this.cmbMAMH.Size = new System.Drawing.Size(125, 24);
+            this.cmbMAMH.TabIndex = 9;
+            this.cmbMAMH.ValueMember = "MAMH";
             // 
             // mONHOCBindingSource
             // 
             this.mONHOCBindingSource.DataMember = "MONHOC";
             this.mONHOCBindingSource.DataSource = this.dS;
             // 
-            // hOCKYSpinEdit
+            // txtHOCKI
             // 
-            this.hOCKYSpinEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "HOCKY", true));
-            this.hOCKYSpinEdit.EditValue = new decimal(new int[] {
+            this.txtHOCKI.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "HOCKY", true));
+            this.txtHOCKI.EditValue = new decimal(new int[] {
             0,
             0,
             0,
             0});
-            this.hOCKYSpinEdit.Location = new System.Drawing.Point(93, 95);
-            this.hOCKYSpinEdit.MenuManager = this.barManagerSinhVien;
-            this.hOCKYSpinEdit.Name = "hOCKYSpinEdit";
-            this.hOCKYSpinEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            this.txtHOCKI.Location = new System.Drawing.Point(93, 95);
+            this.txtHOCKI.MenuManager = this.barManagerSinhVien;
+            this.txtHOCKI.Name = "txtHOCKI";
+            this.txtHOCKI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.hOCKYSpinEdit.Size = new System.Drawing.Size(125, 24);
-            this.hOCKYSpinEdit.TabIndex = 5;
+            this.txtHOCKI.Size = new System.Drawing.Size(125, 24);
+            this.txtHOCKI.TabIndex = 5;
             // 
-            // nIENKHOATextEdit
+            // txtNIENKHOA
             // 
-            this.nIENKHOATextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "NIENKHOA", true));
-            this.nIENKHOATextEdit.Location = new System.Drawing.Point(93, 67);
-            this.nIENKHOATextEdit.MenuManager = this.barManagerSinhVien;
-            this.nIENKHOATextEdit.Name = "nIENKHOATextEdit";
-            this.nIENKHOATextEdit.Size = new System.Drawing.Size(125, 22);
-            this.nIENKHOATextEdit.TabIndex = 3;
+            this.txtNIENKHOA.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "NIENKHOA", true));
+            this.txtNIENKHOA.Location = new System.Drawing.Point(93, 67);
+            this.txtNIENKHOA.MenuManager = this.barManagerSinhVien;
+            this.txtNIENKHOA.Name = "txtNIENKHOA";
+            this.txtNIENKHOA.Size = new System.Drawing.Size(125, 22);
+            this.txtNIENKHOA.TabIndex = 3;
             // 
             // txtMaLTC
             // 
@@ -821,12 +823,12 @@ namespace QLDSV.Forms
             this.grbLTC.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaKhoa.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hUYLOPCheckEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.sOSVTOITHIEUSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtSOSV.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIANGVIENBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nHOMSpinEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNHOM.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOCKYSpinEdit.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nIENKHOATextEdit.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtHOCKI.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNIENKHOA.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtMaLTC.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gIANGVIENGridControl)).EndInit();
@@ -876,12 +878,12 @@ namespace QLDSV.Forms
         private DSTableAdapters.DANGKYTableAdapter DANGKYTableAdapter;
         private System.Windows.Forms.GroupBox grbLTC;
         private DevExpress.XtraEditors.CheckEdit hUYLOPCheckEdit;
-        private DevExpress.XtraEditors.SpinEdit sOSVTOITHIEUSpinEdit;
-        private System.Windows.Forms.ComboBox mAGVComboBox;
-        private DevExpress.XtraEditors.SpinEdit nHOMSpinEdit;
-        private System.Windows.Forms.ComboBox mAMHComboBox;
-        private DevExpress.XtraEditors.SpinEdit hOCKYSpinEdit;
-        private DevExpress.XtraEditors.TextEdit nIENKHOATextEdit;
+        private DevExpress.XtraEditors.SpinEdit txtSOSV;
+        private System.Windows.Forms.ComboBox cmbMAGV;
+        private DevExpress.XtraEditors.SpinEdit txtNHOM;
+        private System.Windows.Forms.ComboBox cmbMAMH;
+        private DevExpress.XtraEditors.SpinEdit txtHOCKI;
+        private DevExpress.XtraEditors.TextEdit txtNIENKHOA;
         private DevExpress.XtraEditors.SpinEdit txtMaLTC;
         private DevExpress.XtraEditors.TextEdit txtMaKhoa;
         private System.Windows.Forms.ErrorProvider errorProvider;

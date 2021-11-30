@@ -43,6 +43,7 @@ namespace QLDSV
         // để đăng nhập truy vấn dữ liệu thì nó dùng login này để kết nối(hay là tạo link server)
         // vì nó giống nhau trên các phân mảnh là HTKN nối nó sẽ gán cứng vào.
         public static String RemoteLogin = "HTKN";
+        //public static String RemotePassword = "123";
         public static String RemotePassword = "123456";
         public static String Database = "QLDSV";
 
@@ -139,6 +140,28 @@ namespace QLDSV
             return dt;
         }
 
+        public static int ExecSqlNonQuery(String strLenh)
+        {
+            SqlCommand sqlcmd = new SqlCommand(strLenh, Program.Conn);
+            sqlcmd.CommandType = CommandType.Text;
+            sqlcmd.CommandTimeout = 600;
+            if (Program.Conn.State == ConnectionState.Closed) Program.Conn.Open();
+            try
+            {
+                sqlcmd.ExecuteNonQuery();
+                Program.Conn.Close();
+                return 0;
+            }
+            catch (SqlException ex)
+            {
+                MessageBox.Show("Error" + ex.Message);
+                Program.Conn.Close();
+                return ex.State;
+            }
+
+
+
+        }
         [STAThread]
         static void Main()
         {

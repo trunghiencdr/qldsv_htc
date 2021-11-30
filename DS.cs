@@ -24,6 +24,14 @@
 
 namespace QLDSV.DSTableAdapters
 {
+    partial class cmbMonHocTableAdapter
+    {
+    }
+
+    partial class cmbLOPTableAdapter
+    {
+    }
+
     partial class CMBNIENKHOATableAdapter
     {
     }

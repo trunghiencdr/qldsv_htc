@@ -47,8 +47,6 @@ namespace QLDSV.Report
             this.cmbGiangVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cmbGiangVienTableAdapter = new QLDSV.DSTableAdapters.cmbGiangVienTableAdapter();
             this.tableAdapterManager = new QLDSV.DSTableAdapters.TableAdapterManager();
-            this.cmbGV = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.spinEditHocKy.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mONHOCBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
@@ -204,33 +202,11 @@ namespace QLDSV.Report
             this.tableAdapterManager.SINHVIENTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = QLDSV.DSTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
-            // cmbGV
-            // 
-            this.cmbGV.DataSource = this.cmbGiangVienBindingSource;
-            this.cmbGV.DisplayMember = "TENGV";
-            this.cmbGV.FormattingEnabled = true;
-            this.cmbGV.Location = new System.Drawing.Point(272, 358);
-            this.cmbGV.Name = "cmbGV";
-            this.cmbGV.Size = new System.Drawing.Size(330, 24);
-            this.cmbGV.TabIndex = 13;
-            this.cmbGV.ValueMember = "MAGV";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(179, 361);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "GIANG VIEN";
-            // 
             // rptBDMH
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.cmbGV);
             this.Controls.Add(this.spinEditNhom);
             this.Controls.Add(this.cmbMH);
             this.Controls.Add(this.spinEditHocKy);
@@ -274,7 +250,5 @@ namespace QLDSV.Report
         private System.Windows.Forms.BindingSource cmbGiangVienBindingSource;
         private DSTableAdapters.cmbGiangVienTableAdapter cmbGiangVienTableAdapter;
         private DSTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.ComboBox cmbGV;
-        private System.Windows.Forms.Label label1;
     }
 }

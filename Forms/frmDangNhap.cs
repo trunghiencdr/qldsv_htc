@@ -23,20 +23,23 @@ namespace QLDSV
         private void frmDangNhap_Load(object sender, EventArgs e)
         {
             
+            //string chuoiketnoi = "Data Source=DESKTOP-EA82EVS;Initial Catalog=" + Program.Database + ";Integrated Security=True";
+            //string chuoiketnoi = "Data Source=LAPTOP-COIEBNU4\\MHUAN;Initial Catalog=" + Program.Database + ";Integrated Security=True";
             string chuoiketnoi = "Data Source=NHAN;Initial Catalog=" + Program.Database + ";Integrated Security=True";
             cbGiangVien.Checked = true;
             Program.Conn.ConnectionString = chuoiketnoi;
             txtLogin.Text = "ptl";
             DataTable dt = new DataTable();
             //gọi 1 view và trả về dưới dạng datatable
-            dt = Program.ExecSqlDataTable("SELECT * FROM GET_SUBSCRIBES");
+            //dt = Program.ExecSqlDataTable("SELECT * FROM Get_Subscribes1");
+            dt = Program.ExecSqlDataTable("SELECT * FROM Get_Subscribes");
 
-          
             // cất dt vào biến toàn cục Bds_Dspm
             Program.Bds_Dspm.DataSource = dt;
 
             // fix lỗi nho nhỏ :v
-            Program.Bds_Dspm.Sort = "TENKHOA ASC";
+            //Program.Bds_Dspm.Sort = "TENKHOA ASC";
+            Program.Bds_Dspm.Sort = "TENSERVER ASC";
             // đoạn code liên kết giữa bds với combobox
             Utils.BindingDataToComBo(cmbKhoa, dt);
         }
