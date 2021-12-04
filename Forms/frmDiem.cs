@@ -157,7 +157,7 @@ namespace QLDSV.Forms
                     return;
                 }
                 
-                Utils.BindingDataToComboBox(cmbGiangVien, dtGV, "magv", null);
+                Utils.BindingDataToComboBox(cmbGiangVien, dtGV, "HOTEN", "MAGV");
             }
         }
 
@@ -168,7 +168,7 @@ namespace QLDSV.Forms
                 return; }
             else
             {
-                maGV = cmbGiangVien.Text;
+                maGV = cmbGiangVien.SelectedValue.ToString();
                 // lọc từ dtDSMH ra những nhóm nào mà giáo viên đá chọn, dạy môn đã chọn, vì 1 môn học 1 gv có nhiều nhóm nên ta group mh, gv,nhóm lại để lấy nhiều nhóm
                 DataTable dtNhom = null;
                /* MessageBox.Show(maMH + maGV);*/
@@ -224,8 +224,7 @@ namespace QLDSV.Forms
             String cmd = "exec sp_bangdiem '"
                         + nienKhoa + "',"
                         + hocKy + ", '"
-                        + maMH + "','"
-                        + maGV + "',"
+                        + maMH + "', "
                         + nhom;
 
              dtNhapDiem = Program.ExecSqlDataTable(cmd);

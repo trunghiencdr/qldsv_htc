@@ -31,12 +31,10 @@ namespace QLDSV.Report
         {
             this.components = new System.ComponentModel.Container();
             this.panelPD = new System.Windows.Forms.Panel();
-            this.cmbGiangVien = new System.Windows.Forms.ComboBox();
             this.cmbGiangVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dS = new QLDSV.DS();
             this.cmbMonHoc = new System.Windows.Forms.ComboBox();
             this.cmbMonHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
             this.cmbNienKhoa = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbHocKy = new System.Windows.Forms.ComboBox();
@@ -62,9 +60,7 @@ namespace QLDSV.Report
             // panelPD
             // 
             this.panelPD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.panelPD.Controls.Add(this.cmbGiangVien);
             this.panelPD.Controls.Add(this.cmbMonHoc);
-            this.panelPD.Controls.Add(this.label3);
             this.panelPD.Controls.Add(this.cmbNienKhoa);
             this.panelPD.Controls.Add(this.label1);
             this.panelPD.Controls.Add(this.cmbHocKy);
@@ -82,20 +78,6 @@ namespace QLDSV.Report
             this.panelPD.Name = "panelPD";
             this.panelPD.Size = new System.Drawing.Size(1059, 465);
             this.panelPD.TabIndex = 1;
-            // 
-            // cmbGiangVien
-            // 
-            this.cmbGiangVien.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cmbGiangVienBindingSource, "TENGV", true));
-            this.cmbGiangVien.DataSource = this.cmbGiangVienBindingSource;
-            this.cmbGiangVien.DisplayMember = "TENGV";
-            this.cmbGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbGiangVien.FormattingEnabled = true;
-            this.cmbGiangVien.Location = new System.Drawing.Point(261, 242);
-            this.cmbGiangVien.Name = "cmbGiangVien";
-            this.cmbGiangVien.Size = new System.Drawing.Size(313, 24);
-            this.cmbGiangVien.TabIndex = 25;
-            this.cmbGiangVien.ValueMember = "MAGV";
-            this.cmbGiangVien.SelectedIndexChanged += new System.EventHandler(this.cmbGiangVien_SelectedIndexChanged);
             // 
             // cmbGiangVienBindingSource
             // 
@@ -125,18 +107,6 @@ namespace QLDSV.Report
             // 
             this.cmbMonHocBindingSource.DataMember = "cmbMonHoc";
             this.cmbMonHocBindingSource.DataSource = this.dS;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(122, 240);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 23);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "GIẢNG VIÊN";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // cmbNienKhoa
             // 
@@ -194,7 +164,7 @@ namespace QLDSV.Report
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(639, 240);
+            this.label2.Location = new System.Drawing.Point(639, 193);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 23);
@@ -216,7 +186,7 @@ namespace QLDSV.Report
             "6",
             "7",
             "8"});
-            this.cmbNhom.Location = new System.Drawing.Point(723, 238);
+            this.cmbNhom.Location = new System.Drawing.Point(723, 193);
             this.cmbNhom.Margin = new System.Windows.Forms.Padding(4);
             this.cmbNhom.Name = "cmbNhom";
             this.cmbNhom.Size = new System.Drawing.Size(174, 27);
@@ -355,7 +325,6 @@ namespace QLDSV.Report
         private System.Windows.Forms.ComboBox cmbHocKy;
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cmbNienKhoa;
         private System.Windows.Forms.BindingSource cmbMonHocBindingSource;
         private DS dS;
@@ -364,6 +333,5 @@ namespace QLDSV.Report
         private System.Windows.Forms.ComboBox cmbMonHoc;
         private System.Windows.Forms.BindingSource cmbGiangVienBindingSource;
         private DSTableAdapters.cmbGiangVienTableAdapter cmbGiangVienTableAdapter;
-        private System.Windows.Forms.ComboBox cmbGiangVien;
     }
 }

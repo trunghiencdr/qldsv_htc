@@ -54,7 +54,6 @@ namespace QLDSV.Forms
             this.label4 = new System.Windows.Forms.Label();
             this.cmbNhom = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmbGiangVien = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupControlChonThongTin = new DevExpress.XtraEditors.GroupControl();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -68,6 +67,7 @@ namespace QLDSV.Forms
             this.barDockControl5 = new DevExpress.XtraBars.BarDockControl();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupControl2 = new DevExpress.XtraEditors.GroupControl();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnHuy = new System.Windows.Forms.Button();
             this.btnLuu = new System.Windows.Forms.Button();
             this.btnBatDau = new System.Windows.Forms.Button();
@@ -82,7 +82,7 @@ namespace QLDSV.Forms
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.button1 = new System.Windows.Forms.Button();
+            this.cmbGiangVien = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlChonThongTin)).BeginInit();
@@ -279,15 +279,6 @@ namespace QLDSV.Forms
             this.label5.TabIndex = 10;
             this.label5.Text = "NHÓM:";
             // 
-            // cmbGiangVien
-            // 
-            this.cmbGiangVien.FormattingEnabled = true;
-            this.cmbGiangVien.Location = new System.Drawing.Point(879, 87);
-            this.cmbGiangVien.Name = "cmbGiangVien";
-            this.cmbGiangVien.Size = new System.Drawing.Size(292, 24);
-            this.cmbGiangVien.TabIndex = 11;
-            this.cmbGiangVien.SelectedIndexChanged += new System.EventHandler(this.cmbGiangVien_SelectedIndexChanged);
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -402,6 +393,16 @@ namespace QLDSV.Forms
             this.groupControl2.TabIndex = 18;
             this.groupControl2.Text = "Điều khiển";
             this.groupControl2.Paint += new System.Windows.Forms.PaintEventHandler(this.groupControl2_Paint);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(459, 51);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "THOÁT";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnHuy
             // 
@@ -567,15 +568,14 @@ namespace QLDSV.Forms
             this.gridColumn7.VisibleIndex = 5;
             this.gridColumn7.Width = 94;
             // 
-            // button1
+            // cmbGiangVien
             // 
-            this.button1.Location = new System.Drawing.Point(459, 51);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "THOÁT";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.cmbGiangVien.FormattingEnabled = true;
+            this.cmbGiangVien.Location = new System.Drawing.Point(879, 87);
+            this.cmbGiangVien.Name = "cmbGiangVien";
+            this.cmbGiangVien.Size = new System.Drawing.Size(292, 24);
+            this.cmbGiangVien.TabIndex = 11;
+            this.cmbGiangVien.SelectedIndexChanged += new System.EventHandler(this.cmbGiangVien_SelectedIndexChanged);
             // 
             // frmDiem
             // 
@@ -631,7 +631,6 @@ namespace QLDSV.Forms
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox cmbNhom;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox cmbGiangVien;
         private System.Windows.Forms.Label label6;
         private DevExpress.XtraEditors.GroupControl groupControlChonThongTin;
         private DevExpress.XtraBars.BarButtonItem barButtonItem1;
@@ -661,5 +660,6 @@ namespace QLDSV.Forms
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraEditors.Repository.RepositoryItemTextEdit repositoryItemTextEdit1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cmbGiangVien;
     }
 }

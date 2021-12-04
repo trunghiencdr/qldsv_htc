@@ -16,7 +16,7 @@ namespace QLDSV.Report
     public partial class fmpt_BC_DKLTC : DevExpress.XtraEditors.XtraForm
     {
 
-        string nienKhoa, maMH, maGV;
+        string nienKhoa, maMH;
         int hocKy, nhom;
         
         public fmpt_BC_DKLTC()
@@ -103,43 +103,17 @@ namespace QLDSV.Report
                 hocKy = int.Parse(cmbHocKy.Text);
                 maMH = cmbMonHoc.SelectedValue.ToString();
                 nhom = int.Parse(cmbNhom.Text);
-                maGV = cmbGiangVien.SelectedValue.ToString();
             }catch(Exception ex)
             {
                 errorProvider1.SetError(this.button_IN, "Vui lòng điền đầy đủ thông tin");
                 return;
             }
 
-            /*xrp_DKLTC rpt = new xrp_DKLTC(nienKhoa, hocKy, maMH, nhom);*/
-
-
-            
-
-            xrp_SVDKLTC2 rpt = new xrp_SVDKLTC2(nienKhoa, hocKy, maMH, maGV, nhom);
+            xrp_DKLTC rpt = new xrp_DKLTC(nienKhoa, hocKy, maMH, nhom);
 
             rpt.lblKhoa.Text =  cmbKhoa.Text.ToUpper();
             rpt.lblNienKhoaHocKi.Text = "NIÊN KHÓA: " + nienKhoa + "   -   HỌC KÌ: " + hocKy;
             rpt.lblMonNhom.Text = "MÔN: " + cmbMonHoc.Text + "   -    NHÓM: " + nhom;
-            rpt.lblGiangVien.Text = "GIẢNG VIÊN: " + cmbGiangVien.Text;
-
-            string cmd = "EXEC SP_BC_SVDKLTC2 '"
-                        + nienKhoa + "', "
-                        + hocKy + ", '"
-                        + maMH + "', '"
-                        + maGV + "', "
-                        + nhom;
-            try
-            {
-                DataTable dt = Program.ExecSqlDataTable(cmd);
-                rpt.lblSoSV.Text = "SỐ SINH VIÊN ĐĂNG KÝ: "+ dt.Rows.Count;
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Lỗi chạy sp tìm số sinh viên đăng ký");
-            }
-           
-           
-            
 
             ReportPrintTool print = new ReportPrintTool(rpt);
                 print.ShowPreviewDialog();

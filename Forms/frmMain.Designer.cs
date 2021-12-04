@@ -43,6 +43,7 @@
             this.barButton_PD = new DevExpress.XtraBars.BarButtonItem();
             this.barButton_DSDHP = new DevExpress.XtraBars.BarButtonItem();
             this.barButton_BDTK = new DevExpress.XtraBars.BarButtonItem();
+            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.ribbonPage1 = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup_QuanTri = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.barButtonItem_Lop = new DevExpress.XtraBars.BarButtonItem();
@@ -69,7 +70,6 @@
             this.ribbonPageGroup_CauHinh = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.TableManager = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.barButtonItem7 = new DevExpress.XtraBars.BarButtonItem();
-            this.barButtonItem5 = new DevExpress.XtraBars.BarButtonItem();
             this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TableManager)).BeginInit();
@@ -157,7 +157,7 @@
             // 
             // barButton_DSTHM
             // 
-            this.barButton_DSTHM.Caption = "DANH SÁCH THI HẾT MÔN";
+            this.barButton_DSTHM.Caption = "DANH SÁCH ĐĂNG KÝ LỚP";
             this.barButton_DSTHM.Id = 16;
             this.barButton_DSTHM.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButton_DSTHM.ImageOptions.Image")));
             this.barButton_DSTHM.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButton_DSTHM.ImageOptions.LargeImage")));
@@ -214,6 +214,17 @@
             this.barButton_BDTK.LargeWidth = 100;
             this.barButton_BDTK.Name = "barButton_BDTK";
             this.barButton_BDTK.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButton_BDTK_ItemClick);
+            // 
+            // barButtonItem5
+            // 
+            this.barButtonItem5.Caption = "DANH SÁCH LỚP TÍN CHỈ";
+            this.barButtonItem5.Id = 28;
+            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
+            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
+            this.barButtonItem5.ItemAppearance.Normal.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold);
+            this.barButtonItem5.ItemAppearance.Normal.Options.UseFont = true;
+            this.barButtonItem5.Name = "barButtonItem5";
+            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
             // ribbonPage1
             // 
@@ -508,15 +519,6 @@
             this.barButtonItem7.ItemAppearance.Normal.Options.UseFont = true;
             this.barButtonItem7.LargeWidth = 75;
             this.barButtonItem7.Name = "barButtonItem7";
-            // 
-            // barButtonItem5
-            // 
-            this.barButtonItem5.Caption = "DANH SÁCH LỚP TÍN CHỈ";
-            this.barButtonItem5.Id = 28;
-            this.barButtonItem5.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.Image")));
-            this.barButtonItem5.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("barButtonItem5.ImageOptions.LargeImage")));
-            this.barButtonItem5.Name = "barButtonItem5";
-            this.barButtonItem5.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
             // 
             // frmMain
             // 
