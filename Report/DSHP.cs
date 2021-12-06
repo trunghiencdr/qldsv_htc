@@ -65,6 +65,8 @@ namespace QLDSV.Report
                 }
                 dataReader.Close();
                 report.lblKhoa.Text = makhoa;
+                report.lblHocKi.Text = hocky.ToString();
+                report.lblNienKhoa.Text = nienkhoa;
             }
             catch (Exception ex)
             {
