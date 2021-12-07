@@ -45,6 +45,8 @@ namespace QLDSV.Report
             this.crossTabHeaderStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.crossTabTotalStyle = new DevExpress.XtraReports.UI.XRControlStyle();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.lblKhoa = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblLopKhoaHoc = new DevExpress.XtraReports.UI.XRLabel();
             this.label1 = new DevExpress.XtraReports.UI.XRLabel();
             this.Detail = new DevExpress.XtraReports.UI.DetailBand();
             this.crossTab1 = new DevExpress.XtraReports.UI.XRCrossTab();
@@ -63,8 +65,6 @@ namespace QLDSV.Report
             this.PageFooter = new DevExpress.XtraReports.UI.PageFooterBand();
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
-            this.lblLopKhoaHoc = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblKhoa = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.crossTab1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
@@ -121,6 +121,30 @@ namespace QLDSV.Report
             this.ReportHeader.HeightF = 210.013F;
             this.ReportHeader.Name = "ReportHeader";
             // 
+            // lblKhoa
+            // 
+            this.lblKhoa.Font = new System.Drawing.Font("Arial", 11F);
+            this.lblKhoa.LocationFloat = new DevExpress.Utils.PointFloat(152.5F, 125.8333F);
+            this.lblKhoa.Name = "lblKhoa";
+            this.lblKhoa.SizeF = new System.Drawing.SizeF(596.2656F, 30.01302F);
+            this.lblKhoa.StyleName = "TitleStyle";
+            this.lblKhoa.StylePriority.UseFont = false;
+            this.lblKhoa.StylePriority.UseTextAlignment = false;
+            this.lblKhoa.Text = "BẢNG ĐIỂM TỔNG KẾT CUỐI KHÓA";
+            this.lblKhoa.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
+            // lblLopKhoaHoc
+            // 
+            this.lblLopKhoaHoc.Font = new System.Drawing.Font("Arial", 11F);
+            this.lblLopKhoaHoc.LocationFloat = new DevExpress.Utils.PointFloat(152.5F, 95.82031F);
+            this.lblLopKhoaHoc.Name = "lblLopKhoaHoc";
+            this.lblLopKhoaHoc.SizeF = new System.Drawing.SizeF(596.2656F, 30.01302F);
+            this.lblLopKhoaHoc.StyleName = "TitleStyle";
+            this.lblLopKhoaHoc.StylePriority.UseFont = false;
+            this.lblLopKhoaHoc.StylePriority.UseTextAlignment = false;
+            this.lblLopKhoaHoc.Text = "BẢNG ĐIỂM TỔNG KẾT CUỐI KHÓA";
+            this.lblLopKhoaHoc.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
+            // 
             // label1
             // 
             this.label1.LocationFloat = new DevExpress.Utils.PointFloat(152.5F, 37.48698F);
@@ -175,7 +199,7 @@ namespace QLDSV.Report
             crossTabRowDefinition1.Visible = false;
             this.crossTab1.RowDefinitions.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition[] {
             new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(116.6667F),
-            new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(33.33333F),
+            new DevExpress.XtraReports.UI.CrossTab.CrossTabRowDefinition(33.33332F),
             crossTabRowDefinition1});
             crossTabRowField1.FieldName = "TTSV";
             this.crossTab1.RowFields.AddRange(new DevExpress.XtraReports.UI.CrossTab.CrossTabRowField[] {
@@ -187,6 +211,7 @@ namespace QLDSV.Report
             // 
             this.xrCrossTabCell2.ColumnIndex = 1;
             this.xrCrossTabCell2.Name = "xrCrossTabCell2";
+            this.xrCrossTabCell2.NullValueText = "Chưa đăng ký";
             this.xrCrossTabCell2.RowIndex = 1;
             this.xrCrossTabCell2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
@@ -278,30 +303,6 @@ namespace QLDSV.Report
             this.pageInfo2.SizeF = new System.Drawing.SizeF(315F, 23F);
             this.pageInfo2.TextAlignment = DevExpress.XtraPrinting.TextAlignment.TopRight;
             this.pageInfo2.TextFormatString = "Page {0} of {1}";
-            // 
-            // lblLopKhoaHoc
-            // 
-            this.lblLopKhoaHoc.Font = new System.Drawing.Font("Arial", 11F);
-            this.lblLopKhoaHoc.LocationFloat = new DevExpress.Utils.PointFloat(152.5F, 95.82031F);
-            this.lblLopKhoaHoc.Name = "lblLopKhoaHoc";
-            this.lblLopKhoaHoc.SizeF = new System.Drawing.SizeF(596.2656F, 30.01302F);
-            this.lblLopKhoaHoc.StyleName = "TitleStyle";
-            this.lblLopKhoaHoc.StylePriority.UseFont = false;
-            this.lblLopKhoaHoc.StylePriority.UseTextAlignment = false;
-            this.lblLopKhoaHoc.Text = "BẢNG ĐIỂM TỔNG KẾT CUỐI KHÓA";
-            this.lblLopKhoaHoc.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
-            // 
-            // lblKhoa
-            // 
-            this.lblKhoa.Font = new System.Drawing.Font("Arial", 11F);
-            this.lblKhoa.LocationFloat = new DevExpress.Utils.PointFloat(152.5F, 125.8333F);
-            this.lblKhoa.Name = "lblKhoa";
-            this.lblKhoa.SizeF = new System.Drawing.SizeF(596.2656F, 30.01302F);
-            this.lblKhoa.StyleName = "TitleStyle";
-            this.lblKhoa.StylePriority.UseFont = false;
-            this.lblKhoa.StylePriority.UseTextAlignment = false;
-            this.lblKhoa.Text = "BẢNG ĐIỂM TỔNG KẾT CUỐI KHÓA";
-            this.lblKhoa.TextAlignment = DevExpress.XtraPrinting.TextAlignment.MiddleCenter;
             // 
             // xrp_DIEMTONGKET
             // 

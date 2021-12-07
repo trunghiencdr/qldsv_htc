@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDangNhap));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbSinhVien = new System.Windows.Forms.CheckBox();
             this.chkShowPass = new System.Windows.Forms.CheckBox();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
             this.btnThoat = new System.Windows.Forms.Button();
@@ -39,8 +40,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.cbGiangVien = new System.Windows.Forms.CheckBox();
-            this.cbSinhVien = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -48,7 +47,6 @@
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.Controls.Add(this.cbSinhVien);
-            this.groupBox1.Controls.Add(this.cbGiangVien);
             this.groupBox1.Controls.Add(this.chkShowPass);
             this.groupBox1.Controls.Add(this.cmbKhoa);
             this.groupBox1.Controls.Add(this.btnThoat);
@@ -63,6 +61,17 @@
             this.groupBox1.Size = new System.Drawing.Size(364, 294);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // cbSinhVien
+            // 
+            this.cbSinhVien.AutoSize = true;
+            this.cbSinhVien.Location = new System.Drawing.Point(101, 92);
+            this.cbSinhVien.Name = "cbSinhVien";
+            this.cbSinhVien.Size = new System.Drawing.Size(131, 27);
+            this.cbSinhVien.TabIndex = 7;
+            this.cbSinhVien.Text = "SINH VIÊN";
+            this.cbSinhVien.UseVisualStyleBackColor = true;
+            this.cbSinhVien.CheckedChanged += new System.EventHandler(this.cbSinhVien_CheckedChanged);
             // 
             // chkShowPass
             // 
@@ -159,28 +168,6 @@
             this.label4.TabIndex = 3;
             this.label4.Text = "QUẢN LÝ ĐIỂM SINH VIÊN";
             // 
-            // cbGiangVien
-            // 
-            this.cbGiangVien.AutoSize = true;
-            this.cbGiangVien.Location = new System.Drawing.Point(44, 86);
-            this.cbGiangVien.Name = "cbGiangVien";
-            this.cbGiangVien.Size = new System.Drawing.Size(142, 27);
-            this.cbGiangVien.TabIndex = 6;
-            this.cbGiangVien.Text = "GIẢNG VIÊN";
-            this.cbGiangVien.UseVisualStyleBackColor = true;
-            this.cbGiangVien.CheckedChanged += new System.EventHandler(this.cbGiangVien_CheckedChanged);
-            // 
-            // cbSinhVien
-            // 
-            this.cbSinhVien.AutoSize = true;
-            this.cbSinhVien.Location = new System.Drawing.Point(197, 86);
-            this.cbSinhVien.Name = "cbSinhVien";
-            this.cbSinhVien.Size = new System.Drawing.Size(131, 27);
-            this.cbSinhVien.TabIndex = 7;
-            this.cbSinhVien.Text = "SINH VIÊN";
-            this.cbSinhVien.UseVisualStyleBackColor = true;
-            this.cbSinhVien.CheckedChanged += new System.EventHandler(this.cbSinhVien_CheckedChanged);
-            // 
             // frmDangNhap
             // 
             this.AcceptButton = this.btnDangNhap;
@@ -218,6 +205,5 @@
         private System.Windows.Forms.Button btnThoat;
         private System.Windows.Forms.CheckBox chkShowPass;
         private System.Windows.Forms.CheckBox cbSinhVien;
-        private System.Windows.Forms.CheckBox cbGiangVien;
     }
 }
