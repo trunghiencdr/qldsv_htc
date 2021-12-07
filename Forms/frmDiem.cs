@@ -48,7 +48,7 @@ namespace QLDSV.Forms
 
             //2. load ds hoc ki vao cbb
             cmbHocKi.Items.Clear();
-            cmbHocKi.Items.AddRange(new object[] { 1,2,3,4});
+            cmbHocKi.Items.AddRange(new object[] { 1, 2, 3, 4 });
             cmbHocKi.SelectedIndex = 0;
 
 
@@ -64,18 +64,21 @@ namespace QLDSV.Forms
             this.btnHuy.Enabled = false;
 
 
+
             // LOAD các combobox vào form
             // 1. load cbb khoa
             Program.Bds_Dspm.Filter = "TENKHOA LIKE 'KHOA%'";
             Utils.BindingDataToComBo(cmbKhoa, Program.Bds_Dspm);
-            if(Program.MGroup==Program.NhomQuyen[0])//Phòng gv
+            if (Program.MGroup == Program.NhomQuyen[0])//Phòng gv
             {
                 cmbKhoa.Enabled = true;
+                cmbGiangVien.Enabled = true;
             }
-            else if(Program.MGroup==Program.NhomQuyen[1])//khoa
+            else if (Program.MGroup == Program.NhomQuyen[1])//khoa
             {
                 cmbKhoa.Enabled = false;
                 cmbKhoa.SelectedIndex = Program.MKhoa;
+                cmbGiangVien.Enabled = false;
 
             }
 
@@ -89,12 +92,45 @@ namespace QLDSV.Forms
         }
 
 
-       
 
-     
+
+
 
         private void cmbHocKi_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /* nienKhoa = cmbNienKhoa.Text;
+             if (String.IsNullOrEmpty(nienKhoa))
+             {
+                 return;
+             }
+             else
+             {
+                 hocKy = int.Parse(cmbHocKi.Text);
+
+                 // lay dsmh để dùng chung gồm malt, mh, tên mh, mã gv, nhóm
+                 String sql = "exec sp_dsmh_nhapdiem '" + nienKhoa + "', " + hocKy;
+                 SqlDataReader rd = Program.ExecSqlDataReader(sql);
+                 if (!rd.HasRows)
+                 {
+                     cmbMonHoc.DataSource = null;
+                     maMH = "";
+                     return;
+                 }
+                 dtDSMH.Load(rd);
+
+                 // group by những môn nào có cùng mã mh va tên mh
+                 DataTable dtMH = null;
+                var rows = dtDSMH.AsEnumerable()
+                     .GroupBy(r => new { Col1 = r["mamh"], Col2 = r["tenmh"] })
+                     .Select(g=>g.OrderBy(r => r["mamh"]).First());
+                 if (rows.Any())
+                     dtMH = rows.CopyToDataTable();
+                 else return;
+                 Utils.BindingDataToComboBox(cmbMonHoc, dtMH, "tenmh", "mamh");
+                 rd.Close();
+
+             }*/
+
             nienKhoa = cmbNienKhoa.Text;
             if (String.IsNullOrEmpty(nienKhoa))
             {
@@ -103,7 +139,7 @@ namespace QLDSV.Forms
             else
             {
                 hocKy = int.Parse(cmbHocKi.Text);
-               
+
                 // lay dsmh để dùng chung gồm malt, mh, tên mh, mã gv, nhóm
                 String sql = "exec sp_dsmh_nhapdiem '" + nienKhoa + "', " + hocKy;
                 SqlDataReader rd = Program.ExecSqlDataReader(sql);
@@ -116,14 +152,25 @@ namespace QLDSV.Forms
                 dtDSMH.Load(rd);
 
                 // group by những môn nào có cùng mã mh va tên mh
-                DataTable dtMH = null;
-               var rows = dtDSMH.AsEnumerable()
-                    .GroupBy(r => new { Col1 = r["mamh"], Col2 = r["tenmh"] })
-                    .Select(g=>g.OrderBy(r => r["mamh"]).First());
+                // lua ra ki nay co nhung giang vien nao thi group by lai
+                // neu dang nhap o gr Khoa thì tắt cmb giang vien di
+                if (Program.MGroup == Program.NhomQuyen[1])// KHOA
+                {
+                    cmbGiangVien.DisplayMember = "Text";
+                    cmbGiangVien.ValueMember = "Value";
+
+                    cmbGiangVien.Items.Add(new { Text = Program.MHoten, Value = Program.UserName });
+                    cmbGiangVien.SelectedIndex = 0;
+                    return;
+                }
+                DataTable dtGV = null;
+                var rows = dtDSMH.AsEnumerable()
+                     .GroupBy(r => new { Col1 = r["magv"], Col2 = r["tengv"] })
+                     .Select(g => g.OrderBy(r => r["mamh"]).First());
                 if (rows.Any())
-                    dtMH = rows.CopyToDataTable();
+                    dtGV = rows.CopyToDataTable();
                 else return;
-                Utils.BindingDataToComboBox(cmbMonHoc, dtMH, "tenmh", "mamh");
+                Utils.BindingDataToComboBox(cmbGiangVien, dtGV, "tengv", "magv");
                 rd.Close();
 
             }
@@ -132,7 +179,7 @@ namespace QLDSV.Forms
         private void cmbMonHoc_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (cmbMonHoc.DataSource == null)
+            /*if (cmbMonHoc.DataSource == null)
             {
                 cmbGiangVien.DataSource = null;
                 return;
@@ -140,38 +187,84 @@ namespace QLDSV.Forms
             else
             {
                 maMH = cmbMonHoc.SelectedValue.ToString();
-                // lọc từ dtDSMH ra những giáo viên nào dạy môn đã chọn, vì 1 môn học có nhiều gv nên ta group mh lại để lấy gv
-                DataTable dtGV = null;
-               /* MessageBox.Show(dtDSMH.Rows.Count.ToString() + maMH);*/
-                var rows = dtDSMH.AsEnumerable()
-                        .Where(row => row.Field<String>("mamh") == maMH)
-                         .GroupBy(r => new { Col1 = r["mamh"], Col2 = r["magv"] })
-                         .Select(g => g.OrderBy(r => r["magv"]).First());
-                if (rows.Any())
-                    dtGV = rows.CopyToDataTable();
+                if (Program.NhomQuyen[1] == Program.MGroup)// nhoms quyen KHOA
+                {
+                    cmbGiangVien.Text = Program.MHoten;
+                    maGV = Program.UserName;
+                    cmbGiangVien.Enabled = false;
+
+
+                }
                 else
                 {
-                    /*MessageBox.Show("khong co giang vien");*/
-                    cmbGiangVien.DataSource = null;
-                    maGV = "";
+                    // lọc từ dtDSMH ra những giáo viên nào dạy môn đã chọn, vì 1 môn học có nhiều gv nên ta group mh lại để lấy gv
+                    DataTable dtGV = null;
+                    *//* MessageBox.Show(dtDSMH.Rows.Count.ToString() + maMH);*//*
+                    var rows = dtDSMH.AsEnumerable()
+                            .Where(row => row.Field<String>("mamh") == maMH)
+                             .GroupBy(r => new { Col1 = r["mamh"], Col2 = r["magv"] })
+                             .Select(g => g.OrderBy(r => r["magv"]).First());
+                    if (rows.Any())
+                        dtGV = rows.CopyToDataTable();
+                    else
+                    {
+                        *//*MessageBox.Show("khong co giang vien");*//*
+                        cmbGiangVien.DataSource = null;
+                        maGV = "";
+                        return;
+                    }
+
+                    Utils.BindingDataToComboBox(cmbGiangVien, dtGV, "tengv", "MAGV");
+                }
+            }*/
+
+
+            if (cmbMonHoc.DataSource == null)
+            {
+                cmbNhom.DataSource = null;
+                return;
+            }
+            else
+            {
+
+                maMH = cmbMonHoc.SelectedValue.ToString();
+                // lọc từ dtDSMH ra những nhóm nào mà giáo viên đá chọn, dạy môn đã chọn, vì 1 môn học 1 gv có nhiều nhóm nên ta group mh, gv,nhóm lại để lấy nhiều nhóm
+                DataTable dtNhom = null;
+                MessageBox.Show(maMH + maGV);
+                var rows = dtDSMH.AsEnumerable()
+                      .Where(row => row.Field<String>("mamh") == maMH && row.Field<String>("magv") == maGV)
+                         .GroupBy(r => new { Col1 = r["mamh"], Col2 = r["magv"] })
+                         .Select(g => g.OrderBy(r => r["nhom"]).First());
+                if (rows.Any())
+                    dtNhom = rows.CopyToDataTable();
+                else
+                {
+                    cmbNhom.DataSource = null;
+                    nhom = -1;
                     return;
                 }
-                
-                Utils.BindingDataToComboBox(cmbGiangVien, dtGV, "HOTEN", "MAGV");
+
+                Utils.BindingDataToComboBox(cmbNhom, dtNhom, "nhom", null);
             }
+
         }
 
         private void cmbGiangVien_SelectedIndexChanged(object sender, EventArgs e)
         {
+            /*if(Program.MGroup == Program.NhomQuyen[1])// Khoa
+            {
+                return;
+            }
             if (cmbGiangVien.DataSource == null) {
                 cmbNhom.DataSource = null;
                 return; }
             else
             {
+                
                 maGV = cmbGiangVien.SelectedValue.ToString();
                 // lọc từ dtDSMH ra những nhóm nào mà giáo viên đá chọn, dạy môn đã chọn, vì 1 môn học 1 gv có nhiều nhóm nên ta group mh, gv,nhóm lại để lấy nhiều nhóm
                 DataTable dtNhom = null;
-               /* MessageBox.Show(maMH + maGV);*/
+               *//* MessageBox.Show(maMH + maGV);*//*
                 var rows = dtDSMH.AsEnumerable()
                       .Where(row => row.Field<String>("mamh") == maMH && row.Field<String>("magv") == maGV)
                          .GroupBy(r => new { Col1 = r["mamh"], Col2 = r["magv"], Col3 = r["nhom"] })
@@ -184,6 +277,34 @@ namespace QLDSV.Forms
                     return; }
                
                 Utils.BindingDataToComboBox(cmbNhom, dtNhom, "nhom", null);
+            }*/
+            if (cmbGiangVien.DataSource == null)// cập nhật lại cmb môn học thành rỗng nếu ko có giảng viên
+            {
+                cmbMonHoc.DataSource = null;
+                return;
+            }
+            else
+            {
+                maGV = cmbGiangVien.SelectedValue.ToString();
+
+                // lọc ra những mh nào mà gv được chọn mà giảng dạy
+                DataTable dtMH = null;
+                var rows = dtDSMH.AsEnumerable()
+                        .Where(row => row.Field<String>("magv") == maGV)
+                         .GroupBy(r => new { Col1 = r["mamh"] })
+                         .Select(g => g.OrderBy(r => r["tenmh"]).First());
+                if (rows.Any())
+                    dtMH = rows.CopyToDataTable();
+                else
+                {
+                    Console.WriteLine("khong môn học");
+                    cmbMonHoc.DataSource = null;
+                    maMH = "";
+                    return;
+                }
+
+                Utils.BindingDataToComboBox(cmbMonHoc, dtMH, "tenmh", "mamh");
+
             }
         }
 
@@ -191,6 +312,8 @@ namespace QLDSV.Forms
         {
             if (cmbNhom.DataSource == null) return;
             nhom = int.Parse(cmbNhom.Text.ToString());
+            Console.WriteLine("Nhom:" + cmbNhom.Text);
+
         }
 
         private void dANGKYGridControl_Click_1(object sender, EventArgs e)
@@ -205,8 +328,8 @@ namespace QLDSV.Forms
             errorProvider1.Clear();
 
             nienKhoa = cmbNienKhoa.Text;
-            
-            if(String.IsNullOrEmpty(nienKhoa) || hocKy ==-1 || String.IsNullOrEmpty(maMH) || String.IsNullOrEmpty(maGV) || nhom == -1)
+
+            if (String.IsNullOrEmpty(nienKhoa) || hocKy == -1 || String.IsNullOrEmpty(maMH) || String.IsNullOrEmpty(maGV) || nhom == -1)
             {
                 this.btnBatDau.Enabled = true;
                 this.btnLuu.Enabled = false;
@@ -227,7 +350,7 @@ namespace QLDSV.Forms
                         + maMH + "', "
                         + nhom;
 
-             dtNhapDiem = Program.ExecSqlDataTable(cmd);
+            dtNhapDiem = Program.ExecSqlDataTable(cmd);
             this.bdsNhapDiem.DataSource = dtNhapDiem;
 
             if (this.bdsNhapDiem.Count > 0)
@@ -252,7 +375,7 @@ namespace QLDSV.Forms
             BindingSource bdsTemp = (BindingSource)this.gridControlNhapDiem.DataSource;
             int slg = bdsTemp.Count;
             for (int i = 0; i < slg; i++)
-            { 
+            {
                 if (((DataRowView)bdsTemp[i])["DIEM_CC"].ToString() == "" || ((DataRowView)bdsTemp[i])["DIEM_GK"].ToString() == ""
                     || ((DataRowView)bdsTemp[i])["DIEM_CK"].ToString() == "")
                 {
@@ -276,14 +399,14 @@ namespace QLDSV.Forms
                 errorProvider1.SetError(this.btnBatDau, "Các trường thông tin nhập điểm không được để trống !");
                 return;
             }
-           /* if (checkEmptyRow())
-            {
-                this.btnBatDau.Enabled = false;
-                this.btnLuu.Enabled = true;
-                errorProvider1.SetError(this.btnLuu, "Bạn chưa nhập hết bản điểm cho sinh viên !");
-                return;
-            }*/
-            if(true)
+            /* if (checkEmptyRow())
+             {
+                 this.btnBatDau.Enabled = false;
+                 this.btnLuu.Enabled = true;
+                 errorProvider1.SetError(this.btnLuu, "Bạn chưa nhập hết bản điểm cho sinh viên !");
+                 return;
+             }*/
+            if (true)
             {
                 //get binding source từ gridcontrol
                 BindingSource bdsTemp = (BindingSource)this.gridControlNhapDiem.DataSource;
@@ -328,7 +451,7 @@ namespace QLDSV.Forms
                             cmd.Parameters.Add(new SqlParameter("@DIEM_CC", diemCC));
 
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             cmd.Parameters.Add(new SqlParameter("@DIEM_CC", DBNull.Value));
                         }
@@ -355,8 +478,8 @@ namespace QLDSV.Forms
                         {
                             cmd.Parameters.Add(new SqlParameter("@DIEM_CK", DBNull.Value));
                         }
-                       
-                      
+
+
 
                         cmd.ExecuteNonQuery();
 
@@ -406,11 +529,11 @@ namespace QLDSV.Forms
         private void gridView1_ValidatingEditor(object sender, DevExpress.XtraEditors.Controls.BaseContainerValidateEditorEventArgs e)
         {
 
-           
+
 
             GridView view = sender as GridView;
             int row = view.FocusedRowHandle;
-            if(view.FocusedColumn.FieldName == "DIEM_CC")
+            if (view.FocusedColumn.FieldName == "DIEM_CC")
             {
                 int diem = 0;
                 if (string.IsNullOrEmpty(e.Value as string))
@@ -430,7 +553,7 @@ namespace QLDSV.Forms
                     e.ErrorText = "Điểm phải lớn hơn không và nhỏ hơn 10";
                 }
             }
-            else if (view.FocusedColumn.FieldName == "DIEM_GK"  || view.FocusedColumn.FieldName == "DIEM_CK")
+            else if (view.FocusedColumn.FieldName == "DIEM_GK" || view.FocusedColumn.FieldName == "DIEM_CK")
             {
                 double diem = 0;
                 if (string.IsNullOrEmpty(e.Value as string))
@@ -439,7 +562,7 @@ namespace QLDSV.Forms
                 {
                     diem = double.Parse(e.Value.ToString());
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     e.Valid = false;
                     e.ErrorText = "Điểm phải là một số";
@@ -449,15 +572,15 @@ namespace QLDSV.Forms
                     e.Valid = false;
                     e.ErrorText = "Điểm phải lớn hơn không và nhỏ hơn 10";
                 }
-                
+
 
 
             }
 
 
-            
 
-            
+
+
 
 
         }
@@ -466,7 +589,7 @@ namespace QLDSV.Forms
         private void gridView1_CellValueChanged(object sender, DevExpress.XtraGrid.Views.Base.CellValueChangedEventArgs e)
         {
 
-          
+
             if (e.Value == null || e.Value.ToString() == "") return;
 
             double diemCC = 0;
@@ -491,7 +614,7 @@ namespace QLDSV.Forms
             else
             {
                 diemGK = Math.Round(Convert.ToDouble(gridView1.GetRowCellValue(e.RowHandle, "DIEM_GK")), 1, MidpointRounding.AwayFromZero);
-               
+
             }
 
             if (gridView1.GetRowCellValue(e.RowHandle, "DIEM_CK") is DBNull)
@@ -501,7 +624,7 @@ namespace QLDSV.Forms
             else
             {
                 diemCK = Math.Round(Convert.ToDouble(gridView1.GetRowCellValue(e.RowHandle, "DIEM_CK")), 1, MidpointRounding.AwayFromZero);
-             
+
             }
 
             double diemTong = diemCC * 0.1 + diemGK * 0.3 + diemCK * 0.6;
@@ -510,7 +633,7 @@ namespace QLDSV.Forms
             // tránh bị đệ quy khi thay đổi giá trị gridView
             if (!columnPre.Equals(e.Column.FieldName))
             {
-                
+
                 switch (e.Column.FieldName)
                 {
                     case "DIEM_GK":
@@ -522,13 +645,13 @@ namespace QLDSV.Forms
                         this.gridView1.SetRowCellValue(e.RowHandle, "DIEM_CK", diemCK);
                         break;
                 }
-                
+
             }
-            Console.WriteLine("Vao changed:"); 
+            Console.WriteLine("Vao changed:");
 
             if (e.Column.FieldName.ToString() == "DIEM_CC" || e.Column.FieldName.ToString() == "DIEM_GK" || e.Column.FieldName.ToString() == "DIEM_CK")
                 this.gridView1.SetRowCellValue(e.RowHandle, "DIEM_TONG", diemTong);
-          
+
 
 
 
@@ -563,7 +686,7 @@ namespace QLDSV.Forms
 
         private void cmbNienKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void groupControl2_Paint(object sender, PaintEventArgs e)
@@ -577,6 +700,6 @@ namespace QLDSV.Forms
         }
     }
 
-       
-    
+
+
 }

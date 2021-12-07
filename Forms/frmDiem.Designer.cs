@@ -56,6 +56,7 @@ namespace QLDSV.Forms
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupControlChonThongTin = new DevExpress.XtraEditors.GroupControl();
+            this.cmbGiangVien = new System.Windows.Forms.ComboBox();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem2 = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem3 = new DevExpress.XtraBars.BarButtonItem();
@@ -82,7 +83,6 @@ namespace QLDSV.Forms
             this.repositoryItemTextEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemTextEdit();
             this.gridColumn6 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn7 = new DevExpress.XtraGrid.Columns.GridColumn();
-            this.cmbGiangVien = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bdsNhapDiem)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlChonThongTin)).BeginInit();
@@ -191,6 +191,7 @@ namespace QLDSV.Forms
             // 
             // cmbKhoa
             // 
+            this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKhoa.FormattingEnabled = true;
             this.cmbKhoa.Location = new System.Drawing.Point(529, 35);
             this.cmbKhoa.Name = "cmbKhoa";
@@ -209,6 +210,7 @@ namespace QLDSV.Forms
             // 
             // cmbNienKhoa
             // 
+            this.cmbNienKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNienKhoa.FormattingEnabled = true;
             this.cmbNienKhoa.Location = new System.Drawing.Point(133, 87);
             this.cmbNienKhoa.Name = "cmbNienKhoa";
@@ -227,6 +229,7 @@ namespace QLDSV.Forms
             // 
             // cmbHocKi
             // 
+            this.cmbHocKi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHocKi.FormattingEnabled = true;
             this.cmbHocKi.Location = new System.Drawing.Point(133, 132);
             this.cmbHocKi.Name = "cmbHocKi";
@@ -245,6 +248,7 @@ namespace QLDSV.Forms
             // 
             // cmbMonHoc
             // 
+            this.cmbMonHoc.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMonHoc.FormattingEnabled = true;
             this.cmbMonHoc.Location = new System.Drawing.Point(133, 180);
             this.cmbMonHoc.Name = "cmbMonHoc";
@@ -263,6 +267,7 @@ namespace QLDSV.Forms
             // 
             // cmbNhom
             // 
+            this.cmbNhom.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNhom.FormattingEnabled = true;
             this.cmbNhom.Location = new System.Drawing.Point(879, 136);
             this.cmbNhom.Name = "cmbNhom";
@@ -310,6 +315,16 @@ namespace QLDSV.Forms
             this.groupControlChonThongTin.Size = new System.Drawing.Size(1247, 266);
             this.groupControlChonThongTin.TabIndex = 0;
             this.groupControlChonThongTin.Text = "NHẬP ĐIỂM MÔN HỌC";
+            // 
+            // cmbGiangVien
+            // 
+            this.cmbGiangVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbGiangVien.FormattingEnabled = true;
+            this.cmbGiangVien.Location = new System.Drawing.Point(879, 87);
+            this.cmbGiangVien.Name = "cmbGiangVien";
+            this.cmbGiangVien.Size = new System.Drawing.Size(292, 24);
+            this.cmbGiangVien.TabIndex = 11;
+            this.cmbGiangVien.SelectedIndexChanged += new System.EventHandler(this.cmbGiangVien_SelectedIndexChanged);
             // 
             // barButtonItem1
             // 
@@ -567,15 +582,6 @@ namespace QLDSV.Forms
             this.gridColumn7.Visible = true;
             this.gridColumn7.VisibleIndex = 5;
             this.gridColumn7.Width = 94;
-            // 
-            // cmbGiangVien
-            // 
-            this.cmbGiangVien.FormattingEnabled = true;
-            this.cmbGiangVien.Location = new System.Drawing.Point(879, 87);
-            this.cmbGiangVien.Name = "cmbGiangVien";
-            this.cmbGiangVien.Size = new System.Drawing.Size(292, 24);
-            this.cmbGiangVien.TabIndex = 11;
-            this.cmbGiangVien.SelectedIndexChanged += new System.EventHandler(this.cmbGiangVien_SelectedIndexChanged);
             // 
             // frmDiem
             // 
