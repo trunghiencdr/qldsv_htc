@@ -357,5 +357,15 @@ namespace QLDSV.Forms
                 this.txtMaKhoa.EditValue = Utils.GetMaKhoa();
             }
         }
+
+        private void barBtnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            LOPTINCHIBindingSource.CancelEdit();
+            if (barBtnThem.Enabled == false) LOPTINCHIBindingSource.Position = _positionLopTC;
+            lOPTINCHIGridControl.Enabled = true;
+            grbLTC.Enabled = true;
+            barBtnThem.Enabled = barBtnSua.Enabled = barBtnXoa.Enabled = barBtnLamMoi.Enabled = barBtnThoat.Enabled = true;
+            barBtnGhi.Enabled = barBtnUndo.Enabled = false;
+        }
     }
 }

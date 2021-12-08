@@ -20,15 +20,28 @@ namespace QLDSV.Report
             InitializeComponent();
         }
 
+        public void initData()
+        {
+            cmbNienkhoa.DataSource = null;
+
+            cmbHocki.SelectedIndex = 0;
+
+            nienkhoa = "";
+            hocki = cmbHocki.Text;
+            // 1. load ds nien khoa vao cbb
+            Utils.BindingSqlToComboBox(cmbNienkhoa, "exec sp_ds_nienkhoa", "nienkhoa", null);
+
+
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            nienkhoa = txtNienKhoa.Text;
-            hocki = spinEditHocky.Text;
+            nienkhoa = cmbNienkhoa.Text;
+            hocki = cmbHocki.Text;
 
             XtraReport_DanhSachLopTinChi rpt = new XtraReport_DanhSachLopTinChi(nienkhoa, hocki);
             rpt.xrLabelKhoa.Text = cmbKhoa.Text;
-            rpt.xrLabelNienkhoa.Text = txtNienKhoa.Text;
-            rpt.xrLabelHocky.Text = spinEditHocky.Text;
+            rpt.xrLabelNienkhoa.Text = cmbNienkhoa.Text;
+            rpt.xrLabelHocky.Text = cmbHocki.Text;
             ReportPrintTool p = new ReportPrintTool(rpt);
             
             p.ShowPreviewDialog();
@@ -63,6 +76,21 @@ namespace QLDSV.Report
 
         }
 
+        private void cmbNienkhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbNienkhoa.DataSource == null)
+            {
+                return;
+            }
+            nienkhoa = cmbNienkhoa.Text;
+            hocki = cmbHocki.Text;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void cmbKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
             // TODO : Chuyển Bộ Phận
@@ -79,7 +107,7 @@ namespace QLDSV.Report
 
             }
 
-
+            initData();
         }
     }
 }

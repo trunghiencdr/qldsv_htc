@@ -25,7 +25,7 @@ namespace QLDSV
             
             //string chuoiketnoi = "Data Source=DESKTOP-EA82EVS;Initial Catalog=" + Program.Database + ";Integrated Security=True";
             //string chuoiketnoi = "Data Source=LAPTOP-COIEBNU4\\MHUAN;Initial Catalog=" + Program.Database + ";Integrated Security=True";
-            string chuoiketnoi = "Data Source=DESKTOP-EA82EVS;Initial Catalog=" + Program.Database + ";Integrated Security=True";
+            string chuoiketnoi = "Data Source=NHAN;Initial Catalog=" + Program.Database + ";Integrated Security=True";
           
             Program.Conn.ConnectionString = chuoiketnoi;
             txtLogin.Text = "ptl";

@@ -413,7 +413,12 @@ namespace QLDSV.Forms
 
         private void barBtnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            lOPBindingSource.CancelEdit();
+            if (barBtnThem.Enabled == false) lOPBindingSource.Position = _positionLop;
+            lOPGridControl.Enabled = true;
+            grbNhapLop.Enabled = true;
+            barBtnThem.Enabled = barBtnSua.Enabled = barBtnXoa.Enabled = barBtnLamMoi.Enabled = barBtnThoat.Enabled = true;
+            barBtnGhi.Enabled = barBtnUndo.Enabled = false;
         }
 
         private void label2_Click(object sender, EventArgs e)

@@ -25,6 +25,7 @@ namespace QLDSV.Report
                 XtraMessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
                 return;
             }
+            initData();
         }
 
         public rptBDMH()
@@ -32,18 +33,84 @@ namespace QLDSV.Report
             InitializeComponent();
         }
 
+        public void initData()
+        {
+            cmbNienKhoa.DataSource = null;
+
+            cmbHocky.SelectedIndex = 0;
+
+            nienkhoa = "";
+            hocki = cmbHocky.Text;
+            mamh = "";
+            nhom = "";
+            // 1. load ds nien khoa vao cbb
+            Utils.BindingSqlToComboBox(cmbNienKhoa, "exec sp_ds_nienkhoa", "nienkhoa", null);
+
+
+        }
+
+        private void cmbNienKhoa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbNienKhoa.DataSource == null)
+            {
+                cmbMH.DataSource = null;
+                return;
+            }
+            nienkhoa = cmbNienKhoa.Text;
+            hocki = cmbHocky.Text;
+
+            String sql = "EXEC SP_DSMH_FILTER '" + nienkhoa + "', " + hocki;
+            Utils.BindingSqlToComboBox(cmbMH, sql, "TENMH", "MAMH");
+        }
+
+        private void cmbMH_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbMH.DataSource == null)
+            {
+                cmbNhom.DataSource = null;
+                return;
+            }
+            mamh = cmbMH.SelectedValue.ToString();
+            string sql = "EXEC SP_DSNHOM_FILTER '" + nienkhoa + "', " + hocki + ",'" + mamh + "'";
+            Utils.BindingSqlToComboBox(cmbNhom, sql, "NHOM", null);
+        }
+
+        private void cmbHocky_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            hocki = cmbHocky.Text;
+            if (cmbNienKhoa.DataSource == null)
+            {
+                return;
+            }
+            String sql = "EXEC SP_DSMH_FILTER '" + nienkhoa + "', " + hocki;
+            Utils.BindingSqlToComboBox(cmbMH, sql, "TENMH", "MAMH");
+        }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
-            nienkhoa = txtNienkhoa.Text;
-            hocki = spinEditHocKy.Text;
-            mamh = cmbMH.SelectedValue.ToString();
-            nhom = spinEditNhom.Text;
+            try
+            {
+                nienkhoa = cmbNienKhoa.Text;
+                hocki = cmbHocky.Text;
+                mamh = cmbMH.SelectedValue.ToString();
+                nhom = cmbNhom.Text;
+            }
+            catch (Exception ex)
+            {
+                errorProvider1.SetError(this.button1, "Vui lòng điền đầy đủ thông tin");
+                return;
+            }
             XtraReport_BangDiemMonHoc rpt = new XtraReport_BangDiemMonHoc( nienkhoa, hocki,mamh,nhom);
             rpt.xrLabelKhoa.Text = cmbKhoa.Text;
-            rpt.xrLabelNienkhoa.Text = txtNienkhoa.Text;
-            rpt.xrLabelHocki.Text = spinEditHocKy.Text;
+            rpt.xrLabelNienkhoa.Text = nienkhoa;
+            rpt.xrLabelHocki.Text = hocki;
             rpt.xrLabelMonhoc.Text = cmbMH.Text;
-            rpt.xrLabelNhom.Text = spinEditNhom.Text;
+            rpt.xrLabelNhom.Text = nhom;
             ReportPrintTool p = new ReportPrintTool(rpt);
 
             p.ShowPreviewDialog();
@@ -51,10 +118,7 @@ namespace QLDSV.Report
 
         private void rptBDMH_Load(object sender, EventArgs e)
         {
-            this.cmbGiangVienTableAdapter.Connection.ConnectionString = Program.URL_Connect;
-            // TODO: This line of code loads data into the 'dS.cmbGiangVien' table. You can move, or remove it, as needed.
-            this.cmbGiangVienTableAdapter.Fill(this.dS.cmbGiangVien);
-            // TODO: This line of code loads data into the 'dS.cmbGiangVien' table. You can move, or remove it, as needed.
+            
 
             this.mONHOCTableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.mONHOCTableAdapter.Fill(this.dS.MONHOC);

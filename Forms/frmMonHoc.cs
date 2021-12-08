@@ -282,7 +282,12 @@ namespace QLDSV.Forms
 
         private void barBtnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            MONHOCBindingSource.CancelEdit();
+            if (barBtnThem.Enabled == false) MONHOCBindingSource.Position = _position;
+            MONHOCGridControl.Enabled = true;
+            grbNhapMonHoc.Enabled = true;
+            barBtnThem.Enabled = barBtnSua.Enabled = barBtnXoa.Enabled = barBtnLamMoi.Enabled = barBtnThoat.Enabled = true;
+            barBtnGhi.Enabled = barBtnUndo.Enabled = false;
         }
 
         private void barBtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

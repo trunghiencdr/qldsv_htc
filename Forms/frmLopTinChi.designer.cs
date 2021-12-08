@@ -135,81 +135,90 @@ namespace QLDSV.Forms
             // mALTCLabel
             // 
             mALTCLabel.AutoSize = true;
-            mALTCLabel.Location = new System.Drawing.Point(5, 38);
+            mALTCLabel.Location = new System.Drawing.Point(4, 31);
+            mALTCLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             mALTCLabel.Name = "mALTCLabel";
-            mALTCLabel.Size = new System.Drawing.Size(57, 17);
+            mALTCLabel.Size = new System.Drawing.Size(45, 13);
             mALTCLabel.TabIndex = 0;
             mALTCLabel.Text = "Mã LTC";
             // 
             // nIENKHOALabel
             // 
             nIENKHOALabel.AutoSize = true;
-            nIENKHOALabel.Location = new System.Drawing.Point(5, 67);
+            nIENKHOALabel.Location = new System.Drawing.Point(4, 54);
+            nIENKHOALabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nIENKHOALabel.Name = "nIENKHOALabel";
-            nIENKHOALabel.Size = new System.Drawing.Size(80, 17);
+            nIENKHOALabel.Size = new System.Drawing.Size(62, 13);
             nIENKHOALabel.TabIndex = 2;
             nIENKHOALabel.Text = "Niên khóa :";
             // 
             // hOCKYLabel
             // 
             hOCKYLabel.AutoSize = true;
-            hOCKYLabel.Location = new System.Drawing.Point(5, 97);
+            hOCKYLabel.Location = new System.Drawing.Point(4, 79);
+            hOCKYLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             hOCKYLabel.Name = "hOCKYLabel";
-            hOCKYLabel.Size = new System.Drawing.Size(59, 17);
+            hOCKYLabel.Size = new System.Drawing.Size(47, 13);
             hOCKYLabel.TabIndex = 4;
             hOCKYLabel.Text = "Học kỳ :";
             // 
             // mAMHLabel
             // 
             mAMHLabel.AutoSize = true;
-            mAMHLabel.Location = new System.Drawing.Point(8, 126);
+            mAMHLabel.Location = new System.Drawing.Point(6, 102);
+            mAMHLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             mAMHLabel.Name = "mAMHLabel";
-            mAMHLabel.Size = new System.Drawing.Size(60, 17);
+            mAMHLabel.Size = new System.Drawing.Size(48, 13);
             mAMHLabel.TabIndex = 8;
             mAMHLabel.Text = "Mã MH :";
             // 
             // nHOMLabel
             // 
             nHOMLabel.AutoSize = true;
-            nHOMLabel.Location = new System.Drawing.Point(290, 38);
+            nHOMLabel.Location = new System.Drawing.Point(218, 31);
+            nHOMLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             nHOMLabel.Name = "nHOMLabel";
-            nHOMLabel.Size = new System.Drawing.Size(53, 17);
+            nHOMLabel.Size = new System.Drawing.Size(41, 13);
             nHOMLabel.TabIndex = 10;
             nHOMLabel.Text = "Nhóm :";
             // 
             // mAGVLabel
             // 
             mAGVLabel.AutoSize = true;
-            mAGVLabel.Location = new System.Drawing.Point(290, 67);
+            mAGVLabel.Location = new System.Drawing.Point(218, 54);
+            mAGVLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             mAGVLabel.Name = "mAGVLabel";
-            mAGVLabel.Size = new System.Drawing.Size(59, 17);
+            mAGVLabel.Size = new System.Drawing.Size(46, 13);
             mAGVLabel.TabIndex = 12;
             mAGVLabel.Text = "Mã GV :";
             // 
             // sOSVTOITHIEULabel
             // 
             sOSVTOITHIEULabel.AutoSize = true;
-            sOSVTOITHIEULabel.Location = new System.Drawing.Point(290, 125);
+            sOSVTOITHIEULabel.Location = new System.Drawing.Point(218, 102);
+            sOSVTOITHIEULabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             sOSVTOITHIEULabel.Name = "sOSVTOITHIEULabel";
-            sOSVTOITHIEULabel.Size = new System.Drawing.Size(109, 17);
+            sOSVTOITHIEULabel.Size = new System.Drawing.Size(83, 13);
             sOSVTOITHIEULabel.TabIndex = 14;
             sOSVTOITHIEULabel.Text = "Số SV tối thiểu :";
             // 
             // hUYLOPLabel
             // 
             hUYLOPLabel.AutoSize = true;
-            hUYLOPLabel.Location = new System.Drawing.Point(290, 169);
+            hUYLOPLabel.Location = new System.Drawing.Point(218, 137);
+            hUYLOPLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             hUYLOPLabel.Name = "hUYLOPLabel";
-            hUYLOPLabel.Size = new System.Drawing.Size(64, 17);
+            hUYLOPLabel.Size = new System.Drawing.Size(49, 13);
             hUYLOPLabel.TabIndex = 16;
             hUYLOPLabel.Text = "Hủy lớp :";
             // 
             // mAKHOALabel
             // 
             mAKHOALabel.AutoSize = true;
-            mAKHOALabel.Location = new System.Drawing.Point(290, 99);
+            mAKHOALabel.Location = new System.Drawing.Point(218, 80);
+            mAKHOALabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             mAKHOALabel.Name = "mAKHOALabel";
-            mAKHOALabel.Size = new System.Drawing.Size(70, 17);
+            mAKHOALabel.Size = new System.Drawing.Size(55, 13);
             mAKHOALabel.TabIndex = 17;
             mAKHOALabel.Text = "Mã khoa :";
             // 
@@ -283,6 +292,7 @@ namespace QLDSV.Forms
             this.barBtnUndo.Id = 3;
             this.barBtnUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnUndo.ImageOptions.SvgImage")));
             this.barBtnUndo.Name = "barBtnUndo";
+            this.barBtnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUndo_ItemClick);
             // 
             // barBtnGhi
             // 
@@ -322,51 +332,49 @@ namespace QLDSV.Forms
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManagerSinhVien;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlTop.Size = new System.Drawing.Size(1384, 30);
+            this.barDockControlTop.Size = new System.Drawing.Size(1038, 24);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.barDockControlBottom.Location = new System.Drawing.Point(0, 775);
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 630);
             this.barDockControlBottom.Manager = this.barManagerSinhVien;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlBottom.Size = new System.Drawing.Size(1384, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1038, 0);
             // 
             // barDockControlLeft
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
             this.barDockControlLeft.Manager = this.barManagerSinhVien;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 745);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 606);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(1384, 30);
+            this.barDockControlRight.Location = new System.Drawing.Point(1038, 24);
             this.barDockControlRight.Manager = this.barManagerSinhVien;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 745);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 606);
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.lblTenKhoa);
             this.panel1.Controls.Add(this.cmbKhoa);
-            this.panel1.Location = new System.Drawing.Point(0, 38);
+            this.panel1.Location = new System.Drawing.Point(0, 31);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1364, 45);
+            this.panel1.Size = new System.Drawing.Size(1023, 37);
             this.panel1.TabIndex = 4;
             // 
             // lblTenKhoa
             // 
             this.lblTenKhoa.AutoSize = true;
-            this.lblTenKhoa.Location = new System.Drawing.Point(569, 18);
+            this.lblTenKhoa.Location = new System.Drawing.Point(427, 15);
+            this.lblTenKhoa.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTenKhoa.Name = "lblTenKhoa";
-            this.lblTenKhoa.Size = new System.Drawing.Size(47, 17);
+            this.lblTenKhoa.Size = new System.Drawing.Size(37, 13);
             this.lblTenKhoa.TabIndex = 1;
             this.lblTenKhoa.Text = "KHOA";
             // 
@@ -374,9 +382,10 @@ namespace QLDSV.Forms
             // 
             this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKhoa.FormattingEnabled = true;
-            this.cmbKhoa.Location = new System.Drawing.Point(665, 15);
+            this.cmbKhoa.Location = new System.Drawing.Point(499, 12);
+            this.cmbKhoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbKhoa.Name = "cmbKhoa";
-            this.cmbKhoa.Size = new System.Drawing.Size(228, 24);
+            this.cmbKhoa.Size = new System.Drawing.Size(172, 21);
             this.cmbKhoa.TabIndex = 0;
             this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             this.cmbKhoa.Click += new System.EventHandler(this.cmbKhoa_Click);
@@ -411,11 +420,13 @@ namespace QLDSV.Forms
             // lOPTINCHIGridControl
             // 
             this.lOPTINCHIGridControl.DataSource = this.LOPTINCHIBindingSource;
-            this.lOPTINCHIGridControl.Location = new System.Drawing.Point(0, 89);
+            this.lOPTINCHIGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.lOPTINCHIGridControl.Location = new System.Drawing.Point(0, 72);
             this.lOPTINCHIGridControl.MainView = this.gridView1;
+            this.lOPTINCHIGridControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.lOPTINCHIGridControl.MenuManager = this.barManagerSinhVien;
             this.lOPTINCHIGridControl.Name = "lOPTINCHIGridControl";
-            this.lOPTINCHIGridControl.Size = new System.Drawing.Size(1364, 178);
+            this.lOPTINCHIGridControl.Size = new System.Drawing.Size(1023, 145);
             this.lOPTINCHIGridControl.TabIndex = 6;
             this.lOPTINCHIGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -432,6 +443,7 @@ namespace QLDSV.Forms
             this.colMAKHOA,
             this.colSOSVTOITHIEU,
             this.colHUYLOP});
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.lOPTINCHIGridControl;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsBehavior.Editable = false;
@@ -440,83 +452,83 @@ namespace QLDSV.Forms
             // colMALTC
             // 
             this.colMALTC.FieldName = "MALTC";
-            this.colMALTC.MinWidth = 25;
+            this.colMALTC.MinWidth = 19;
             this.colMALTC.Name = "colMALTC";
             this.colMALTC.Visible = true;
             this.colMALTC.VisibleIndex = 0;
-            this.colMALTC.Width = 94;
+            this.colMALTC.Width = 70;
             // 
             // colNIENKHOA
             // 
             this.colNIENKHOA.FieldName = "NIENKHOA";
-            this.colNIENKHOA.MinWidth = 25;
+            this.colNIENKHOA.MinWidth = 19;
             this.colNIENKHOA.Name = "colNIENKHOA";
             this.colNIENKHOA.Visible = true;
             this.colNIENKHOA.VisibleIndex = 1;
-            this.colNIENKHOA.Width = 94;
+            this.colNIENKHOA.Width = 70;
             // 
             // colHOCKY
             // 
             this.colHOCKY.FieldName = "HOCKY";
-            this.colHOCKY.MinWidth = 25;
+            this.colHOCKY.MinWidth = 19;
             this.colHOCKY.Name = "colHOCKY";
             this.colHOCKY.Visible = true;
             this.colHOCKY.VisibleIndex = 2;
-            this.colHOCKY.Width = 94;
+            this.colHOCKY.Width = 70;
             // 
             // colMAMH
             // 
             this.colMAMH.FieldName = "MAMH";
-            this.colMAMH.MinWidth = 25;
+            this.colMAMH.MinWidth = 19;
             this.colMAMH.Name = "colMAMH";
             this.colMAMH.Visible = true;
             this.colMAMH.VisibleIndex = 3;
-            this.colMAMH.Width = 94;
+            this.colMAMH.Width = 70;
             // 
             // colNHOM
             // 
             this.colNHOM.FieldName = "NHOM";
-            this.colNHOM.MinWidth = 25;
+            this.colNHOM.MinWidth = 19;
             this.colNHOM.Name = "colNHOM";
             this.colNHOM.Visible = true;
             this.colNHOM.VisibleIndex = 4;
-            this.colNHOM.Width = 94;
+            this.colNHOM.Width = 70;
             // 
             // colMAGV
             // 
             this.colMAGV.FieldName = "MAGV";
-            this.colMAGV.MinWidth = 25;
+            this.colMAGV.MinWidth = 19;
             this.colMAGV.Name = "colMAGV";
             this.colMAGV.Visible = true;
             this.colMAGV.VisibleIndex = 5;
-            this.colMAGV.Width = 94;
+            this.colMAGV.Width = 70;
             // 
             // colMAKHOA
             // 
             this.colMAKHOA.FieldName = "MAKHOA";
-            this.colMAKHOA.MinWidth = 25;
+            this.colMAKHOA.MinWidth = 19;
             this.colMAKHOA.Name = "colMAKHOA";
             this.colMAKHOA.Visible = true;
             this.colMAKHOA.VisibleIndex = 6;
-            this.colMAKHOA.Width = 94;
+            this.colMAKHOA.Width = 70;
             // 
             // colSOSVTOITHIEU
             // 
             this.colSOSVTOITHIEU.FieldName = "SOSVTOITHIEU";
-            this.colSOSVTOITHIEU.MinWidth = 25;
+            this.colSOSVTOITHIEU.MinWidth = 19;
             this.colSOSVTOITHIEU.Name = "colSOSVTOITHIEU";
             this.colSOSVTOITHIEU.Visible = true;
             this.colSOSVTOITHIEU.VisibleIndex = 7;
-            this.colSOSVTOITHIEU.Width = 94;
+            this.colSOSVTOITHIEU.Width = 70;
             // 
             // colHUYLOP
             // 
             this.colHUYLOP.FieldName = "HUYLOP";
-            this.colHUYLOP.MinWidth = 25;
+            this.colHUYLOP.MinWidth = 19;
             this.colHUYLOP.Name = "colHUYLOP";
             this.colHUYLOP.Visible = true;
             this.colHUYLOP.VisibleIndex = 8;
-            this.colHUYLOP.Width = 94;
+            this.colHUYLOP.Width = 70;
             // 
             // DANGKYBindingSource
             // 
@@ -547,9 +559,11 @@ namespace QLDSV.Forms
             this.grbLTC.Controls.Add(this.txtNIENKHOA);
             this.grbLTC.Controls.Add(mALTCLabel);
             this.grbLTC.Controls.Add(this.txtMaLTC);
-            this.grbLTC.Location = new System.Drawing.Point(0, 273);
+            this.grbLTC.Location = new System.Drawing.Point(0, 222);
+            this.grbLTC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.grbLTC.Name = "grbLTC";
-            this.grbLTC.Size = new System.Drawing.Size(539, 331);
+            this.grbLTC.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grbLTC.Size = new System.Drawing.Size(404, 269);
             this.grbLTC.TabIndex = 11;
             this.grbLTC.TabStop = false;
             this.grbLTC.Text = "Thông tin lớp tín chỉ";
@@ -558,21 +572,23 @@ namespace QLDSV.Forms
             // 
             this.txtMaKhoa.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "MAKHOA", true));
             this.txtMaKhoa.Enabled = false;
-            this.txtMaKhoa.Location = new System.Drawing.Point(410, 94);
+            this.txtMaKhoa.Location = new System.Drawing.Point(308, 76);
+            this.txtMaKhoa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMaKhoa.MenuManager = this.barManagerSinhVien;
             this.txtMaKhoa.Name = "txtMaKhoa";
-            this.txtMaKhoa.Size = new System.Drawing.Size(125, 22);
+            this.txtMaKhoa.Size = new System.Drawing.Size(94, 20);
             this.txtMaKhoa.TabIndex = 18;
             // 
             // hUYLOPCheckEdit
             // 
             this.hUYLOPCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "HUYLOP", true));
             this.hUYLOPCheckEdit.EditValue = true;
-            this.hUYLOPCheckEdit.Location = new System.Drawing.Point(410, 165);
+            this.hUYLOPCheckEdit.Location = new System.Drawing.Point(308, 134);
+            this.hUYLOPCheckEdit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.hUYLOPCheckEdit.MenuManager = this.barManagerSinhVien;
             this.hUYLOPCheckEdit.Name = "hUYLOPCheckEdit";
             this.hUYLOPCheckEdit.Properties.Caption = "Lop bi huy";
-            this.hUYLOPCheckEdit.Size = new System.Drawing.Size(94, 24);
+            this.hUYLOPCheckEdit.Size = new System.Drawing.Size(70, 20);
             this.hUYLOPCheckEdit.TabIndex = 17;
             // 
             // txtSOSV
@@ -583,12 +599,13 @@ namespace QLDSV.Forms
             0,
             0,
             0});
-            this.txtSOSV.Location = new System.Drawing.Point(410, 122);
+            this.txtSOSV.Location = new System.Drawing.Point(308, 99);
+            this.txtSOSV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtSOSV.MenuManager = this.barManagerSinhVien;
             this.txtSOSV.Name = "txtSOSV";
             this.txtSOSV.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtSOSV.Size = new System.Drawing.Size(125, 24);
+            this.txtSOSV.Size = new System.Drawing.Size(94, 20);
             this.txtSOSV.TabIndex = 15;
             // 
             // cmbMAGV
@@ -597,9 +614,10 @@ namespace QLDSV.Forms
             this.cmbMAGV.DataSource = this.gIANGVIENBindingSource;
             this.cmbMAGV.DisplayMember = "MAGV";
             this.cmbMAGV.FormattingEnabled = true;
-            this.cmbMAGV.Location = new System.Drawing.Point(410, 64);
+            this.cmbMAGV.Location = new System.Drawing.Point(308, 52);
+            this.cmbMAGV.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbMAGV.Name = "cmbMAGV";
-            this.cmbMAGV.Size = new System.Drawing.Size(125, 24);
+            this.cmbMAGV.Size = new System.Drawing.Size(95, 21);
             this.cmbMAGV.TabIndex = 13;
             this.cmbMAGV.ValueMember = "MAGV";
             // 
@@ -616,12 +634,13 @@ namespace QLDSV.Forms
             0,
             0,
             0});
-            this.txtNHOM.Location = new System.Drawing.Point(410, 34);
+            this.txtNHOM.Location = new System.Drawing.Point(308, 28);
+            this.txtNHOM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNHOM.MenuManager = this.barManagerSinhVien;
             this.txtNHOM.Name = "txtNHOM";
             this.txtNHOM.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtNHOM.Size = new System.Drawing.Size(125, 24);
+            this.txtNHOM.Size = new System.Drawing.Size(94, 20);
             this.txtNHOM.TabIndex = 11;
             // 
             // cmbMAMH
@@ -630,9 +649,10 @@ namespace QLDSV.Forms
             this.cmbMAMH.DataSource = this.mONHOCBindingSource;
             this.cmbMAMH.DisplayMember = "MAMH";
             this.cmbMAMH.FormattingEnabled = true;
-            this.cmbMAMH.Location = new System.Drawing.Point(93, 125);
+            this.cmbMAMH.Location = new System.Drawing.Point(70, 102);
+            this.cmbMAMH.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbMAMH.Name = "cmbMAMH";
-            this.cmbMAMH.Size = new System.Drawing.Size(125, 24);
+            this.cmbMAMH.Size = new System.Drawing.Size(95, 21);
             this.cmbMAMH.TabIndex = 9;
             this.cmbMAMH.ValueMember = "MAMH";
             // 
@@ -649,21 +669,23 @@ namespace QLDSV.Forms
             0,
             0,
             0});
-            this.txtHOCKI.Location = new System.Drawing.Point(93, 95);
+            this.txtHOCKI.Location = new System.Drawing.Point(70, 77);
+            this.txtHOCKI.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtHOCKI.MenuManager = this.barManagerSinhVien;
             this.txtHOCKI.Name = "txtHOCKI";
             this.txtHOCKI.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtHOCKI.Size = new System.Drawing.Size(125, 24);
+            this.txtHOCKI.Size = new System.Drawing.Size(94, 20);
             this.txtHOCKI.TabIndex = 5;
             // 
             // txtNIENKHOA
             // 
             this.txtNIENKHOA.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "NIENKHOA", true));
-            this.txtNIENKHOA.Location = new System.Drawing.Point(93, 67);
+            this.txtNIENKHOA.Location = new System.Drawing.Point(70, 54);
+            this.txtNIENKHOA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNIENKHOA.MenuManager = this.barManagerSinhVien;
             this.txtNIENKHOA.Name = "txtNIENKHOA";
-            this.txtNIENKHOA.Size = new System.Drawing.Size(125, 22);
+            this.txtNIENKHOA.Size = new System.Drawing.Size(94, 20);
             this.txtNIENKHOA.TabIndex = 3;
             // 
             // txtMaLTC
@@ -674,12 +696,13 @@ namespace QLDSV.Forms
             0,
             0,
             0});
-            this.txtMaLTC.Location = new System.Drawing.Point(93, 37);
+            this.txtMaLTC.Location = new System.Drawing.Point(70, 30);
+            this.txtMaLTC.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMaLTC.MenuManager = this.barManagerSinhVien;
             this.txtMaLTC.Name = "txtMaLTC";
             this.txtMaLTC.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.txtMaLTC.Size = new System.Drawing.Size(125, 24);
+            this.txtMaLTC.Size = new System.Drawing.Size(94, 20);
             this.txtMaLTC.TabIndex = 1;
             // 
             // errorProvider
@@ -693,11 +716,13 @@ namespace QLDSV.Forms
             // gIANGVIENGridControl
             // 
             this.gIANGVIENGridControl.DataSource = this.gIANGVIENBindingSource;
-            this.gIANGVIENGridControl.Location = new System.Drawing.Point(545, 273);
+            this.gIANGVIENGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gIANGVIENGridControl.Location = new System.Drawing.Point(409, 222);
             this.gIANGVIENGridControl.MainView = this.gridView2;
+            this.gIANGVIENGridControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.gIANGVIENGridControl.MenuManager = this.barManagerSinhVien;
             this.gIANGVIENGridControl.Name = "gIANGVIENGridControl";
-            this.gIANGVIENGridControl.Size = new System.Drawing.Size(422, 220);
+            this.gIANGVIENGridControl.Size = new System.Drawing.Size(316, 179);
             this.gIANGVIENGridControl.TabIndex = 15;
             this.gIANGVIENGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -709,6 +734,7 @@ namespace QLDSV.Forms
             this.colMAKHOA1,
             this.colHO,
             this.colTEN});
+            this.gridView2.DetailHeight = 284;
             this.gridView2.GridControl = this.gIANGVIENGridControl;
             this.gridView2.Name = "gridView2";
             this.gridView2.OptionsBehavior.Editable = false;
@@ -717,38 +743,38 @@ namespace QLDSV.Forms
             // colMAGV1
             // 
             this.colMAGV1.FieldName = "MAGV";
-            this.colMAGV1.MinWidth = 25;
+            this.colMAGV1.MinWidth = 19;
             this.colMAGV1.Name = "colMAGV1";
             this.colMAGV1.Visible = true;
             this.colMAGV1.VisibleIndex = 0;
-            this.colMAGV1.Width = 94;
+            this.colMAGV1.Width = 70;
             // 
             // colMAKHOA1
             // 
             this.colMAKHOA1.FieldName = "MAKHOA";
-            this.colMAKHOA1.MinWidth = 25;
+            this.colMAKHOA1.MinWidth = 19;
             this.colMAKHOA1.Name = "colMAKHOA1";
             this.colMAKHOA1.Visible = true;
             this.colMAKHOA1.VisibleIndex = 1;
-            this.colMAKHOA1.Width = 94;
+            this.colMAKHOA1.Width = 70;
             // 
             // colHO
             // 
             this.colHO.FieldName = "HO";
-            this.colHO.MinWidth = 25;
+            this.colHO.MinWidth = 19;
             this.colHO.Name = "colHO";
             this.colHO.Visible = true;
             this.colHO.VisibleIndex = 2;
-            this.colHO.Width = 94;
+            this.colHO.Width = 70;
             // 
             // colTEN
             // 
             this.colTEN.FieldName = "TEN";
-            this.colTEN.MinWidth = 25;
+            this.colTEN.MinWidth = 19;
             this.colTEN.Name = "colTEN";
             this.colTEN.Visible = true;
             this.colTEN.VisibleIndex = 3;
-            this.colTEN.Width = 94;
+            this.colTEN.Width = 70;
             // 
             // mONHOCTableAdapter
             // 
@@ -757,11 +783,13 @@ namespace QLDSV.Forms
             // mONHOCGridControl
             // 
             this.mONHOCGridControl.DataSource = this.mONHOCBindingSource;
-            this.mONHOCGridControl.Location = new System.Drawing.Point(973, 273);
+            this.mONHOCGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.mONHOCGridControl.Location = new System.Drawing.Point(730, 222);
             this.mONHOCGridControl.MainView = this.gridView3;
+            this.mONHOCGridControl.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.mONHOCGridControl.MenuManager = this.barManagerSinhVien;
             this.mONHOCGridControl.Name = "mONHOCGridControl";
-            this.mONHOCGridControl.Size = new System.Drawing.Size(391, 220);
+            this.mONHOCGridControl.Size = new System.Drawing.Size(293, 179);
             this.mONHOCGridControl.TabIndex = 15;
             this.mONHOCGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -771,6 +799,7 @@ namespace QLDSV.Forms
             this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colMAMH1,
             this.colTENMH});
+            this.gridView3.DetailHeight = 284;
             this.gridView3.GridControl = this.mONHOCGridControl;
             this.gridView3.Name = "gridView3";
             this.gridView3.OptionsBehavior.Editable = false;
@@ -779,26 +808,26 @@ namespace QLDSV.Forms
             // colMAMH1
             // 
             this.colMAMH1.FieldName = "MAMH";
-            this.colMAMH1.MinWidth = 25;
+            this.colMAMH1.MinWidth = 19;
             this.colMAMH1.Name = "colMAMH1";
             this.colMAMH1.Visible = true;
             this.colMAMH1.VisibleIndex = 0;
-            this.colMAMH1.Width = 94;
+            this.colMAMH1.Width = 70;
             // 
             // colTENMH
             // 
             this.colTENMH.FieldName = "TENMH";
-            this.colTENMH.MinWidth = 25;
+            this.colTENMH.MinWidth = 19;
             this.colTENMH.Name = "colTENMH";
             this.colTENMH.Visible = true;
             this.colTENMH.VisibleIndex = 1;
-            this.colTENMH.Width = 94;
+            this.colTENMH.Width = 70;
             // 
             // frmLopTinChi
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 775);
+            this.ClientSize = new System.Drawing.Size(1038, 630);
             this.Controls.Add(this.mONHOCGridControl);
             this.Controls.Add(this.gIANGVIENGridControl);
             this.Controls.Add(this.grbLTC);
@@ -808,6 +837,7 @@ namespace QLDSV.Forms
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmLopTinChi";
             this.Text = "frmLopTinChi";
             this.Load += new System.EventHandler(this.frmLopTinChi_Load);
