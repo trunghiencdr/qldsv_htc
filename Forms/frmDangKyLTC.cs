@@ -32,8 +32,8 @@ namespace QLDSV.Forms
 
             // lấy thông tin sinh viên
 
-            txtMaSV.Text = Program.MLogin;
-            txtMaLop.Text = "lop cn1";
+            txtMaSV.Text = Program.UserName;
+            txtMaLop.Text = Program.MLop;
             txtHoTen.Text = Program.MHoten;
 
 
@@ -112,6 +112,11 @@ namespace QLDSV.Forms
             }else
             {
                 XtraMessageBox.Show("Không có môn học trong thời gian này!", "", MessageBoxButtons.OK);
+                btnBatDau.Enabled = true;
+                btnLuu.Enabled = false;
+                btnHuy.Enabled = false;
+                groupControlDKMH.Enabled = true;
+                groupControlMH.Enabled = false;
                 return;
             }
             

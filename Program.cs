@@ -58,6 +58,9 @@ namespace QLDSV
         // MHoten là mã họ tên của login đăng nhập vào 
         public static String MHoten = string.Empty;
 
+        //luuw ma lop neu sv dang nhap vao
+        public static string MLop = string.Empty;
+
         //MKhoa cho biết hiện tại khoa ta đăng nhập vô là khoa nào.
         public static int MKhoa = 0;
 

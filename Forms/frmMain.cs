@@ -51,12 +51,13 @@ namespace QLDSV
                 this.barBtnDangKyLop.Enabled = true;
                 this.barBtnMoLop.Enabled = false;
 
-                this.barButton_DSDHP.Enabled = false;
+                /*this.barButton_DSDHP.Enabled = false;
                 this.barButton_DSSV.Enabled = false;
                 this.barButton_DSTHM.Enabled = false;
                 this.barButton_BDMH.Enabled = false;
                 this.barButton_PD.Enabled = false;
-                this.barButton_BDTK.Enabled = false;
+                this.barButton_BDTK.Enabled = false;*/
+                this.ribbonPageBaoCao.Visible = false;
 
             }else //gv, khoa
             {

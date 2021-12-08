@@ -174,6 +174,7 @@ namespace QLDSV
                 Program.MPassword = "123";
 
                 strLenh = "EXEC SP_DANGNHAP_SV '" + Program.MLogin + "', '" + Program.MLoginDN + "', '" + Program.PasswordDN + "'";
+              
             }
             if (Program.KetNoi() == 0)
             {
@@ -191,8 +192,10 @@ namespace QLDSV
             Program.UserName = Program.MyReader.GetString(0).ToUpper();     // Lay user name (MÃ)
             Program.MHoten = Program.MyReader.GetString(1); // Lấy họ tên
             Program.MGroup = Program.MyReader.GetString(2);
+                if(Program.MGroup == Program.NhomQuyen[2])// sinh vein
+                Program.MLop = Program.MyReader.GetString(3);
             }
-            catch (Exception ex)
+            catch (Exception ex) // khi hoten = null do sai ma sv or pass word or login vao khong dung
             {
                 Debug.WriteLine("---> Lỗi: " + ex.ToString());
                 XtraMessageBox.Show("Bạn xem lại username, password", "", MessageBoxButtons.OK);
