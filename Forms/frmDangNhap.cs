@@ -173,7 +173,7 @@ namespace QLDSV
                 Program.MLogin = "TKSV";
                 Program.MPassword = "123";
 
-                strLenh = "EXEC SP_DANGNHAP_SV2 '" + Program.MLogin + "', '" + Program.MLoginDN + "', '" + Program.PasswordDN + "'";
+                strLenh = "EXEC SP_DANGNHAP_SV '" + Program.MLogin + "', '" + Program.MLoginDN + "', '" + Program.PasswordDN + "'";
             }
             if (Program.KetNoi() == 0)
             {

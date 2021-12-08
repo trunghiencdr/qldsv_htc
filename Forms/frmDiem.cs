@@ -78,7 +78,7 @@ namespace QLDSV.Forms
             {
                 cmbKhoa.Enabled = false;
                 cmbKhoa.SelectedIndex = Program.MKhoa;
-                cmbGiangVien.Enabled = false;
+          /*      cmbGiangVien.Enabled = false;*/
 
             }
 
@@ -154,7 +154,7 @@ namespace QLDSV.Forms
                 // group by những môn nào có cùng mã mh va tên mh
                 // lua ra ki nay co nhung giang vien nao thi group by lai
                 // neu dang nhap o gr Khoa thì tắt cmb giang vien di
-                if (Program.MGroup == Program.NhomQuyen[1])// KHOA
+               /* if (Program.MGroup == Program.NhomQuyen[1])// KHOA
                 {
                     cmbGiangVien.DisplayMember = "Text";
                     cmbGiangVien.ValueMember = "Value";
@@ -162,7 +162,7 @@ namespace QLDSV.Forms
                     cmbGiangVien.Items.Add(new { Text = Program.MHoten, Value = Program.UserName });
                     cmbGiangVien.SelectedIndex = 0;
                     return;
-                }
+                }*/
                 DataTable dtGV = null;
                 var rows = dtDSMH.AsEnumerable()
                      .GroupBy(r => new { Col1 = r["magv"], Col2 = r["tengv"] })
@@ -230,7 +230,7 @@ namespace QLDSV.Forms
                 maMH = cmbMonHoc.SelectedValue.ToString();
                 // lọc từ dtDSMH ra những nhóm nào mà giáo viên đá chọn, dạy môn đã chọn, vì 1 môn học 1 gv có nhiều nhóm nên ta group mh, gv,nhóm lại để lấy nhiều nhóm
                 DataTable dtNhom = null;
-                MessageBox.Show(maMH + maGV);
+               /* MessageBox.Show(maMH + maGV);*/
                 var rows = dtDSMH.AsEnumerable()
                       .Where(row => row.Field<String>("mamh") == maMH && row.Field<String>("magv") == maGV)
                          .GroupBy(r => new { Col1 = r["mamh"], Col2 = r["magv"] })
