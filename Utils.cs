@@ -42,11 +42,12 @@ namespace QLDSV
 
         public static void BindingSqlToComboBox(ComboBox combo, String sql, String displayMember, String valueMember)
         {
+            combo.DataSource = null;
             DataTable dt = new DataTable();
             SqlDataReader reader = Program.ExecSqlDataReader(sql);
             if (!reader.HasRows)
             {
-                MessageBox.Show("doc reader khong thanh cong");
+                Console.WriteLine("doc reader load combobox khong thanh cong");
                 reader.Close();
                 return;
             }

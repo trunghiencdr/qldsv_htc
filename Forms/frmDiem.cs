@@ -72,7 +72,6 @@ namespace QLDSV.Forms
             if (Program.MGroup == Program.NhomQuyen[0])//Phòng gv
             {
                 cmbKhoa.Enabled = true;
-                cmbGiangVien.Enabled = true;
             }
             else if (Program.MGroup == Program.NhomQuyen[1])//khoa
             {
@@ -145,8 +144,8 @@ namespace QLDSV.Forms
                 SqlDataReader rd = Program.ExecSqlDataReader(sql);
                 if (!rd.HasRows)
                 {
-                    cmbMonHoc.DataSource = null;
-                    maMH = "";
+                    cmbGiangVien.DataSource = null;
+                    maGV = "";
                     return;
                 }
                 dtDSMH.Load(rd);

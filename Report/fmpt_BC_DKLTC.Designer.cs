@@ -31,10 +31,9 @@ namespace QLDSV.Report
         {
             this.components = new System.ComponentModel.Container();
             this.panelPD = new System.Windows.Forms.Panel();
-            this.cmbGiangVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dS = new QLDSV.DS();
             this.cmbMonHoc = new System.Windows.Forms.ComboBox();
             this.cmbMonHocBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dS = new QLDSV.DS();
             this.cmbNienKhoa = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbHocKy = new System.Windows.Forms.ComboBox();
@@ -46,14 +45,15 @@ namespace QLDSV.Report
             this.label_TenLop = new System.Windows.Forms.Label();
             this.label_Khoa = new System.Windows.Forms.Label();
             this.cmbKhoa = new System.Windows.Forms.ComboBox();
+            this.cmbGiangVienBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.cmbMonHocTableAdapter = new QLDSV.DSTableAdapters.cmbMonHocTableAdapter();
             this.tableAdapterManager = new QLDSV.DSTableAdapters.TableAdapterManager();
             this.cmbGiangVienTableAdapter = new QLDSV.DSTableAdapters.cmbGiangVienTableAdapter();
             this.panelPD.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbGiangVienBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMonHocBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbGiangVienBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,16 +79,6 @@ namespace QLDSV.Report
             this.panelPD.Size = new System.Drawing.Size(1059, 465);
             this.panelPD.TabIndex = 1;
             // 
-            // cmbGiangVienBindingSource
-            // 
-            this.cmbGiangVienBindingSource.DataMember = "cmbGiangVien";
-            this.cmbGiangVienBindingSource.DataSource = this.dS;
-            // 
-            // dS
-            // 
-            this.dS.DataSetName = "DS";
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // cmbMonHoc
             // 
             this.cmbMonHoc.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cmbMonHocBindingSource, "TENMH", true));
@@ -108,22 +98,15 @@ namespace QLDSV.Report
             this.cmbMonHocBindingSource.DataMember = "cmbMonHoc";
             this.cmbMonHocBindingSource.DataSource = this.dS;
             // 
+            // dS
+            // 
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // cmbNienKhoa
             // 
+            this.cmbNienKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNienKhoa.FormattingEnabled = true;
-            this.cmbNienKhoa.Items.AddRange(new object[] {
-            "2015-2016",
-            "2016-2017",
-            "2017-2018",
-            "2018-2019",
-            "2019-2020",
-            "2020-2021",
-            "2021-2022",
-            "2022-2023",
-            "2023-2024",
-            "2024-2025",
-            "2025-2026",
-            "2026-2027"});
             this.cmbNienKhoa.Location = new System.Drawing.Point(261, 145);
             this.cmbNienKhoa.Name = "cmbNienKhoa";
             this.cmbNienKhoa.Size = new System.Drawing.Size(313, 24);
@@ -159,6 +142,7 @@ namespace QLDSV.Report
             this.cmbHocKy.Size = new System.Drawing.Size(174, 27);
             this.cmbHocKy.TabIndex = 16;
             this.cmbHocKy.ValueMember = "MALOP";
+            this.cmbHocKy.SelectedIndexChanged += new System.EventHandler(this.cmbHocKy_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -266,6 +250,11 @@ namespace QLDSV.Report
             this.cmbKhoa.TabIndex = 0;
             this.cmbKhoa.SelectedIndexChanged += new System.EventHandler(this.cmbKhoa_SelectedIndexChanged);
             // 
+            // cmbGiangVienBindingSource
+            // 
+            this.cmbGiangVienBindingSource.DataMember = "cmbGiangVien";
+            this.cmbGiangVienBindingSource.DataSource = this.dS;
+            // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
@@ -303,9 +292,9 @@ namespace QLDSV.Report
             this.Load += new System.EventHandler(this.fmpt_BC_DKLTC_Load);
             this.panelPD.ResumeLayout(false);
             this.panelPD.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbGiangVienBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbMonHocBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbGiangVienBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 

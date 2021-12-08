@@ -29,14 +29,30 @@ namespace QLDSV.Report
 
         }
 
+        public void initData()
+        {
+            cmbNienKhoa.DataSource = null;
+            
+            cmbHocKy.SelectedIndex = 0;
+           
+            nienKhoa = "";
+            hocKy = int.Parse(cmbHocKy.Text);
+            maMH = "";
+            nhom = 0;
+            // 1. load ds nien khoa vao cbb
+            Utils.BindingSqlToComboBox(cmbNienKhoa, "exec sp_ds_nienkhoa", "nienkhoa", null);
+
+
+        }
+
         private void fmpt_BC_DKLTC_Load(object sender, EventArgs e)
         {
-            cmbNienKhoa.SelectedIndex = 0;
-            cmbHocKy.SelectedIndex = 0;
-            cmbNhom.SelectedIndex = 0;
+
+            initData();
 
 
             Program.Bds_Dspm.Filter = "TENKHOA LIKE 'KHOA%'";
+
             Utils.BindingDataToComBo(cmbKhoa, Program.Bds_Dspm);
             if (Program.MGroup == Program.NhomQuyen[0])//Phòng gv
             {
@@ -72,7 +88,16 @@ namespace QLDSV.Report
 
         private void cmbNienKhoa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbNienKhoa.DataSource == null)
+            {
+                cmbMonHoc.DataSource = null;
+                return;
+            }
+            nienKhoa = cmbNienKhoa.Text;
+            hocKy = int.Parse(cmbHocKy.Text);
 
+            String sql = "EXEC SP_DSMH_FILTER '" + nienKhoa + "', " + hocKy;
+            Utils.BindingSqlToComboBox(cmbMonHoc, sql, "TENMH", "MAMH");
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -92,7 +117,25 @@ namespace QLDSV.Report
 
         private void tENMHComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cmbMonHoc.DataSource == null)
+            {
+                cmbNhom.DataSource = null;
+                return;
+            }
+            maMH = cmbMonHoc.SelectedValue.ToString();
+            string sql = "EXEC SP_DSNHOM_FILTER '" + nienKhoa + "', " + hocKy + ",'" + maMH + "'";
+            Utils.BindingSqlToComboBox(cmbNhom, sql, "NHOM", null);
+        }
 
+        private void cmbHocKy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            hocKy = int.Parse(cmbHocKy.Text);
+            if (cmbNienKhoa.DataSource == null)
+            {
+                return;
+            }
+            String sql = "EXEC SP_DSMH_FILTER '" + nienKhoa + "', " + hocKy;
+            Utils.BindingSqlToComboBox(cmbMonHoc, sql, "TENMH", "MAMH");
         }
 
         private void button_IN_Click(object sender, EventArgs e)
@@ -128,11 +171,7 @@ namespace QLDSV.Report
             {
                 XtraMessageBox.Show("Lỗi kết nối về chi nhánh mới", "", MessageBoxButtons.OK);
             }
-            this.cmbMonHocTableAdapter.Connection.ConnectionString = Program.URL_Connect;
-            this.cmbMonHocTableAdapter.Fill(this.dS.cmbMonHoc);
-
-            this.cmbGiangVienTableAdapter.Connection.ConnectionString = Program.URL_Connect;
-            this.cmbGiangVienTableAdapter.Fill(this.dS.cmbGiangVien);
+           
 
            
 

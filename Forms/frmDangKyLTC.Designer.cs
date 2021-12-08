@@ -104,6 +104,7 @@ namespace QLDSV.Forms
             // 
             // txtMaSV
             // 
+            this.txtMaSV.Enabled = false;
             this.txtMaSV.Location = new System.Drawing.Point(106, 83);
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(158, 22);
@@ -111,6 +112,7 @@ namespace QLDSV.Forms
             // 
             // txtMaLop
             // 
+            this.txtMaLop.Enabled = false;
             this.txtMaLop.Location = new System.Drawing.Point(106, 185);
             this.txtMaLop.Name = "txtMaLop";
             this.txtMaLop.Size = new System.Drawing.Size(158, 22);
@@ -118,6 +120,7 @@ namespace QLDSV.Forms
             // 
             // txtHoTen
             // 
+            this.txtHoTen.Enabled = false;
             this.txtHoTen.Location = new System.Drawing.Point(106, 130);
             this.txtHoTen.Name = "txtHoTen";
             this.txtHoTen.Size = new System.Drawing.Size(158, 22);
@@ -125,6 +128,7 @@ namespace QLDSV.Forms
             // 
             // cmbHocKi
             // 
+            this.cmbHocKi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbHocKi.FormattingEnabled = true;
             this.cmbHocKi.Location = new System.Drawing.Point(583, 156);
             this.cmbHocKi.Name = "cmbHocKi";
@@ -133,6 +137,7 @@ namespace QLDSV.Forms
             // 
             // cmbNienKhoa
             // 
+            this.cmbNienKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbNienKhoa.FormattingEnabled = true;
             this.cmbNienKhoa.Location = new System.Drawing.Point(583, 83);
             this.cmbNienKhoa.Name = "cmbNienKhoa";
