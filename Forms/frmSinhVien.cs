@@ -15,6 +15,7 @@ namespace QLDSV.Forms
         private int _positon;
         private String malop;
         private Boolean _flagUpdateSV = false;
+        private String state = "";
         public frmSinhVien()
         {
             InitializeComponent();
@@ -63,6 +64,35 @@ namespace QLDSV.Forms
                     
                 }
         }
+
+        private bool CheckMASV(string maSV)
+        {
+
+
+
+            string query1 = "DECLARE	@return_value int" +
+                            " EXEC @return_value = [dbo].[SP_CHECKID] " +
+
+                            " @Code = N'" + maSV + "', " +
+
+                            " @Type = N'MASV' " +
+                            "SELECT	'Return Value' = @return_value";
+            int resultMa = Utils.CheckDataHelper(query1);
+            if (resultMa == -1)
+            {
+                MessageBox.Show("Lỗi kết nối với database. Mời bạn xem lại", "", MessageBoxButtons.OK);
+                this.Close();
+            }
+            if (resultMa == 1 || resultMa == 2)
+            {
+                // trùng
+                return true;
+            }
+
+            // ko trùng
+            return false;
+        }
+
         private void SinhVien_Load(object sender, EventArgs e)
         {
             dS.EnforceConstraints = false;
@@ -118,8 +148,11 @@ namespace QLDSV.Forms
         private void barBtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             _positon = bdsSINHVIEN.Position;
+            this.barBtnThem.Enabled = false;
+            this.state = "INSERT";
             panelControllThongTinSV.Enabled = true;
             gcLop.Enabled = gcSinhVien.Enabled = false;
+            cmbKhoa.Enabled = false;
             this.malop = txtEditMalop.Text;
             bdsSINHVIEN.AddNew();
             mALOPTextEdit.Text = gvLop.GetRowCellValue(bdsLOP.Position, "MALOP").ToString().Trim();
@@ -134,6 +167,7 @@ namespace QLDSV.Forms
             gcLop.Enabled = gcSinhVien.Enabled = true;
             panelControllThongTinSV.Enabled = false;
             bdsSINHVIEN.CancelEdit();
+            bdsSINHVIEN.ResetCurrentItem();
             this.errorProvider.Clear();
             bdsSINHVIEN.Position = _positon;
             barBtnGhi.Enabled = false;
@@ -141,6 +175,8 @@ namespace QLDSV.Forms
             _flagUpdateSV = false;
             barBtnLamMoi.Enabled = true;
             barBtnXoa.Enabled = barBtnSua.Enabled = true;
+            cmbKhoa.Enabled = true;
+            barBtnThem.Enabled = true;
         }
         
         private Boolean ValidateInfoSINHVIEN()
@@ -165,12 +201,23 @@ namespace QLDSV.Forms
                 this.errorProvider.SetError(tENTextEdit, "Mã lớp không được để trống !");
                 check = false;
             }
+
+            if (this.state == "INSERT")
+            {
+                if (CheckMASV(masv))
+                {
+                    MessageBox.Show("Mã sinh viên bị trùng", "WARNING", MessageBoxButtons.OK);
+                    check = false;
+                }
+            }
+
             return check; 
         }
         private void barBtnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (ValidateInfoSINHVIEN())
             {
+                
                 try
                 {
                     barBtnThem.Enabled
@@ -186,9 +233,11 @@ namespace QLDSV.Forms
 
                     this.bdsSINHVIEN.EndEdit();
                     this.bdsSINHVIEN.ResetCurrentItem();// tự động render để hiển thị dữ liệu mới
+                    this.SINHVIENTableAdapter.Connection.ConnectionString = Program.URL_Connect;
                     this.SINHVIENTableAdapter.Update(this.dS.SINHVIEN);
                     
                     MessageBox.Show("Cập nhật dữ liệu thành công !");
+                    barBtnXoa.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -200,9 +249,9 @@ namespace QLDSV.Forms
                     MessageBox.Show("Ghi dữ liệu thất lại. Vui lòng kiểm tra lại!\n" + ex.Message, "Error",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                barBtnXoa.Enabled
 
-                               = barBtnUndo.Enabled
+                cmbKhoa.Enabled = true;
+                barBtnUndo.Enabled
                                = barBtnGhi.Enabled
                                = barBtnHuy.Enabled = false;
                 barBtnLamMoi.Enabled = true;
@@ -214,6 +263,7 @@ namespace QLDSV.Forms
         private void barBtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             int vitri = bdsSINHVIEN.Position;
+            this.state = "UPDATE";
             if(vitri < 0)
             {
                 MessageBox.Show("Hãy chọn sinh viên cần sửa");
@@ -229,7 +279,7 @@ namespace QLDSV.Forms
             _flagUpdateSV = true;
             barBtnLamMoi.Enabled = false;
             barBtnSua.Enabled = false;
-
+            barBtnXoa.Enabled = false;
         }
 
         private void barBtnLamMoi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -255,6 +305,52 @@ namespace QLDSV.Forms
                 }
             }
             this.Close();
+        }
+
+        private void barBtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            
+            if (MessageBox.Show("Xác nhận xóa sinh viên này ?", "Xác nhận", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                try
+                {
+                    dANGHIHOCCheckEdit.Checked = true;
+                    ((DataRowView)bdsSINHVIEN[bdsSINHVIEN.Position])["DANGHIHOC"] = true;
+                    this.bdsSINHVIEN.EndEdit();
+                    this.bdsSINHVIEN.ResetCurrentItem();
+                    this.SINHVIENTableAdapter.Connection.ConnectionString = Program.URL_Connect;
+                    this.SINHVIENTableAdapter.Update(this.dS.SINHVIEN);
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Xảy ra lỗi, vui lòng thực hiện lại. \n" + ex.Message, "ERROR", MessageBoxButtons.OK);
+                    this.SINHVIENTableAdapter.Fill(this.dS.SINHVIEN);
+                    return;
+                }
+            }
+
+
+
+            //_positon = bdsSINHVIEN.Position;
+            //if(_positon < 0)
+            //{
+            //    MessageBox.Show("Hãy chọn sinh viên cần nghỉ học!");
+            //    return;
+            //}
+            //String masv = ((DataRowView)bdsSINHVIEN[_positon])["MASV"].ToString();
+            //String query = "UPDATE SINHVIEN SET DANGHIHOC = 1 WHERE MASV = N'" + masv+"'";
+            //int result = Program.ExecSqlNonQuery(query);
+
+
+            //if(result == 0)
+            //{
+            //    MessageBox.Show("Đã cập nhật!");
+                
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Lỗi cập nhật!");
+            //}
         }
     }
 }

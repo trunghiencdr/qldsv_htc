@@ -1,4 +1,4 @@
-﻿namespace QLDSV.Report
+﻿namespace QLDSV
 {
     partial class Xrpt_SP_Danh_sach_dong_HP
     {
@@ -48,6 +48,10 @@
             this.pageInfo1 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.pageInfo2 = new DevExpress.XtraReports.UI.XRPageInfo();
             this.ReportHeader = new DevExpress.XtraReports.UI.ReportHeaderBand();
+            this.lblHocKi = new DevExpress.XtraReports.UI.XRLabel();
+            this.lblNienKhoa = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
+            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblKhoa = new DevExpress.XtraReports.UI.XRLabel();
             this.lblMaLop = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel2 = new DevExpress.XtraReports.UI.XRLabel();
@@ -68,17 +72,13 @@
             this.tableCell5 = new DevExpress.XtraReports.UI.XRTableCell();
             this.tableCell6 = new DevExpress.XtraReports.UI.XRTableCell();
             this.ReportFooter = new DevExpress.XtraReports.UI.ReportFooterBand();
+            this.lblTienChu = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel3 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel8 = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel6 = new DevExpress.XtraReports.UI.XRLabel();
             this.lblTienSo = new DevExpress.XtraReports.UI.XRLabel();
             this.xrLabel7 = new DevExpress.XtraReports.UI.XRLabel();
             this.calculatedField1 = new DevExpress.XtraReports.UI.CalculatedField();
-            this.lblTienChu = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel4 = new DevExpress.XtraReports.UI.XRLabel();
-            this.xrLabel5 = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblNienKhoa = new DevExpress.XtraReports.UI.XRLabel();
-            this.lblHocKi = new DevExpress.XtraReports.UI.XRLabel();
             ((System.ComponentModel.ISupportInitialize)(this.table1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.table2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
@@ -199,6 +199,50 @@
             this.label1});
             this.ReportHeader.HeightF = 102.5F;
             this.ReportHeader.Name = "ReportHeader";
+            // 
+            // lblHocKi
+            // 
+            this.lblHocKi.Font = new System.Drawing.Font("Times New Roman", 11F);
+            this.lblHocKi.LocationFloat = new DevExpress.Utils.PointFloat(456.0638F, 67.83333F);
+            this.lblHocKi.Multiline = true;
+            this.lblHocKi.Name = "lblHocKi";
+            this.lblHocKi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblHocKi.SizeF = new System.Drawing.SizeF(123.6998F, 23F);
+            this.lblHocKi.StylePriority.UseFont = false;
+            this.lblHocKi.Text = "lblHocKy";
+            // 
+            // lblNienKhoa
+            // 
+            this.lblNienKhoa.Font = new System.Drawing.Font("Times New Roman", 11F);
+            this.lblNienKhoa.LocationFloat = new DevExpress.Utils.PointFloat(456.0638F, 40.66666F);
+            this.lblNienKhoa.Multiline = true;
+            this.lblNienKhoa.Name = "lblNienKhoa";
+            this.lblNienKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblNienKhoa.SizeF = new System.Drawing.SizeF(123.6998F, 23F);
+            this.lblNienKhoa.StylePriority.UseFont = false;
+            this.lblNienKhoa.Text = "lblNienKhoa";
+            // 
+            // xrLabel5
+            // 
+            this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 11F);
+            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(356.0638F, 68.66666F);
+            this.xrLabel5.Multiline = true;
+            this.xrLabel5.Name = "xrLabel5";
+            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel5.SizeF = new System.Drawing.SizeF(100F, 18.00001F);
+            this.xrLabel5.StylePriority.UseFont = false;
+            this.xrLabel5.Text = "HỌC KÌ:";
+            // 
+            // xrLabel4
+            // 
+            this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 11F);
+            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(356.0638F, 40.66666F);
+            this.xrLabel4.Multiline = true;
+            this.xrLabel4.Name = "xrLabel4";
+            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 18.00001F);
+            this.xrLabel4.StylePriority.UseFont = false;
+            this.xrLabel4.Text = "NIÊN KHÓA:";
             // 
             // lblKhoa
             // 
@@ -425,6 +469,17 @@
             this.ReportFooter.HeightF = 161.8332F;
             this.ReportFooter.Name = "ReportFooter";
             // 
+            // lblTienChu
+            // 
+            this.lblTienChu.Font = new System.Drawing.Font("Times New Roman", 11F);
+            this.lblTienChu.LocationFloat = new DevExpress.Utils.PointFloat(194.1667F, 92.50002F);
+            this.lblTienChu.Multiline = true;
+            this.lblTienChu.Name = "lblTienChu";
+            this.lblTienChu.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
+            this.lblTienChu.SizeF = new System.Drawing.SizeF(422.8333F, 23.00001F);
+            this.lblTienChu.StylePriority.UseFont = false;
+            this.lblTienChu.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.lblTienChu_BeforePrint);
+            // 
             // xrLabel3
             // 
             this.xrLabel3.Font = new System.Drawing.Font("Times New Roman", 11F);
@@ -496,62 +551,6 @@
             // 
             this.calculatedField1.DataMember = "SP_Danh_sach_dong_HP";
             this.calculatedField1.Name = "calculatedField1";
-            // 
-            // lblTienChu
-            // 
-            this.lblTienChu.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblTienChu.LocationFloat = new DevExpress.Utils.PointFloat(194.1667F, 92.50002F);
-            this.lblTienChu.Multiline = true;
-            this.lblTienChu.Name = "lblTienChu";
-            this.lblTienChu.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblTienChu.SizeF = new System.Drawing.SizeF(422.8333F, 23.00001F);
-            this.lblTienChu.StylePriority.UseFont = false;
-            this.lblTienChu.Text = "Muoi bay trieu nam tram dong chan";
-            this.lblTienChu.BeforePrint += new System.Drawing.Printing.PrintEventHandler(this.lblTienChu_BeforePrint);
-            // 
-            // xrLabel4
-            // 
-            this.xrLabel4.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.xrLabel4.LocationFloat = new DevExpress.Utils.PointFloat(356.0638F, 40.66666F);
-            this.xrLabel4.Multiline = true;
-            this.xrLabel4.Name = "xrLabel4";
-            this.xrLabel4.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel4.SizeF = new System.Drawing.SizeF(100F, 18.00001F);
-            this.xrLabel4.StylePriority.UseFont = false;
-            this.xrLabel4.Text = "NIÊN KHÓA:";
-            // 
-            // xrLabel5
-            // 
-            this.xrLabel5.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.xrLabel5.LocationFloat = new DevExpress.Utils.PointFloat(356.0638F, 68.66666F);
-            this.xrLabel5.Multiline = true;
-            this.xrLabel5.Name = "xrLabel5";
-            this.xrLabel5.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.xrLabel5.SizeF = new System.Drawing.SizeF(100F, 18.00001F);
-            this.xrLabel5.StylePriority.UseFont = false;
-            this.xrLabel5.Text = "HỌC KÌ:";
-            // 
-            // lblNienKhoa
-            // 
-            this.lblNienKhoa.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblNienKhoa.LocationFloat = new DevExpress.Utils.PointFloat(456.0638F, 40.66666F);
-            this.lblNienKhoa.Multiline = true;
-            this.lblNienKhoa.Name = "lblNienKhoa";
-            this.lblNienKhoa.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblNienKhoa.SizeF = new System.Drawing.SizeF(123.6998F, 23F);
-            this.lblNienKhoa.StylePriority.UseFont = false;
-            this.lblNienKhoa.Text = "lblNienKhoa";
-            // 
-            // lblHocKi
-            // 
-            this.lblHocKi.Font = new System.Drawing.Font("Times New Roman", 11F);
-            this.lblHocKi.LocationFloat = new DevExpress.Utils.PointFloat(456.0638F, 67.83333F);
-            this.lblHocKi.Multiline = true;
-            this.lblHocKi.Name = "lblHocKi";
-            this.lblHocKi.Padding = new DevExpress.XtraPrinting.PaddingInfo(2, 2, 0, 0, 100F);
-            this.lblHocKi.SizeF = new System.Drawing.SizeF(123.6998F, 23F);
-            this.lblHocKi.StylePriority.UseFont = false;
-            this.lblHocKi.Text = "lblHocKy";
             // 
             // Xrpt_SP_Danh_sach_dong_HP
             // 

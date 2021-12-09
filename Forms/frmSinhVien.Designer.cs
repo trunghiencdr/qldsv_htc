@@ -308,6 +308,7 @@
             this.barBtnXoa.Id = 1;
             this.barBtnXoa.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnXoa.ImageOptions.SvgImage")));
             this.barBtnXoa.Name = "barBtnXoa";
+            this.barBtnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnXoa_ItemClick);
             // 
             // barBtnSua
             // 
@@ -414,6 +415,7 @@
             // 
             // cmbKhoa
             // 
+            this.cmbKhoa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbKhoa.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmbKhoa.FormattingEnabled = true;
             this.cmbKhoa.Location = new System.Drawing.Point(720, 7);
@@ -475,6 +477,7 @@
             this.colMAKHOA});
             this.gvLop.GridControl = this.gcLop;
             this.gvLop.Name = "gvLop";
+            this.gvLop.OptionsBehavior.ReadOnly = true;
             this.gvLop.ViewCaption = "DANH SÁCH LỚP";
             // 
             // colMALOP
@@ -555,6 +558,7 @@
             this.colPASSWORD});
             this.gvSinhVien.GridControl = this.gcSinhVien;
             this.gvSinhVien.Name = "gvSinhVien";
+            this.gvSinhVien.OptionsBehavior.ReadOnly = true;
             // 
             // colMASV
             // 

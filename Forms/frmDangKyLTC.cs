@@ -382,5 +382,10 @@ namespace QLDSV.Forms
             this.btnHuy.Enabled = false;
             this.btnLuu.Enabled = false;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -40,6 +40,7 @@ namespace QLDSV
                 this.barButton_BDMH.Enabled = false;
                 this.barButton_PD.Enabled = false;
                 this.barButton_BDTK.Enabled = false;
+                this.barButtonItem5.Enabled = false;
             }
             else if(Program.MGroup == Program.NhomQuyen[2])//sv
             {
@@ -58,6 +59,7 @@ namespace QLDSV
                 this.barButton_PD.Enabled = false;
                 this.barButton_BDTK.Enabled = false;*/
                 this.ribbonPageBaoCao.Visible = false;
+                this.barButton_Register.Enabled = false;
 
             }else //gv, khoa
             {
@@ -232,6 +234,7 @@ namespace QLDSV
 
         private void barButtonItem5_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            //if(Program.NhomQuyen[3] == Program.MGroup)// pkt
             ShowMdiChildren(typeof(Report.rptDSLTC));
         }
     }

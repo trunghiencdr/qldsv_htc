@@ -37,6 +37,7 @@
             this.lblAlert = new System.Windows.Forms.Label();
             this.lblError_RePassword = new System.Windows.Forms.Label();
             this.lblError_Password = new System.Windows.Forms.Label();
+            this.lblErorr_LoginName = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.ckboxShow = new System.Windows.Forms.CheckBox();
             this.radioButtonPKT = new System.Windows.Forms.RadioButton();
@@ -46,8 +47,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.lookUpEditMaGV = new DevExpress.XtraEditors.LookUpEdit();
-            this.bdsGIANGVIEN = new System.Windows.Forms.BindingSource(this.components);
-            this.dS = new QLDSV.DS();
             this.txtRePassword = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.txtPassword = new System.Windows.Forms.TextBox();
@@ -56,9 +55,10 @@
             this.txtLoginName = new System.Windows.Forms.TextBox();
             this.btnCreateLogin = new DevExpress.XtraEditors.SimpleButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.GIANGVIENTableAdapter = new QLDSV.DSTableAdapters.GIANGVIENTableAdapter();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.lblErorr_LoginName = new System.Windows.Forms.Label();
+            this.bdsGIANGVIEN = new System.Windows.Forms.BindingSource(this.components);
+            this.dS = new QLDSV.DS();
+            this.GIANGVIENTableAdapter = new QLDSV.DSTableAdapters.GIANGVIENTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,7 +75,7 @@
             this.panelControl1.Controls.Add(this.panel1);
             this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelControl1.Location = new System.Drawing.Point(0, 0);
-            this.panelControl1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panelControl1.Margin = new System.Windows.Forms.Padding(5);
             this.panelControl1.Name = "panelControl1";
             this.panelControl1.Size = new System.Drawing.Size(1534, 728);
             this.panelControl1.TabIndex = 0;
@@ -109,7 +109,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(2, 2);
-            this.panel1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1530, 724);
             this.panel1.TabIndex = 4;
@@ -183,6 +183,17 @@
             this.lblError_Password.TabIndex = 19;
             this.lblError_Password.Visible = false;
             // 
+            // lblErorr_LoginName
+            // 
+            this.lblErorr_LoginName.Image = global::QLDSV.Properties.Resources.error_24px;
+            this.lblErorr_LoginName.Location = new System.Drawing.Point(815, 164);
+            this.lblErorr_LoginName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.lblErorr_LoginName.Name = "lblErorr_LoginName";
+            this.lblErorr_LoginName.Size = new System.Drawing.Size(50, 35);
+            this.lblErorr_LoginName.TabIndex = 18;
+            this.toolTip1.SetToolTip(this.lblErorr_LoginName, "Tên đăng nhập bị đã có sẵn");
+            this.lblErorr_LoginName.Visible = false;
+            // 
             // label7
             // 
             this.label7.BackColor = System.Drawing.Color.Navy;
@@ -201,7 +212,7 @@
             this.ckboxShow.AutoSize = true;
             this.ckboxShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ckboxShow.Location = new System.Drawing.Point(887, 253);
-            this.ckboxShow.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.ckboxShow.Margin = new System.Windows.Forms.Padding(5);
             this.ckboxShow.Name = "ckboxShow";
             this.ckboxShow.Size = new System.Drawing.Size(68, 22);
             this.ckboxShow.TabIndex = 16;
@@ -213,7 +224,7 @@
             // 
             this.radioButtonPKT.AutoSize = true;
             this.radioButtonPKT.Location = new System.Drawing.Point(726, 372);
-            this.radioButtonPKT.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.radioButtonPKT.Margin = new System.Windows.Forms.Padding(5);
             this.radioButtonPKT.Name = "radioButtonPKT";
             this.radioButtonPKT.Size = new System.Drawing.Size(56, 21);
             this.radioButtonPKT.TabIndex = 15;
@@ -225,7 +236,7 @@
             // 
             this.radioButtonKhoa.AutoSize = true;
             this.radioButtonKhoa.Location = new System.Drawing.Point(568, 372);
-            this.radioButtonKhoa.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.radioButtonKhoa.Margin = new System.Windows.Forms.Padding(5);
             this.radioButtonKhoa.Name = "radioButtonKhoa";
             this.radioButtonKhoa.Size = new System.Drawing.Size(68, 21);
             this.radioButtonKhoa.TabIndex = 14;
@@ -237,7 +248,7 @@
             // 
             this.radioButtonPGV.AutoSize = true;
             this.radioButtonPGV.Location = new System.Drawing.Point(433, 372);
-            this.radioButtonPGV.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.radioButtonPGV.Margin = new System.Windows.Forms.Padding(5);
             this.radioButtonPGV.Name = "radioButtonPGV";
             this.radioButtonPGV.Size = new System.Drawing.Size(58, 21);
             this.radioButtonPGV.TabIndex = 13;
@@ -248,7 +259,7 @@
             // radioGroupRoles
             // 
             this.radioGroupRoles.Location = new System.Drawing.Point(391, 357);
-            this.radioGroupRoles.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.radioGroupRoles.Margin = new System.Windows.Forms.Padding(5);
             this.radioGroupRoles.Name = "radioGroupRoles";
             this.radioGroupRoles.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.radioGroupRoles.Size = new System.Drawing.Size(414, 62);
@@ -279,7 +290,7 @@
             // lookUpEditMaGV
             // 
             this.lookUpEditMaGV.Location = new System.Drawing.Point(393, 321);
-            this.lookUpEditMaGV.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.lookUpEditMaGV.Margin = new System.Windows.Forms.Padding(5);
             this.lookUpEditMaGV.Name = "lookUpEditMaGV";
             this.lookUpEditMaGV.Properties.Appearance.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lookUpEditMaGV.Properties.Appearance.Options.UseFont = true;
@@ -294,22 +305,12 @@
             this.lookUpEditMaGV.Size = new System.Drawing.Size(412, 26);
             this.lookUpEditMaGV.TabIndex = 9;
             // 
-            // bdsGIANGVIEN
-            // 
-            this.bdsGIANGVIEN.DataMember = "GIANGVIEN";
-            this.bdsGIANGVIEN.DataSource = this.dS;
-            // 
-            // dS
-            // 
-            this.dS.DataSetName = "DS";
-            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // txtRePassword
             // 
             this.txtRePassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtRePassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRePassword.Location = new System.Drawing.Point(393, 246);
-            this.txtRePassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtRePassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtRePassword.Name = "txtRePassword";
             this.txtRePassword.PasswordChar = '*';
             this.txtRePassword.Size = new System.Drawing.Size(413, 27);
@@ -331,7 +332,7 @@
             this.txtPassword.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPassword.Location = new System.Drawing.Point(392, 209);
-            this.txtPassword.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(5);
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(413, 27);
@@ -355,7 +356,7 @@
             this.btnCancel.Appearance.Options.UseBackColor = true;
             this.btnCancel.Appearance.Options.UseFont = true;
             this.btnCancel.Location = new System.Drawing.Point(623, 438);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(5);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(144, 45);
             this.btnCancel.TabIndex = 4;
@@ -367,7 +368,7 @@
             this.txtLoginName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtLoginName.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtLoginName.Location = new System.Drawing.Point(392, 172);
-            this.txtLoginName.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.txtLoginName.Margin = new System.Windows.Forms.Padding(5);
             this.txtLoginName.Name = "txtLoginName";
             this.txtLoginName.Size = new System.Drawing.Size(413, 27);
             this.txtLoginName.TabIndex = 2;
@@ -379,7 +380,7 @@
             this.btnCreateLogin.Appearance.Options.UseBackColor = true;
             this.btnCreateLogin.Appearance.Options.UseFont = true;
             this.btnCreateLogin.Location = new System.Drawing.Point(361, 438);
-            this.btnCreateLogin.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.btnCreateLogin.Margin = new System.Windows.Forms.Padding(5);
             this.btnCreateLogin.Name = "btnCreateLogin";
             this.btnCreateLogin.Size = new System.Drawing.Size(235, 45);
             this.btnCreateLogin.TabIndex = 0;
@@ -398,20 +399,19 @@
             this.label1.Text = "Tên đăng nhập:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
+            // bdsGIANGVIEN
+            // 
+            this.bdsGIANGVIEN.DataMember = "GIANGVIEN";
+            this.bdsGIANGVIEN.DataSource = this.dS;
+            // 
+            // dS
+            // 
+            this.dS.DataSetName = "DS";
+            this.dS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
             // GIANGVIENTableAdapter
             // 
             this.GIANGVIENTableAdapter.ClearBeforeFill = true;
-            // 
-            // lblErorr_LoginName
-            // 
-            this.lblErorr_LoginName.Image = global::QLDSV.Properties.Resources.error_24px;
-            this.lblErorr_LoginName.Location = new System.Drawing.Point(815, 164);
-            this.lblErorr_LoginName.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.lblErorr_LoginName.Name = "lblErorr_LoginName";
-            this.lblErorr_LoginName.Size = new System.Drawing.Size(50, 35);
-            this.lblErorr_LoginName.TabIndex = 18;
-            this.toolTip1.SetToolTip(this.lblErorr_LoginName, "Tên đăng nhập bị đã có sẵn");
-            this.lblErorr_LoginName.Visible = false;
             // 
             // frmDangKy
             // 

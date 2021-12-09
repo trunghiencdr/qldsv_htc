@@ -27,6 +27,8 @@ namespace QLDSV.Forms
         {
             // TODO: This line of code loads data into the 'dS.GIANGVIEN' table. You can move, or remove it, as needed.
             this.GIANGVIENTableAdapter.Connection.ConnectionString = Program.URL_Connect;
+            
+            
             this.GIANGVIENTableAdapter.Fill(this.dS.GIANGVIEN);
             this.checkRolesForRadioButton();
         }

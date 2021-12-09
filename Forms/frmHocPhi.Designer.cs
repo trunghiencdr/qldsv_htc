@@ -214,6 +214,7 @@
             this.barBtnUndo.Id = 3;
             this.barBtnUndo.ImageOptions.SvgImage = ((DevExpress.Utils.Svg.SvgImage)(resources.GetObject("barBtnUndo.ImageOptions.SvgImage")));
             this.barBtnUndo.Name = "barBtnUndo";
+            this.barBtnUndo.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barBtnUndo_ItemClick);
             // 
             // barBtnGhi
             // 
@@ -440,7 +441,7 @@
             0,
             0,
             0});
-            this.spinEditTienDong.Location = new System.Drawing.Point(364, 54);
+            this.spinEditTienDong.Location = new System.Drawing.Point(363, 40);
             this.spinEditTienDong.MenuManager = this.barManagerSinhVien;
             this.spinEditTienDong.Name = "spinEditTienDong";
             this.spinEditTienDong.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
@@ -450,9 +451,9 @@
             // 
             // btnNopHP
             // 
-            this.btnNopHP.Location = new System.Drawing.Point(35, 112);
+            this.btnNopHP.Location = new System.Drawing.Point(240, 86);
             this.btnNopHP.Name = "btnNopHP";
-            this.btnNopHP.Size = new System.Drawing.Size(107, 30);
+            this.btnNopHP.Size = new System.Drawing.Size(122, 36);
             this.btnNopHP.TabIndex = 4;
             this.btnNopHP.Text = "Nộp học phí";
             this.btnNopHP.Click += new System.EventHandler(this.btnNopHP_Click);
@@ -461,7 +462,7 @@
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl5.Appearance.Options.UseFont = true;
-            this.labelControl5.Location = new System.Drawing.Point(296, 56);
+            this.labelControl5.Location = new System.Drawing.Point(295, 42);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(49, 18);
             this.labelControl5.TabIndex = 3;
@@ -471,7 +472,7 @@
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelControl4.Appearance.Options.UseFont = true;
-            this.labelControl4.Location = new System.Drawing.Point(38, 56);
+            this.labelControl4.Location = new System.Drawing.Point(37, 42);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(77, 18);
             this.labelControl4.TabIndex = 2;
@@ -480,7 +481,7 @@
             // dateEditNgayDongHP
             // 
             this.dateEditNgayDongHP.EditValue = null;
-            this.dateEditNgayDongHP.Location = new System.Drawing.Point(128, 55);
+            this.dateEditNgayDongHP.Location = new System.Drawing.Point(127, 41);
             this.dateEditNgayDongHP.Name = "dateEditNgayDongHP";
             this.dateEditNgayDongHP.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -516,6 +517,7 @@
             this.gvChiTietHp.DetailHeight = 437;
             this.gvChiTietHp.GridControl = this.gcChiTietHp;
             this.gvChiTietHp.Name = "gvChiTietHp";
+            this.gvChiTietHp.OptionsBehavior.ReadOnly = true;
             this.gvChiTietHp.OptionsView.ShowGroupPanel = false;
             // 
             // colNGAYDONG
@@ -644,6 +646,8 @@
             this.colSOTIENCANDONG});
             this.gvHocPhi.GridControl = this.gcHocPhi;
             this.gvHocPhi.Name = "gvHocPhi";
+            this.gvHocPhi.OptionsBehavior.ReadOnly = true;
+            this.gvHocPhi.FocusedRowChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventHandler(this.gvHocPhi_FocusedRowChanged);
             // 
             // colNIENKHOA
             // 

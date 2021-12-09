@@ -126,7 +126,6 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(257, 31);
             this.txtPass.TabIndex = 2;
-            this.txtPass.Text = "123456";
             this.txtPass.UseSystemPasswordChar = true;
             // 
             // txtLogin

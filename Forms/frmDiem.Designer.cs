@@ -297,6 +297,7 @@ namespace QLDSV.Forms
             // 
             this.groupControlChonThongTin.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControlChonThongTin.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.groupControlChonThongTin.Controls.Add(this.button1);
             this.groupControlChonThongTin.Controls.Add(this.label6);
             this.groupControlChonThongTin.Controls.Add(this.cmbGiangVien);
             this.groupControlChonThongTin.Controls.Add(this.label5);
@@ -397,7 +398,6 @@ namespace QLDSV.Forms
             // 
             // groupControl2
             // 
-            this.groupControl2.Controls.Add(this.button1);
             this.groupControl2.Controls.Add(this.btnHuy);
             this.groupControl2.Controls.Add(this.btnLuu);
             this.groupControl2.Controls.Add(this.btnBatDau);
@@ -411,7 +411,7 @@ namespace QLDSV.Forms
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(459, 51);
+            this.button1.Location = new System.Drawing.Point(5, 31);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 3;

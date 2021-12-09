@@ -66,6 +66,7 @@ namespace QLDSV.Forms
             this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.groupControlDKMH)).BeginInit();
             this.groupControlDKMH.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.groupControl2)).BeginInit();
@@ -85,6 +86,7 @@ namespace QLDSV.Forms
             // 
             this.groupControlDKMH.AppearanceCaption.Options.UseTextOptions = true;
             this.groupControlDKMH.AppearanceCaption.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.groupControlDKMH.Controls.Add(this.button1);
             this.groupControlDKMH.Controls.Add(this.txtMaSV);
             this.groupControlDKMH.Controls.Add(this.txtMaLop);
             this.groupControlDKMH.Controls.Add(this.txtHoTen);
@@ -276,9 +278,7 @@ namespace QLDSV.Forms
             this.gridColumn1.FieldName = "MALTC";
             this.gridColumn1.MinWidth = 25;
             this.gridColumn1.Name = "gridColumn1";
-            this.gridColumn1.Visible = true;
-            this.gridColumn1.VisibleIndex = 0;
-            this.gridColumn1.Width = 94;
+            this.gridColumn1.Width = 54;
             // 
             // gridColumn2
             // 
@@ -286,9 +286,11 @@ namespace QLDSV.Forms
             this.gridColumn2.FieldName = "MAMH";
             this.gridColumn2.MinWidth = 25;
             this.gridColumn2.Name = "gridColumn2";
+            this.gridColumn2.OptionsColumn.AllowEdit = false;
+            this.gridColumn2.OptionsColumn.ReadOnly = true;
             this.gridColumn2.Visible = true;
-            this.gridColumn2.VisibleIndex = 1;
-            this.gridColumn2.Width = 94;
+            this.gridColumn2.VisibleIndex = 0;
+            this.gridColumn2.Width = 76;
             // 
             // gridColumn3
             // 
@@ -296,9 +298,11 @@ namespace QLDSV.Forms
             this.gridColumn3.FieldName = "TENMH";
             this.gridColumn3.MinWidth = 25;
             this.gridColumn3.Name = "gridColumn3";
+            this.gridColumn3.OptionsColumn.AllowEdit = false;
+            this.gridColumn3.OptionsColumn.ReadOnly = true;
             this.gridColumn3.Visible = true;
-            this.gridColumn3.VisibleIndex = 2;
-            this.gridColumn3.Width = 94;
+            this.gridColumn3.VisibleIndex = 1;
+            this.gridColumn3.Width = 143;
             // 
             // gridColumn7
             // 
@@ -306,9 +310,7 @@ namespace QLDSV.Forms
             this.gridColumn7.FieldName = "MAGV";
             this.gridColumn7.MinWidth = 25;
             this.gridColumn7.Name = "gridColumn7";
-            this.gridColumn7.Visible = true;
-            this.gridColumn7.VisibleIndex = 3;
-            this.gridColumn7.Width = 94;
+            this.gridColumn7.Width = 102;
             // 
             // gridColumn4
             // 
@@ -316,9 +318,11 @@ namespace QLDSV.Forms
             this.gridColumn4.FieldName = "HOTENGV";
             this.gridColumn4.MinWidth = 25;
             this.gridColumn4.Name = "gridColumn4";
+            this.gridColumn4.OptionsColumn.AllowEdit = false;
+            this.gridColumn4.OptionsColumn.ReadOnly = true;
             this.gridColumn4.Visible = true;
-            this.gridColumn4.VisibleIndex = 4;
-            this.gridColumn4.Width = 94;
+            this.gridColumn4.VisibleIndex = 2;
+            this.gridColumn4.Width = 165;
             // 
             // gridColumn5
             // 
@@ -326,9 +330,11 @@ namespace QLDSV.Forms
             this.gridColumn5.FieldName = "NHOM";
             this.gridColumn5.MinWidth = 25;
             this.gridColumn5.Name = "gridColumn5";
+            this.gridColumn5.OptionsColumn.AllowEdit = false;
+            this.gridColumn5.OptionsColumn.ReadOnly = true;
             this.gridColumn5.Visible = true;
-            this.gridColumn5.VisibleIndex = 5;
-            this.gridColumn5.Width = 94;
+            this.gridColumn5.VisibleIndex = 3;
+            this.gridColumn5.Width = 105;
             // 
             // gridColumn6
             // 
@@ -336,9 +342,11 @@ namespace QLDSV.Forms
             this.gridColumn6.FieldName = "SVDK";
             this.gridColumn6.MinWidth = 25;
             this.gridColumn6.Name = "gridColumn6";
+            this.gridColumn6.OptionsColumn.AllowEdit = false;
+            this.gridColumn6.OptionsColumn.ReadOnly = true;
             this.gridColumn6.Visible = true;
-            this.gridColumn6.VisibleIndex = 6;
-            this.gridColumn6.Width = 94;
+            this.gridColumn6.VisibleIndex = 4;
+            this.gridColumn6.Width = 105;
             // 
             // colDangKy
             // 
@@ -347,8 +355,8 @@ namespace QLDSV.Forms
             this.colDangKy.MinWidth = 25;
             this.colDangKy.Name = "colDangKy";
             this.colDangKy.Visible = true;
-            this.colDangKy.VisibleIndex = 7;
-            this.colDangKy.Width = 94;
+            this.colDangKy.VisibleIndex = 5;
+            this.colDangKy.Width = 120;
             // 
             // groupControl4
             // 
@@ -393,8 +401,6 @@ namespace QLDSV.Forms
             this.gridColumn8.FieldName = "MALTC";
             this.gridColumn8.MinWidth = 25;
             this.gridColumn8.Name = "gridColumn8";
-            this.gridColumn8.Visible = true;
-            this.gridColumn8.VisibleIndex = 0;
             this.gridColumn8.Width = 94;
             // 
             // gridColumn9
@@ -404,7 +410,7 @@ namespace QLDSV.Forms
             this.gridColumn9.MinWidth = 25;
             this.gridColumn9.Name = "gridColumn9";
             this.gridColumn9.Visible = true;
-            this.gridColumn9.VisibleIndex = 1;
+            this.gridColumn9.VisibleIndex = 0;
             this.gridColumn9.Width = 94;
             // 
             // gridColumn10
@@ -414,7 +420,7 @@ namespace QLDSV.Forms
             this.gridColumn10.MinWidth = 25;
             this.gridColumn10.Name = "gridColumn10";
             this.gridColumn10.Visible = true;
-            this.gridColumn10.VisibleIndex = 2;
+            this.gridColumn10.VisibleIndex = 1;
             this.gridColumn10.Width = 94;
             // 
             // gridColumn13
@@ -423,8 +429,6 @@ namespace QLDSV.Forms
             this.gridColumn13.FieldName = "MAGV";
             this.gridColumn13.MinWidth = 25;
             this.gridColumn13.Name = "gridColumn13";
-            this.gridColumn13.Visible = true;
-            this.gridColumn13.VisibleIndex = 3;
             this.gridColumn13.Width = 94;
             // 
             // gridColumn11
@@ -434,7 +438,7 @@ namespace QLDSV.Forms
             this.gridColumn11.MinWidth = 25;
             this.gridColumn11.Name = "gridColumn11";
             this.gridColumn11.Visible = true;
-            this.gridColumn11.VisibleIndex = 4;
+            this.gridColumn11.VisibleIndex = 2;
             this.gridColumn11.Width = 94;
             // 
             // gridColumn12
@@ -444,12 +448,22 @@ namespace QLDSV.Forms
             this.gridColumn12.MinWidth = 25;
             this.gridColumn12.Name = "gridColumn12";
             this.gridColumn12.Visible = true;
-            this.gridColumn12.VisibleIndex = 5;
+            this.gridColumn12.VisibleIndex = 3;
             this.gridColumn12.Width = 94;
             // 
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(0, 31);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(86, 25);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "ĐÓNG";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmDangKyLTC
             // 
@@ -519,5 +533,6 @@ namespace QLDSV.Forms
         private DevExpress.XtraGrid.Columns.GridColumn colDangKy;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn7;
         private DevExpress.XtraGrid.Columns.GridColumn gridColumn13;
+        private System.Windows.Forms.Button button1;
     }
 }

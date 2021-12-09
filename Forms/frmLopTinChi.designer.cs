@@ -323,7 +323,7 @@ namespace QLDSV.Forms
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
             this.barDockControlTop.Manager = this.barManagerSinhVien;
-            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlTop.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlTop.Size = new System.Drawing.Size(1384, 30);
             // 
             // barDockControlBottom
@@ -332,7 +332,7 @@ namespace QLDSV.Forms
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 775);
             this.barDockControlBottom.Manager = this.barManagerSinhVien;
-            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlBottom.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlBottom.Size = new System.Drawing.Size(1384, 0);
             // 
             // barDockControlLeft
@@ -341,7 +341,7 @@ namespace QLDSV.Forms
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.barDockControlLeft.Location = new System.Drawing.Point(0, 30);
             this.barDockControlLeft.Manager = this.barManagerSinhVien;
-            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlLeft.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlLeft.Size = new System.Drawing.Size(0, 745);
             // 
             // barDockControlRight
@@ -350,7 +350,7 @@ namespace QLDSV.Forms
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
             this.barDockControlRight.Location = new System.Drawing.Point(1384, 30);
             this.barDockControlRight.Manager = this.barManagerSinhVien;
-            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.barDockControlRight.Margin = new System.Windows.Forms.Padding(4);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 745);
             // 
             // panel1
@@ -575,7 +575,6 @@ namespace QLDSV.Forms
             // hUYLOPCheckEdit
             // 
             this.hUYLOPCheckEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.LOPTINCHIBindingSource, "HUYLOP", true));
-            this.hUYLOPCheckEdit.EditValue = true;
             this.hUYLOPCheckEdit.Location = new System.Drawing.Point(411, 165);
             this.hUYLOPCheckEdit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.hUYLOPCheckEdit.MenuManager = this.barManagerSinhVien;

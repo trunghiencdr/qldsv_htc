@@ -4,7 +4,7 @@ using System.Collections;
 using System.ComponentModel;
 using DevExpress.XtraReports.UI;
 
-namespace QLDSV.Report
+namespace QLDSV
 {
     public partial class Xrpt_SP_Danh_sach_dong_HP : DevExpress.XtraReports.UI.XtraReport
     {
@@ -124,6 +124,7 @@ namespace QLDSV.Report
         }
         private void lblTienChu_BeforePrint(object sender, System.Drawing.Printing.PrintEventArgs e)
         {
+            if (this.lblTienSo.Summary.GetResult() == null) return;
             int money = int.Parse(this.lblTienSo.Summary.GetResult().ToString());
 
             String moneyString = NumberToText(money);

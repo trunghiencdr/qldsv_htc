@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,6 +18,7 @@ namespace QLDSV.Forms
         private String reHocPhi = "";
         private Boolean _flagUpdateHp = false;
         private Boolean _state = true; //true - them,  false - update 
+        private Stack UndoList = new Stack();
         public frmHocPhi()
         {
             InitializeComponent();
@@ -26,7 +28,7 @@ namespace QLDSV.Forms
             barBtnThem.Enabled = false;
             barBtnGhi.Enabled = false;
             barBtnXoa.Enabled = false;
-            barBtnUndo.Enabled = false;
+            
             barBtnSua.Enabled = false;
             barBtnGhi.Enabled = false;
             barBtnLamMoi.Enabled = true;
@@ -49,7 +51,7 @@ namespace QLDSV.Forms
             }
             barBtnGhi.Enabled = false;
             barBtnXoa.Enabled = false;
-            barBtnUndo.Enabled = false;
+           
             
             barBtnGhi.Enabled = false;
             barBtnLamMoi.Enabled = true;
@@ -66,7 +68,8 @@ namespace QLDSV.Forms
                 int countRow = gvHocPhi.RowCount;
                 Console.WriteLine(countRow);
                 if (countRow == 0) return;
-                hocky = Int32.Parse(gvHocPhi.GetRowCellValue(gvHocPhi.GetFocusedDataSourceRowIndex(), "HOCKY").ToString());
+                //hocky = Int32.Parse(gvHocPhi.GetRowCellValue(gvHocPhi.GetFocusedDataSourceRowIndex(), "HOCKY").ToString());
+                hocky = Int32.Parse(((DataRowView)bdsHOCPHI[bdsHOCPHI.Position])["HOCKY"].ToString());
             }
             catch (Exception ex)
             {
@@ -77,6 +80,9 @@ namespace QLDSV.Forms
             String nienkhoa = gvHocPhi.GetRowCellValue(gvHocPhi.GetFocusedDataSourceRowIndex(), "NIENKHOA").ToString();
             var selectedSV = cmbSinhVien.GetSelectedDataRow() as DataRowView;
             String masv = selectedSV.Row["MASV"].ToString();
+
+            nienkhoa = ((DataRowView)bdsHOCPHI[bdsHOCPHI.Position])["NIENKHOA"].ToString();
+            
             //MessageBox.Show(hocky +"; " + nienkhoa +" ; "+ masv);
             this.CHITETHPTableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.CHITETHPTableAdapter.Fill(this.dS.Sp_Chi_Tiet_Dong_HP, masv, hocky, nienkhoa);
@@ -143,6 +149,7 @@ namespace QLDSV.Forms
             this.HOCPHITableAdapter.Fill(this.dS.SP_Thong_tin_dong_HP_sinh_vien1, "");
             this.CHITETHPTableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.CHITETHPTableAdapter.Fill(this.dS.Sp_Chi_Tiet_Dong_HP, "", 1, ""); 
+   
             txtHoten.Text = txtLop.Text = "";
             gcHocPhi.Enabled = false;
             grcChiTietHP.Enabled = false;
@@ -214,7 +221,12 @@ namespace QLDSV.Forms
             }
         }
 
-
+        private void reloadData()
+        {
+            this.HOCPHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
+            this.HOCPHITableAdapter.Fill(this.dS.SP_Thong_tin_dong_HP_sinh_vien1, this.masv);
+            bdsHOCPHI.Position = _position;
+        }
         private void cmbSinhVien_EditValueChanged(object sender, EventArgs e)
         {
             var selectedSV = cmbSinhVien.GetSelectedDataRow() as DataRowView;
@@ -293,22 +305,29 @@ namespace QLDSV.Forms
                 else //insert
                 {
                     String strLenh = "insert into HOCPHI (MASV,NIENKHOA,HOCKY,HOCPHI) values ('" + this.masv + "','" + nienkhoa + "'," + hocky + "," + hocphi + ") ";
+                    
                     Console.WriteLine(strLenh);
                     int temp = Program.ExecSqlNonQuery(strLenh);
                     if (temp == 0)
                     {
                         //thanh cong
                         _flagUpdateHp = false;
+                        bdsHOCPHI.Position = _position;
+                        this.loadChiTietHocPhi();
+                        MessageBox.Show("Thêm học phí thành công");
+                        UndoList.Push("DELETE#delete from HOCPHI where MASV = '" + this.masv + "' and NIENKHOA = '" + nienkhoa + "' and HOCKY = " + hocky);
                     }
                     else
                     {
                         //that bai
-
+                        MessageBox.Show("Lỗi thêm học phí");
                         return;
 
                     }
 
                 }
+                barBtnLamMoi.Enabled = true;
+                barBtnSua.Enabled = true;
             }
 
             else
@@ -334,6 +353,7 @@ namespace QLDSV.Forms
                 if (hocphi != "" )
                 {
                     String strLenh = "update HOCPHI set HOCPHI = " + hocphi + " where MASV = '" + masv + "' and NIENKHOA = '" + nienkhoa + "' and HOCKY = " + hocky;
+                    
                     Console.WriteLine(strLenh);
                     int temp = Program.ExecSqlNonQuery(strLenh);
                     if (temp == 0)
@@ -341,6 +361,7 @@ namespace QLDSV.Forms
                         //thanh cong
                         _flagUpdateHp = false;
                         MessageBox.Show("Cập nhật thành công");
+                        UndoList.Push("UPDATE#update HOCPHI set HOCPHI = " + this.reHocPhi + " where MASV = '" + masv + "' and NIENKHOA = '" + nienkhoa + "' and HOCKY = " + hocky +"#"+ this.reHocPhi);
                     }
                     else
                     {
@@ -365,16 +386,19 @@ namespace QLDSV.Forms
             this.bdsHOCPHI.ResetCurrentItem();
             this.HOCPHITableAdapter.Connection.ConnectionString = Program.URL_Connect;
             this.HOCPHITableAdapter.Fill(this.dS.SP_Thong_tin_dong_HP_sinh_vien1, this.masv);
+            bdsHOCPHI.Position = _position;
         }
 
         private void barBtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             this.bdsHOCPHI.AddNew();
             _state = true;
+            _position = bdsHOCPHI.Position;
             panelThongTinHP.Enabled = true;
             barBtnThem.Enabled = false;
-            barBtnSua.Enabled = true;
+            barBtnSua.Enabled = false;
             barBtnXoa.Enabled = false;
+            barBtnLamMoi.Enabled = false;
 
             barBtnGhi.Enabled = true;
             barBtnHuy.Enabled = true;
@@ -391,12 +415,14 @@ namespace QLDSV.Forms
             if (_state)
             {
                 this.bdsHOCPHI.CancelEdit();
+                this.bdsHOCPHI.ResetCurrentItem();
             }
             else
             {
                 spinEditHocPhi.Text = reHocPhi;
             }
             this.bdsHOCPHI.Position = _position;
+            barBtnLamMoi.Enabled = true;
             grcThongTinSV.Enabled = true;
             sencondsState();
             panelThongTinHP.Enabled = false;
@@ -501,12 +527,21 @@ namespace QLDSV.Forms
         {
             
             _position = bdsHOCPHI.Position;
-            reHocPhi = ((DataRowView)bdsHOCPHI[_position])["HOCPHI"].ToString();
+            try
+            {
+                reHocPhi = ((DataRowView)bdsHOCPHI[_position])["HOCPHI"].ToString();
+            }
+            catch (Exception ex)
+            {
+
+            }
+            
             if (_position < 0) return;
             _state = false;
             barBtnThem.Enabled = false;
             barBtnXoa.Enabled = false;
             barBtnSua.Enabled = false;
+            barBtnLamMoi.Enabled = false;
             barBtnGhi.Enabled = true;
             barBtnHuy.Enabled = true;
             panelThongTinHP.Enabled = true;
@@ -523,10 +558,11 @@ namespace QLDSV.Forms
             String hocky = spinEditHocKy.Text;
             String hocphi = spinEditHocPhi.Value.ToString();
             String strLenh = "delete from HOCPHI where MASV = '" + masv + "' and NIENKHOA = '" + nienkhoa + "' and HOCKY = " + hocky;
+
             Console.WriteLine(strLenh);
             if (bdsCHITIETHP.Count > 0)
             {
-                MessageBox.Show("Học phí đã có được nộp không thể xóa");
+                MessageBox.Show("Học phí đã có thông tin chi tiết không thể xóa");
                 return;
             }
 
@@ -545,6 +581,9 @@ namespace QLDSV.Forms
                     //thanh cong
                     _flagUpdateHp = false;
                     MessageBox.Show("Xóa thành công");
+                    reloadData();
+                    bdsHOCPHI.Position = _position--;
+                    UndoList.Push("INSERT#insert into HOCPHI (MASV,NIENKHOA,HOCKY,HOCPHI) values ('" + this.masv + "','" + nienkhoa + "'," + hocky + "," + hocphi + ") ");
                 }
                 else
                 {
@@ -565,6 +604,75 @@ namespace QLDSV.Forms
         {
             loadData();
             loadChiTietHocPhi();
+        }
+
+        private void btnSuaCTHP_Click(object sender, EventArgs e)
+        {
+
+            String ngaydong = ((DataRowView)bdsCHITIETHP[bdsCHITIETHP.Position])["NGAYDONG"].ToString();
+            int sotiendong = Int32.Parse(((DataRowView)bdsCHITIETHP[bdsCHITIETHP.Position])["SOTIENDONG"].ToString());
+
+            dateEditNgayDongHP.Text = ngaydong;
+            spinEditHocPhi.EditValue = sotiendong;
+
+            gcChiTietHp.Enabled = false;
+            gcHocPhi.Enabled = false;
+        }
+
+        private void gvHocPhi_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+        {
+            loadChiTietHocPhi();
+        }
+
+        private void barBtnUndo_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            int Length = UndoList.Count;
+            if (Length == 0) return;
+
+            String inStack = (string)UndoList.Pop();
+            string[] subs = inStack.Split('#');
+            
+            if (subs[0] == "DELETE")
+            {
+                if (bdsCHITIETHP.Count > 0)
+                {
+                    MessageBox.Show("Học phí đã có thông tin chi tiết không thể phục hồi");
+                    return;
+                }
+                
+                
+            }
+            if (subs[0] == "UPDATE")
+            {
+                String soTienDaDong = ((DataRowView)bdsHOCPHI[_position])["SOTIENDADONG"].ToString();
+                try
+                {
+                    int hp = Int32.Parse(subs[2]);
+                    int tdd = Int32.Parse(soTienDaDong);
+                    if (hp < tdd)
+                    {
+                        MessageBox.Show("Học phí phục hồi nhỏ hơn số tiền đóng không thể thực hiện");
+                        return;
+                    }
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Lỗi chuyển đổi học phí");
+                    return;
+                }
+            }
+            if (subs[0] == "INSERT")
+            {
+
+            }
+            Console.WriteLine(inStack);
+            int temp = Program.ExecSqlNonQuery(subs[1]);
+            if(temp != 0)
+            {
+                MessageBox.Show("Xảy ra lỗi trong quá trình phục hồi");
+            }
+            reloadData();
         }
     }
 }

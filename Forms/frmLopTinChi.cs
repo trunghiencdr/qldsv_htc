@@ -126,6 +126,7 @@ namespace QLDSV.Forms
             // thao tác chuẩn bị thêm
             LOPTINCHIBindingSource.AddNew();
             this.txtMaKhoa.EditValue = Utils.GetMaKhoa();
+            hUYLOPCheckEdit.Checked = false;
         }
 
         private void barBtnGhi_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

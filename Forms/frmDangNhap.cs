@@ -28,7 +28,7 @@ namespace QLDSV
             //string chuoiketnoi = "Data Source=NHAN;Initial Catalog=" + Program.Database + ";Integrated Security=True";
           
             Program.Conn.ConnectionString = chuoiketnoi;
-            txtLogin.Text = "ptl";
+           /* txtLogin.Text = "ptl";*/
             DataTable dt = new DataTable();
             //gọi 1 view và trả về dưới dạng datatable
             //dt = Program.ExecSqlDataTable("SELECT * FROM Get_Subscribes1");

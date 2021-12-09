@@ -461,7 +461,7 @@ namespace QLDSV.Forms
 
                         try
                         {
-                            diemGK = double.Parse(((DataRowView)bdsTemp[i])["DIEM_GK"].ToString());
+                            diemGK = Math.Round(double.Parse(((DataRowView)bdsTemp[i])["DIEM_GK"].ToString()),1, MidpointRounding.AwayFromZero);
                             cmd.Parameters.Add(new SqlParameter("@DIEM_GK", diemGK));
 
                         }
@@ -473,7 +473,7 @@ namespace QLDSV.Forms
 
                         try
                         {
-                            diemCK = double.Parse(((DataRowView)bdsTemp[i])["DIEM_CK"].ToString());
+                            diemCK = Math.Round(double.Parse(((DataRowView)bdsTemp[i])["DIEM_CK"].ToString()),1,MidpointRounding.AwayFromZero);
                             cmd.Parameters.Add(new SqlParameter("@DIEM_CK", diemCK));
 
                         }
